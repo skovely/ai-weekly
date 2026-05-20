@@ -29,6 +29,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text-primary);
+  position: relative;
   font-family: var(--font-body);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -442,7 +443,7 @@ footer p {
 }
 footer a { color: var(--accent); text-decoration: none; }
 .history-panel {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: -340px;
   width: 320px;
@@ -500,7 +501,7 @@ footer a { color: var(--accent); text-decoration: none; }
 .history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
 .history-item.current { border-color: var(--accent); }
 .history-toggle {
-  position: fixed;
+  position: absolute;
   top: 12px;
   right: 12px;
   z-index: 150;
