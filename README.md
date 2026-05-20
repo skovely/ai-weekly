@@ -5,7 +5,6 @@
 ## 访问
 
 - **GitHub Pages**: https://skovely.github.io/ai-weekly/
-- **备份地址**: http://117.72.47.155/weekly-report.html
 
 ## 内容来源
 
