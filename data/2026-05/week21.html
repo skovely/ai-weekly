@@ -492,13 +492,14 @@ footer a { color: var(--accent); text-decoration: none; }
   font-size: 0.85rem;
 }
 .history-item:hover { border-color: var(--accent); background: var(--accent-dim); }
+.history-item .history-title { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
 .history-item .history-date {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--text-secondary);
   margin-bottom: 2px;
 }
-.history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
+.history-item .history-status { font-size: 0.72rem; color: var(--accent); margin-top: 2px; }
 .history-item.current { border-color: var(--accent); }
 .history-toggle {
   position: fixed;
@@ -545,26 +546,29 @@ footer a { color: var(--accent); text-decoration: none; }
   <h3>📚 历史周刊</h3>
   <div id="historyList">
     <a class="history-item current" href="week21.html" data-date="2026-05-12">
+      <div class="history-title">第 21 周</div>
       <div class="history-date">2026-05-12 ~ 2026-05-18</div>
-      <div class="history-status">W21（当前期）</div>
+      <div class="history-status">（当前期）</div>
     </a>
     <a class="history-item" href="week20.html" data-date="2026-05-04">
+      <div class="history-title">第 20 周</div>
       <div class="history-date">2026-05-04 ~ 2026-05-10</div>
-      <div class="history-status">W20</div>
+      <div class="history-status"></div>
     </a>
     <a class="history-item" href="week19.html" data-date="2026-04-28">
+      <div class="history-title">第 19 周</div>
       <div class="history-date">2026-04-28 ~ 2026-05-04</div>
-      <div class="history-status">W19</div>
+      <div class="history-status"></div>
     </a>
     <a class="history-item" href="week18.html" data-date="2026-04-21">
+      <div class="history-title">第 18 周</div>
       <div class="history-date">2026-04-21 ~ 2026-04-27</div>
-      <div class="history-status">W18</div>
+      <div class="history-status"></div>
     </a>
   </div>
 </div>
 
 <header>
-  <p style="font-size:0.85rem;color:var(--accent);letter-spacing:4px;text-transform:uppercase;margin-bottom:8px;font-weight:500;">人工智能业务部</p>
   <h1>AI 市场洞察周刊 · 第 21 周</h1>
   <p class="period">2026-05-12 ~ 2026-05-18 · 每周五 10 点 自动更新</p>
   <div class="source-badges">
