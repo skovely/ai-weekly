@@ -25,11 +25,10 @@
   --font-mono: 'IBM Plex Mono', monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; max-width: 100%; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   background: var(--bg);
   color: var(--text-primary);
-  overflow-x: hidden;
   position: relative;
   font-family: var(--font-body);
   line-height: 1.7;
@@ -81,14 +80,23 @@ header .source-badges {
   color: var(--text-muted);
 }
 nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(13,13,13,0.95);
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13,13,13,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0 40px;
-}
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  max-width: none;
+  width: 100%;
+  left: 0;
+  right: 0;}
 nav ul {
   list-style: none;
   display: flex;
