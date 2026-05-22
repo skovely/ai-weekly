@@ -3,398 +3,909 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 市场洞察周刊 · 第 21 周 · 2026-05-15 ~ 2026-05-21</title>
+<title>AI 市场洞察周刊 · 第 21 周 · 2026-05-16 ~ 2026-05-22</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d0d0d;--bg-card:#161616;--bg-section:#1a1a1a;--text-primary:#f0ede6;--text-secondary:#9c9994;--text-muted:#5a5855;--accent:#c8a96e;--accent-dim:rgba(200,169,110,0.15);--border:rgba(240,237,230,0.08);--signal-strong:#e05c5c;--signal-mid:#d4a843;--signal-weak:#5a5855;--font-display:'Playfair Display',Georgia,serif;--font-body:'IBM Plex Sans',sans-serif;--font-mono:'IBM Plex Mono',monospace}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text-primary);font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased}
-header{padding:80px 40px 40px;max-width:960px;margin:0 auto;text-align:center}
-header h1{font-family:var(--font-display);font-size:2.6rem;font-weight:700;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:8px}
-header .period{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
-.source-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.source-badge{display:inline-flex;align-items:center;padding:4px 12px;border-radius:4px;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
-.source-badge.active{background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent)}
-.source-badge.inactive{background:transparent;border:1px solid var(--border);color:var(--text-muted)}
-nav{position:sticky;top:0;z-index:100;background:rgba(13,13,13,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 40px}
-nav ul{list-style:none;display:flex;justify-content:center;gap:28px;max-width:960px;margin:0 auto;overflow-x:auto}
-nav li{white-space:nowrap}
-nav a{display:block;padding:16px 0;color:var(--text-muted);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.05em;transition:color 0.2s;border-bottom:2px solid transparent}
-nav a:hover,nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
-main{max-width:960px;margin:0 auto;padding:0 40px 60px}
-section{padding:48px 0;animation:fadeUp 0.6s ease both}
-section:nth-child(1){animation-delay:0s}
-section:nth-child(2){animation-delay:0.1s}
-section:nth-child(3){animation-delay:0.2s}
-section:nth-child(4){animation-delay:0.3s}
-section:nth-child(5){animation-delay:0.4s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.section-header{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-.section-header .num{font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);opacity:0.6}
-.section-header h2{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--text-primary)}
-.shift-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;margin-bottom:20px}
-.shift-card .domain{font-size:0.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
-.shift-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:var(--text-primary);margin-bottom:0}
-.shift-card .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:0.8rem}
-.shift-card .fb-insight{margin-top:14px;padding:10px 14px;background:rgba(100,200,255,0.07);border-left:3px solid #64c8ff;border-radius:0 6px 6px 0;font-size:0.82rem;color:var(--text-secondary)}
-.shift-card .fb-insight strong{color:var(--accent)}
-.matrix{display:grid;grid-template-columns:140px 1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:20px}
-.matrix-header{background:var(--bg-section);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;padding:14px 16px;text-align:center;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border)}
-.matrix-cell{padding:14px 16px;border-bottom:1px solid var(--border);font-size:0.85rem;line-height:1.5}
-.matrix-cell strong{color:var(--text-primary)}
-.tag{display:inline-block;font-size:0.7rem;padding:2px 6px;border-radius:3px;margin-right:6px;vertical-align:middle;font-weight:600}
-.tag-s{background:var(--signal-strong);color:#fff}
-.tag-m{background:var(--signal-mid);color:#000}
-.tag-w{background:var(--signal-weak);color:var(--text-secondary)}
-.opportunity-card{position:relative;padding:20px 20px 20px 28px;margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px}
-.opportunity-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:4px 0 0 4px}
-.opportunity-card .opp-type{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:4px}
-.opportunity-card h4{font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text-primary)}
-.opportunity-card p{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
-.catalyst-block{margin-bottom:28px}
-.catalyst-block h4{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-.catalyst-item{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:10px}
-.catalyst-item .cat-title{font-weight:600;font-size:0.9rem;margin-bottom:4px;color:var(--text-primary)}
-.catalyst-item .cat-desc{font-size:0.82rem;color:var(--text-secondary)}
-.noise-label{display:inline-block;font-size:0.65rem;padding:2px 8px;background:rgba(200,169,110,0.12);border:1px solid var(--border);border-radius:3px;color:var(--text-muted);letter-spacing:0.05em;text-transform:uppercase;margin-left:8px}
-.observe-item{background:var(--bg-card);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:18px 24px;margin-bottom:14px;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)}
-.observe-item .observe-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px}
-aside{margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
-aside summary{cursor:pointer;font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--text-muted);padding:8px 0;user-select:none}
-aside summary:hover{color:var(--accent)}
-.data-table{width:100%;border-collapse:collapse;font-size:0.78rem;margin-top:16px}
-.data-table th{text-align:left;padding:10px 12px;background:var(--bg-section);color:var(--text-muted);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:0.7rem;border-bottom:1px solid var(--border)}
-.data-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:0.78rem}
-.data-table tr:hover td{background:var(--accent-dim);color:var(--text-primary)}
-.data-table .col-title{color:var(--text-primary);font-weight:500}
-.history-archive{margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
-.history-archive h3{font-family:var(--font-display);font-size:1rem;color:var(--text-muted);margin-bottom:14px}
-.history-list{display:flex;gap:10px;flex-wrap:wrap}
-.history-item{display:inline-block;padding:6px 14px;border:1px solid var(--border);border-radius:4px;font-size:0.78rem;color:var(--text-muted);text-decoration:none;transition:all 0.2s}
-.history-item:hover{border-color:var(--accent);color:var(--accent)}
-.history-item.current{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
-footer{max-width:960px;margin:60px auto 0;padding:24px 40px 48px;border-top:1px solid var(--border);text-align:center;font-size:0.78rem;color:var(--text-muted)}
+:root {
+  --bg: #0d0d0d;
+  --bg-card: #161616;
+  --bg-section: #1a1a1a;
+  --text-primary: #f0ede6;
+  --text-secondary: #9c9994;
+  --text-muted: #5a5855;
+  --accent: #c8a96e;
+  --accent-dim: rgba(200,169,110,0.15);
+  --border: rgba(240,237,230,0.08);
+  --signal-strong: #e05c5c;
+  --signal-mid: #d4a843;
+  --signal-weak: #5a5855;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; max-width: 100%; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  position: relative;
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  padding: 80px 40px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+header h1 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+header .period {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+header .source-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.source-badge.active {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.source-badge.inactive {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(13,13,13,0.95);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  max-width: none;
+  width: 100%;
+  left: 0;
+  right: 0;}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+nav li { white-space: nowrap; }
+nav a {
+  display: block;
+  padding: 16px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+main { max-width: 960px; margin: 0 auto; padding: 0 40px 60px; }
+section {
+  padding: 48px 0;
+  animation: fadeUp 0.6s ease both;
+}
+section:nth-child(1) { animation-delay: 0s; }
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header .num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.shift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.shift-card .domain {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.shift-card .shift-direction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+.shift-card .shift-direction .arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.shift-card .shift-direction .from, .shift-card .shift-direction .to {
+  padding: 4px 10px;
+  background: var(--bg-section);
+  border-radius: 4px;
+}
+.shift-card .meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.8rem;
+}
+.shift-card .fb-insight {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(100, 200, 255, 0.07);
+  border-left: 3px solid #64c8ff;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.shift-card .fb-insight strong { color: var(--accent); }
+.matrix {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.matrix .cell {
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: 80px;
+}
+.matrix .cell:last-child { border-right: none; }
+.matrix .header-cell {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.matrix .row-label {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.matrix .cell.empty {
+  background: rgba(0,0,0,0.2);
+}
+.matrix .cell .signal-title {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.matrix .cell .signal-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.matrix .cell .fb-evidence {
+  font-size: 0.72rem;
+  color: #64c8ff;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+}
+.opportunity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 20px 20px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.opportunity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 60px;
+  transition: height 0.3s ease;
+}
+.opportunity-card:hover::before { height: 100%; }
+.opportunity-card.strong::before { background: var(--signal-strong); }
+.opportunity-card.mid::before { background: var(--signal-mid); }
+.opportunity-card.weak::before { background: var(--signal-weak); }
+.opportunity-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.opportunity-card .evidence, .opportunity-card .supply {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.opportunity-card .evidence strong, .opportunity-card .supply strong {
+  color: var(--text-primary);
+}
+.opportunity-card .cross-source {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+.opportunity-card .cross-source.ph {
+  background: rgba(220, 86, 37, 0.1);
+  border-left: 3px solid #dc5625;
+}
+.opportunity-card .cross-source.watcha {
+  background: rgba(100, 200, 255, 0.1);
+  border-left: 3px solid #64c8ff;
+}
+.opportunity-card .cross-source.fb {
+  background: rgba(120, 80, 200, 0.1);
+  border-left: 3px solid #7850c8;
+}
+.source-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.source-group .source-badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+}
+.source-group .source-badge.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.source-group .source-badge.inactive { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.signal-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.signal-tag.strong { color: var(--signal-strong); }
+.signal-tag.mid { color: var(--signal-mid); }
+.signal-tag.weak { color: var(--signal-weak); }
+.catalyst-item {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+}
+.catalyst-item .event-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.catalyst-item .detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.noise-box {
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--bg-section);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+.noise-box h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.noise-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.watch-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.watch-item .number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.5;
+  margin-right: 8px;
+}
+.watch-item h3 { display: inline; font-family: var(--font-display); font-size: 1rem; }
+.watch-item .trigger, .watch-item .implication {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+.watch-item .trigger strong, .watch-item .implication strong { color: var(--text-primary); }
+.watch-item .fb-hint {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: #64c8ff;
+}
+aside {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+aside details {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+aside details summary {
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  user-select: none;
+}
+aside details summary::-webkit-details-marker { color: var(--accent); }
+aside details .table-wrap {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+aside table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+aside thead { position: sticky; top: 0; z-index: 1; }
+aside th {
+  background: var(--bg-section);
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 500;
+}
+aside td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+aside tr:nth-child(even) td { background: var(--bg-section); }
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+footer p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+.history-panel {
+  position: absolute;
+  top: 0;
+  right: -340px;
+  width: 320px;
+  height: 100vh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  padding: 24px;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+}
+.history-panel.open { right: 0; }
+.history-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.history-panel .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.history-panel .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+.history-item {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: 0.2s;
+  font-size: 0.85rem;
+}
+.history-item:hover { border-color: var(--accent); background: var(--accent-dim); }
+.history-item .history-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
+.history-item.current { border-color: var(--accent); }
+.history-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 150;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.history-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.history-toggle .icon { font-size: 1rem; }
+@media (max-width: 700px) {
+  header { padding: 60px 20px 30px; }
+  header h1 { font-size: 1.8rem; }
+  main, aside, footer { padding-left: 20px; padding-right: 20px; }
+  nav { padding: 0 16px; }
+  nav ul { gap: 16px; }
+  nav a { font-size: 0.75rem; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .matrix .cell { padding: 10px; }
+  .history-panel { width: 280px; }
+}
 </style>
 </head>
 <body>
 
+<button class="history-toggle" onclick="toggleHistory()">
+  <span class="icon">☰</span> 历史周刊
+</button>
+
+<div class="history-panel" id="historyPanel">
+  <button class="close-btn" onclick="toggleHistory()">✕</button>
+  <h3>📚 历史周刊</h3>
+      <div id="historyList">
+    <a class="history-item current" href="week21.html" data-date="2026-05-22">
+      <div class="history-title">第 21 周</div>
+      <div class="history-date">2026-05-16 ~ 2026-05-22</div>
+    </a>
+  </div>
+  </div>
+
 <header>
-  <h1>AI 市场洞察周刊</h1>
-  <p class="period">2026-05-15 ~ 2026-05-21 · 第 21 周</p>
+  <h1>AI 市场洞察周刊 · 第 21 周</h1>
+  <p class="period">2026-05-16 ~ 2026-05-22（每周五 10 点更新）</p>
   <div class="source-badges">
-    <span class="source-badge active">AIHOT · 159 signals</span>
+    <span class="source-badge active">AIHOT</span>
     <span class="source-badge active">ProductHunt</span>
     <span class="source-badge active">Watcha</span>
     <span class="source-badge active">Follow Builders</span>
+    <span class="source-badge active">Social</span>
   </div>
 </header>
 
-
-
 <nav>
   <ul>
-    <li><a href="#shifts">核心位移</a></li>
-    <li><a href="#matrix">趋势矩阵</a></li>
-    <li><a href="#opportunities">机会空间</a></li>
+    <li><a href="#core-shifts">核心位移</a></li>
+    <li><a href="#trend-matrix">趋势矩阵</a></li>
+    <li><a href="#opportunities">机会扫描</a></li>
     <li><a href="#catalysts">催化剂</a></li>
-    <li><a href="#observe">观察清单</a></li>
-    <li><a href="#data">数据明细</a></li>
+    <li><a href="#watchlist">观察清单</a></li>
   </ul>
 </nav>
 
 <main>
 
-<section id="shifts">
-<div class="section-header"><span class="num">01</span><h2>本周核心位移</h2></div>
+    <!-- 第一节：本周核心位移 -->
+  
+<section id="core-shifts">
+  <h2 class="section-title"><span class="section-num">01</span> 本周核心位移</h2>
 
-<div class="shift-card">
-  <div class="domain">🌐 平台级迁移 · Google I/O 2026</div>
-  <h3>Google I/O 2026：Gemini 从助手进化到「行动者」，AGI 路线图进一步清晰</h3>
-  <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.7;margin-top:12px;">Google I/O 2026 成为本周 AI 产业最大锚点。Gemini Omni 全能模型（从任意输入生成任意输出）、Gemini 3.5（代理式工作流）、Gemini Agent（自主执行复杂任务）三箭齐发。更关键的是，Gemini 月活突破 9 亿，日请求量增长 7 倍，谷歌月处理 Token 超 3200 万亿——这一数据规模意味着「AI 规模效应」已从训练侧延伸至推理侧。谁拥有大规模用户交互循环，谁就能在 Agent 生态中持续迭代。「自主行动」成为下一个竞争维度。</p>
-  <div class="meta">
-    <span class="source-badge active">T1</span>
-    <span class="source-badge active">Google I/O</span>
-    <span class="source-badge active">Gemini Omni</span>
+  <div class="shift-card">
+    <div class="shift-header">
+      <span class="shift-tag">商业里程碑 · 行业盈利</span>
+      <span class="badge badge-t1">T1 强信号</span>
+    </div>
+    <div class="shift-title">Anthropic Q2 营收 109 亿美元 + Stainless 收购 + Karpathy 加入<span class="arrow">→</span>AI 实验室进入商业化盈利时代</div>
+    <p class="shift-desc">Anthropic 本周连续爆发三条重磅信号：Q2 营收达 109 亿美元（同比 1,300%），接近成为首个盈利的 AI 实验室；以 3 亿美元收购开发者工具公司 Stainless；Andrej Karpathy 官宣加入并获 Elon Musk 点赞（@karpathy ❤131K）。The Decoder · IT之家 · X 三平台同时集中报道。这标志着 AI 实验室从"融资烧钱"到"自我造血"的商业模型拐点。</p>
+    
+    <div class="cross-source">
+      <div class="sig-source"><strong>🔵 AIHOT 三源收敛：</strong> Anthropic Q2 营收 109 亿美元（The Decoder）+ Stainless 收购 + @karpathy ❤131K 宣布加入 Anthropic + @Yuchenj_UW 报道（HN Top） → 商业+人才+产品三重 T1 顶级信号</div>
+      <div class="sig-source" style="margin-top:8px;"><strong>🟢 Follow Builders 确认：</strong> @gdb「OpenAI 向 YC 初创提供 200 万美元 API 投资」+ 孙正义 600 亿美元豪赌 OpenAI + Intuit 裁员 3000 转 AI — AI 赛道资本+人才极度集中</div>
+      <span style="color:var(--text-muted);font-size:0.78rem;">（依据：The Decoder · IT之家 · @karpathy · @Yuchenj_UW · @gdb · HN 热榜）</span>
+    </div>
   </div>
-</div>
 
-<div class="shift-card">
-  <div class="domain">⛓️ 产业格局重组 · 人才 + 资本</div>
-  <h3>OpenAI IPO 冲刺 + 史上最大重组 &amp; Andrej Karpathy 加入 Anthropic 的人才地震</h3>
-  <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.7;margin-top:12px;">OpenAI 本周启动 IPO 冲刺（最快 9 月上市），同时宣布史上最大重组——ChatGPT、Codex、API 三大产品线合并，Greg Brockman 正式夺回产品战略主导权，ChatGPT 原负责人被调离。同日，AI 界最具号召力的独立研究者 Andrej Karpathy 选择加入 Anthropic。后者 Q2 营收预计 109 亿美元，即将成为首个盈利的 AI 实验室。人才与资本的双向流动，正在重新定义 AI 行业「第一梯队」的座次。</p>
-  <div class="fb-insight">
-    <strong>Follow Builders 视角：</strong>Sam Altman 写道："A general-purpose model solved a major open problem in mathematics. We will be saying this a lot over the coming years." Karpathy 选择 Anthropic 的逻辑也在其中——「未来几年在大语言模型前沿的研究尤其具有塑造性」。
+  <div class="shift-card">
+    <div class="shift-header">
+      <span class="shift-tag">生态爆发 · 全栈 AI</span>
+      <span class="badge badge-t1p5">T1.5 强信号</span>
+    </div>
+    <div class="shift-title">Google I/O 2026 + Gemini Omni + 3200 万亿 Token<span class="arrow">→</span>Google 以"模型 × 平台 × 硬件"三合一全面进攻</div>
+    <p class="shift-desc">Google I/O 2026 本周举行，发布 Gemini Omni 全能模型（从任意输入生成任意输出）、月活用户超 9 亿、每月处理 3200 万亿 Token（同比 7 倍）。AI Studio 上架 iOS 开放平台，Gemini for Home 赋能服务合作伙伴。Google 正以 Android × ADK 0.1.0 × Gemini Omni × Kling AI 原生 4K 模型构建 AI Agent 生态系统全栈。</p>
+    
+    <div class="cross-source">
+      <div class="sig-source"><strong>🔵 AIHOT 交叉验证：</strong> Google I/O 2026（Google AI）+ Gemini Omni（IT之家·Google AI·Sundar Pichai·Gemini）+ 月活 9 亿/3200 万亿 Token（IT之家）+ Kling AI 4K 视频模型 + Android ADK 0.1.0</div>
+      <div class="sig-source" style="margin-top:8px;"><strong>🟢 跨源确认：</strong> OpenAI Codex 全天候 Mac 操控（@OpenAIDevs）+ 腾讯 Mavis 操作系统级 AI 助手 + 钉钉悟空 "行动式 AI" — 桌面 AI Agent 已成本周最热赛道</div>
+      <span style="color:var(--text-muted);font-size:0.78rem;">（依据：Google AI · Sundar Pichai · IT之家 · @OpenAIDevs · 腾讯/钉钉官方）</span>
+    </div>
   </div>
-  <div class="meta">
-    <span class="source-badge active">T1</span>
-    <span class="source-badge active">Anthropic</span>
-    <span class="source-badge active">OpenAI</span>
-  </div>
-</div>
 
 </section>
 
-<section id="matrix">
-<div class="section-header"><span class="num">02</span><h2>趋势信号矩阵</h2></div>
 
-<div class="matrix">
-  <div class="matrix-header" style="border-right:1px solid var(--border);"></div>
-  <div class="matrix-header" style="border-right:1px solid var(--border);">🆕 新出现</div>
-  <div class="matrix-header">🔄 持续 / 强化</div>
 
-  <div class="matrix-cell" style="background:var(--bg-section);font-weight:600;"><span class="tag tag-s">强</span> 确定性</div>
-  <div class="matrix-cell" style="border-right:1px solid var(--border);"><strong>Google I/O Agent 生态全面铺开</strong><br>Gemini Agent 自主执行 + Gemini Omni 全能模型 + Gemini 3.5 代理式工作流，谷歌一口气定义了 Agent 的三个层次</div>
-  <div class="matrix-cell"><strong>AI IPO 融资潮持续升温</strong><br>OpenAI 最快 9 月上市、Kimi 20 亿美元新融资估值半年翻 4 倍、软银 600 亿美元押注 OpenAI</div>
+  <!-- 第二节：趋势信号矩阵 -->
 
-  <div class="matrix-cell" style="background:var(--bg-section);font-weight:600;"></div>
-  <div class="matrix-cell" style="border-right:1px solid var(--border);"><strong>Anthropic 成为「盈利+人才」双重标杆</strong><br>Q2 预计首个盈利季度、Karpathy 加入、109 亿美元营收预期、毕马威全球联盟、收购 SDK 平台 Stainless</div>
-  <div class="matrix-cell"><strong>AI 驱动的网络安全军备竞赛</strong><br>英国央行警告 AI 网络攻击能力远超专业人员、Claude Opus 渗透测试零误报、Mythos 绕过苹果 M5 MIE 安全系统</div>
+<section id="trend-matrix">
+  <h2 class="section-title"><span class="section-num">02</span> 趋势信号矩阵</h2>
 
-  <div class="matrix-cell" style="background:var(--bg-section);font-weight:600;border-bottom:none;"><span class="tag tag-w">弱</span> 早期</div>
-  <div class="matrix-cell" style="border-right:1px solid var(--border);border-bottom:none;"><strong>加州签署 AI 失业应对行政令</strong><br>全球首个将 AI 导致的就业替代上升为公共政策议题，或引发各国效仿</div>
-  <div class="matrix-cell" style="border-bottom:none;"><strong>中国 AI 军团加速追赶</strong><br>腾讯「马维斯」OS 级 AI 助手、商汤连续 10 年 CV 第一、百度 Q1 AI 收入 136 亿元 +49%、Kimi 获国资入局</div>
+  <div class="matrix">
+    
+    <div class="cell empty"></div>
+    <div class="header-cell">新出现</div>
+    <div class="header-cell">持续</div>
+    <div class="header-cell">减弱</div>
 
-  <div class="matrix-cell" style="background:var(--bg-section);border-bottom:none;"></div>
-  <div class="matrix-cell" style="border-right:1px solid var(--border);border-bottom:none;"><strong>AI 全流程影视制作进入商业化</strong><br>首部 100% AI 生成电影亮相戛纳、Kling AI 4K 视频获好莱坞采用、Viggle 3D 格斗游戏</div>
-  <div class="matrix-cell" style="border-bottom:none;"><strong>开源模型生态持续繁荣</strong><br>Ring-2.6-1T 万亿级推理模型开源、SANA-WM 26 亿级世界模型、腾讯 Hy-MT2 翻译模型超越商业 API</div>
+    
+    <div class="row-label">强<br><span class="number">T1</span></div>
 
-</div>
+    <div class="cell">
+      <div class="signal-title">AI 桌面智能体爆发</div>
+      <div class="signal-note">Codex Locked Use · WorkBuddy🔥97 · Alice · Hermes Agent</div>
+      <div class="fb-evidence">🔥WorkBuddy 97 · 腾讯 Mavis · 钉钉悟空</div>
+    </div>
 
+    <div class="cell">
+      <div class="signal-title">AI 人才竞争白热化</div>
+      <div class="signal-note">Karpathy→Anthropic · Meta 8k+7k · Intuit 3k</div>
+      <div class="fb-evidence">@karpathy ❤131K · Rohan Paul · HN 热榜</div>
+    </div>
+
+    <div class="cell">
+      <div class="signal-title">开源模型/Agent 商业化</div>
+      <div class="signal-note">Qwen 3.7 Agent · OlmoEarth v1.1 · 腾讯 Hy-MT2</div>
+      <div class="fb-evidence">更多转向 Agent 平台/B2B 商业</div>
+    </div>
+
+    
+    <div class="row-label">弱<br><span class="number">T2</span></div>
+
+    <div class="cell">
+      <div class="signal-title">AI 命理/陪伴升温</div>
+      <div class="signal-note">花令🔥16 · meetme🔥15</div>
+      <div class="fb-evidence">新型 AI 消费场景萌芽</div>
+    </div>
+
+    <div class="cell">
+      <div class="signal-title">AI 办公工具内卷</div>
+      <div class="signal-note">remio · 天工Skywork🔥24 · ChatGPT/PPT</div>
+      <div class="fb-evidence">头部+创业齐涌入 AI Office</div>
+    </div>
+
+    <div class="cell">
+      <div class="signal-title">纯对话式AI增速放缓</div>
+      <div class="signal-note">更多向 Agent/桌面端/多模态转型</div>
+      <div class="fb-evidence">GPT-5 即将发布</div>
+    </div>
+
+  </div>
 </section>
+
+
+
+  <!-- 第三节：机会空间扫描 -->
 
 <section id="opportunities">
-<div class="section-header"><span class="num">03</span><h2>机会空间扫描</h2></div>
+  <h2 class="section-title"><span class="section-num">03</span> 机会空间扫描</h2>
 
-<div class="opportunity-card">
-  <div class="opp-type">供需缺口</div>
-  <h4>Agent 基础设施平台</h4>
-  <p>Gemini 月活 9 亿、日请求增长 7 倍、Token 3200 万亿——但绝大多数开发者仍缺乏构建自主 Agent 的生产力工具。Codex、OpenCode、Cursor 等编程 Agent 已验证需求，市场需要更多「Agent 即服务」中间件和编排平台。</p>
-</div>
+  <div class="opportunity-card">
+    <div class="opp-bar"></div>
+    <div class="opp-content">
+      <span class="opp-title">AI 桌面 Agent 工作台 — WorkBuddy🔥97 · Codex Mac · Alice · Hermes · Mavis</span>
+      <p>🔥WorkBuddy 97 登顶 Watcha 热门, OpenAI Codex 全天候 Mac 操控, Alice "越用越着迷" 桌面 Agent, Hermes Agent "记忆永存, 跨平台全能", 加之腾讯 Mavis 操作系统级 AI 助手。桌面即 AI 入口已成行业共识, 但目前各产品能力差异巨大, 标准化的 Agent 工作台仍是大缺口。</p>
+    </div>
+  </div>
 
-<div class="opportunity-card">
-  <div class="opp-type">竞争过热</div>
-  <h4>视频生成赛道</h4>
-  <p>Kling AI 4K、SANA-WM 1 分钟 720p、Viggle 3D 格斗、PixVerse Shoplift——每周都有新玩家涌入。差异化应从「生成质量」转向「工作流集成」，如 Shoplift 的直接制作投放广告视频路径。</p>
-</div>
+  <div class="opportunity-card">
+    <div class="opp-bar"></div>
+    <div class="opp-content">
+      <span class="opp-title">AI 原生命理/陪伴 — 花令🔥16 · meetme🔥15</span>
+      <p>花令「AI 命理师」和 meetme「AI 分身约会」分别切入玄学和社交陪伴蓝海。前者有明确付费意愿（算命刚需）, 后者探索 AI 分身约会, 产品成熟度偏低。</p>
+    </div>
+  </div>
 
-<div class="opportunity-card">
-  <div class="opp-type">替代缺口</div>
-  <h4>GitHub 的「生存级风险」</h4>
-  <p>微软内部示警 GitHub 面临 AI 编程工具导致的生存级风险——开发者的代码分散在 Cursor/Claude Code 等工具中，削弱了持续上传至 GitHub 的必要性。这为新一代「AI 原生代码协作平台」创造了巨大的替代窗口。</p>
-</div>
+  <div class="opportunity-card">
+    <div class="opp-bar"></div>
+    <div class="opp-content">
+      <span class="opp-title">AI + 数学 + 科学 — sama: "AGI 解决了重大数学开放问题"</span>
+      <p>Sam Altman 发推 AGI 解决重大数学开放问题, Google Gemini Omni 具备物理推理 + Kling AI 4K 视频 + SenseNova U1 图文双思考 — AI 从语言理解进入科学推理阶段。</p>
+    </div>
+  </div>
 
-<div class="opportunity-card">
-  <div class="opp-type">蓝海市场</div>
-  <h4>AI + 劳动力市场调整</h4>
-  <p>加州签署 AI 失业行政令、Intuit 裁员 3000 人、Meta 万人重组——AI 驱动的组织机构调整正在加速。围绕「AI 时代员工转型与安置」的 HR Tech + 再培训 SaaS 仍是空白市场。</p>
-</div>
+  <div class="opportunity-card">
+    <div class="opp-bar"></div>
+    <div class="opp-content">
+      <span class="opp-title">AI 渗透垂直场景 — xia345🔥16 (美团虾养殖) · Google 气候加速器 · Shoplift 广告</span>
+      <p>虾养殖 AI xia345🔥16 by 美团, AI 渗入极致垂直行业。+ Google DeepMind 亚太气候加速器, PixVerse Shoplift — 大厂 AI 从"做平台"走向"打场景"。</p>
+    </div>
+  </div>
 
 </section>
+
+
+
+  <!-- 第四节：催化剂快照 -->
 
 <section id="catalysts">
-<div class="section-header"><span class="num">04</span><h2>催化剂快照</h2></div>
+  <h2 class="section-title"><span class="section-num">04</span> 催化剂快照</h2>
 
-<div class="catalyst-block">
-  <h4>🏛️ 政策与监管</h4>
-  <div class="catalyst-item">
-    <div class="cat-title">加州州长签署 AI 失业行政令</div>
-    <div class="cat-desc">全球首个将 AI 导致的就业替代上升为公共政策议题——要求研究遣散费、就业保险及员工持股等保障措施</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">欧盟 AI 法案高风险分类草案开启公众咨询</div>
-    <div class="cat-desc">全球最完善的 AI 监管框架推进落地实施</div>
-  </div>
-</div>
+  <div class="catalyst-list">
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🏢</div>
+      <div class="catalyst-content">
+        <span class="event-title">Anthropic 即将成为首个盈利的 AI 实验室</span>
+        <span class="event-desc">Q2 营收 109 亿美元（同比 1,300%），接近自我造血。Stainless 收购 + Karpathy 加入 + SpaceX 算力合作, 三重利好集中。</span>
+        <span class="event-source">来源：The Decoder · IT之家 · X</span>
+      </div>
+    </div>
 
-<div class="catalyst-block">
-  <h4>💰 资本与市场</h4>
-  <div class="catalyst-item">
-    <div class="cat-title">OpenAI 最快本周提交 IPO 草案，9 月上市预期</div>
-    <div class="cat-desc">估值可能超过 3000 亿美元，高盛与摩根士丹利联合承销</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">英伟达 Q1 净利润 583 亿美元，同比增长 211%</div>
-    <div class="cat-desc">数据中心业务营收 752 亿美元同比 +92%，但增速预期是否见顶引发讨论</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">Kimi 完成 20 亿美元新融资，国资入局</div>
-    <div class="cat-desc">中国 AI 独角兽估值半年翻 4 倍，国资机构及央企加入股东名单</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">谷歌联手黑石组建 AI 云公司，50 亿美元起步</div>
-    <div class="cat-desc">目标 2027 年上线 500 兆瓦算力，与 CoreWeave 正面竞争</div>
-  </div>
-</div>
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🏢</div>
+      <div class="catalyst-content">
+        <span class="event-title">Meta 万人重组：裁员 8000 + 7000 转 AI</span>
+        <span class="event-desc">Meta 本周大规模重组，8,000 人被裁减、7,000 人转岗至 AI 部门, AI 人才争夺升级到企业内部结构层面。</span>
+        <span class="event-source">来源：Rohan Paul (@rohanpaul_ai) · AIHOT</span>
+      </div>
+    </div>
 
-<div class="catalyst-block">
-  <h4>🤖 技术与产品</h4>
-  <div class="catalyst-item">
-    <div class="cat-title">Gemini Omni + Gemini Agent 发布</div>
-    <div class="cat-desc">从任意输入生成任意输出，代表多模态 Agent 新范式；月活 9 亿用户验证</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">ChatGPT 原生集成 PowerPoint</div>
-    <div class="cat-desc">直接在 PPT 中创建编辑演示文稿，AI 办公从辅助向原生集成演进</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">Anthropic 收购 SDK 平台 Stainless</div>
-    <div class="cat-desc">强化 MCP 工具链生态，布局 Agent 基础设施</div>
-  </div>
-  <div class="catalyst-item">
-    <div class="cat-title">腾讯发布 OS 级 AI 助手「马维斯」</div>
-    <div class="cat-desc">支持 Windows、Mac、安卓端，与操作系统深度集成，可调度不同模型处理任务</div>
-  </div>
-</div>
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🏢</div>
+      <div class="catalyst-content">
+        <span class="event-title">Intuit 裁员 3000+ 聚焦 AI</span>
+        <span class="event-desc">Intuit 宣布裁员 3,000+ 人, 资源全面转向 AI 产品线, 财务软件巨头 All-in AI 加速。</span>
+        <span class="event-source">来源：HN 热榜 (buzzing.cc)</span>
+      </div>
+    </div>
 
-<h4 style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text-muted);margin-bottom:14px;">⚠️ 噪音识别 <span class="noise-label">本期过滤</span></h4>
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🏢</div>
+      <div class="catalyst-content">
+        <span class="event-title">OpenAI 冲刺 9 月上市, 最快提交 IPO 草案</span>
+        <span class="event-desc">IT 之家报道 OpenAI 最快本周提交 IPO 招股书, 同时向 YC 初创提供 200 万美元 API 投资。孙正义 600 亿美元豪赌 OpenAI 引发内部质疑。</span>
+        <span class="event-source">来源：IT之家 · @gdb</span>
+      </div>
+    </div>
 
-<div class="catalyst-item" style="opacity:0.6;">
-  <div class="cat-title">Elon Musk 诉 OpenAI 败诉</div>
-  <div class="cat-desc">法律争议阶段性结束，但公司治理争议远未平息</div>
-</div>
-<div class="catalyst-item" style="opacity:0.6;">
-  <div class="cat-title">SpaceX 提供 AI 算力服务 + 轨道数据中心</div>
-  <div class="cat-desc">概念前瞻性强，但短期难以实际落地</div>
-</div>
-<div class="catalyst-item" style="opacity:0.6;">
-  <div class="cat-title">现代汽车计划部署 2.5 万台波士顿动力 Atlas 人形机器人</div>
-  <div class="cat-desc">规划宏大但现实差距大，属于催化剂式信号而非趋势</div>
-</div>
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🏢</div>
+      <div class="catalyst-content">
+        <span class="event-title">英伟达 2027 Q1 净利润 583 亿美元 +211%</span>
+        <span class="event-desc">英伟达财报超预期, Q1 净利润 583 亿美元 +211%, AI 算力需求仍在高速增长。</span>
+        <span class="event-source">来源：IT之家</span>
+      </div>
+    </div>
 
+    <div class="catalyst-item">
+      <div class="catalyst-icon">⚖️</div>
+      <div class="catalyst-content">
+        <span class="event-title">加州州长签署 AI 劳动力市场监管行政令</span>
+        <span class="event-desc">加州州长纽森签署首创性行政令应对 AI 劳动力冲击, 欧盟发布《AI 法》高风险分类草案。</span>
+        <span class="event-source">来源：@rohanpaul_ai · DataGuidance</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🤖</div>
+      <div class="catalyst-content">
+        <span class="event-title">FSD 登陆中国大陆 + 首部 100% AI 生成电影亮相戛纳</span>
+        <span class="event-desc">FSD 在中国大陆正式上线; 首部 100% AI 生成电影亮相戛纳, 剑指 2026 院线。</span>
+        <span class="event-source">来源：@xiaohu · Kling AI</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="catalyst-icon">🔊</div>
+      <div class="catalyst-content">
+        <span class="event-title">📢 噪音识别: GitHub "生存级风险" + 谷歌 AI "遭操纵"</span>
+        <span class="event-desc">① 微软警示 GitHub 生存级风险 — 更像是 Copilot 推广话术。② 谷歌 AI "遭操纵" — HN 热榜但缺乏独立证实。</span>
+        <span class="event-source">来源：IT之家 · HN 热榜</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section id="observe">
-<div class="section-header"><span class="num">05</span><h2>下周观察清单</h2></div>
 
-<div class="observe-item">
-  <div class="observe-label">观察 1</div>
-  <strong style="color:var(--text-primary);">OpenAI IPO 招股书提交</strong>
-  <br>最早本周五（5/22），估值、盈利模型、投资风险全透明化，将成为全球 AI 投资的新参照系
-</div>
 
-<div class="observe-item">
-  <div class="observe-label">观察 2</div>
-  <strong style="color:var(--text-primary);">Gemini Omni 发布后首周开发者真实反馈</strong>
-  <br>「全能模型」的实际表现能否兑现 Google I/O 上的演示？9 亿用户的反馈数据将揭示方向
-</div>
+  <!-- 第五节：下周观察清单 -->
 
-<div class="observe-item">
-  <div class="observe-label">观察 3</div>
-  <strong style="color:var(--text-primary);">Karpathy 加入 Anthropic 后的首批公开动作</strong>
-  <br>是否意味着 Anthropic 将更重视独立 AI 研究与安全对齐？Anthropic 的「安全 x 盈利」平衡术值得关注
-</div>
+<section id="watchlist">
+  <h2 class="section-title"><span class="section-num">05</span> 下周观察清单</h2>
 
+  <div class="watch-grid">
+
+    <div class="watch-item">
+      <div class="watch-marker"></div>
+      <div class="watch-body">
+        <span class="watch-title">OpenAI IPO 推进速度与估值</span>
+        <span class="watch-desc">IPO 草案 + 孙正义 600 亿 + YC API 投资 — 估值和时间线将是下周最大变量。</span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <div class="watch-marker"></div>
+      <div class="watch-body">
+        <span class="watch-title">Codex Locked Use 跨设备 Mac 操控反馈</span>
+        <span class="watch-desc">@OpenAIDevs 连续更新 Codex + Appshots + Mac 操控, 桌面 Agent 能否从"热"走向"实"。</span>
+      </div>
+    </div>
+
+    <div class="watch-item">
+      <div class="watch-marker"></div>
+      <div class="watch-body">
+        <span class="watch-title">Anthropic Stainless 整合 + Karpathy 角色</span>
+        <span class="watch-desc">收购 Stainless 后的开发者策略 + Karpathy 具体角色 — 透露 Anthropic 未来 6 月路线图。</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<aside id="data">
-<details>
-<summary>📊 本周全量数据明细</summary>
+<!-- 附录：数据明细表 -->
 
-
-<h4 style="font-family:var(--font-display);font-size:0.95rem;font-weight:600;color:var(--text-secondary);margin:20px 0 12px;">AI 产品发布（84）</h4>
-<table class="data-table">
-<tr><th>#</th><th>产品名称</th><th>摘要</th></tr>
-<tr><td>1</td><td class="col-title">v2.1.147版本更新</td><td>本次更新引入了`Workflow`工具，支持确定性多智能体编排（默认关闭）。将`/simplify`命令重命名为`/code-review`，现可报告代码正确性问题并支持生成GitHub PR内联评论</td></tr>
-<tr><td>2</td><td class="col-title">ChatGPT现已支持在PowerPoint中直接创建编辑演示文稿</td><td>你是否曾这样想过：我真的不想做这个PPT。
-
-好消息：ChatGPT现在可以直接在PowerPoint中创建和编辑演示文稿。
-
-在PowerPoint中直接构建、更新、理解和优化演示文稿，同时保持幻灯</td></tr>
-<tr><td>3</td><td class="col-title">Gemini扩展应用连接，支持更多服务</td><td>Gemini现在可以连接更多应用，包括@OpenTable、@Canva和@Instacart。
-
-无论您是预订餐厅、制作传单还是订购杂货，Gemini不仅能查找信息，还能通过连接的应用帮助您无缝采取</td></tr>
-<tr><td>4</td><td class="col-title">Datasette Agent</td><td>Datasette Agent是Datasette推出的首个可扩展AI助手，为用户提供对话式界面以查询数据，并支持通过插件生成图表。该工具基于其LLM Python库构建，是LLM与Datasette</td></tr>
-<tr><td>6</td><td class="col-title">Codex实现全天候跨设备安全操控Mac</td><td>Codex随时随地，无处不在。
-现在您的Mac无需解锁，Codex即可使用您的电脑。
-通过手机，Codex可以安全地使用您Mac上的应用程序，即使屏幕关闭且处于锁定状态。
-https：//develo</td></tr>
-<tr><td>7</td><td class="col-title">Codex周四更新：Appshots功能上线</td><td>又是Codex周四，我们带来了更新。
-首先是Appshots，一种将你工作上下文引入Codex的新方式。
-在Mac上，按Command-Command即可将应用窗口附加到Codex线程。Codex会获</td></tr>
-<tr><td>8</td><td class="col-title">合作伙伴如何运用Opus强化网络安全</td><td>多家企业正利用Claude Opus模型强化网络安全防御。Wiz通过其Red Agent，每周对超过15万个生产资产进行持续渗透测试，发现数千个高风险漏洞且误报率为零。Palo Alto Networ</td></tr>
-<tr><td>9</td><td class="col-title">Claude现已支持更多安全合规工具</td><td>Anthropic宣布为Claude企业版及平台新增28项安全与合规工具集成。这些集成均通过Claude Compliance API实现，允许企业安全团队统一获取Claude的对话内容与活动事件，从</td></tr>
-<tr><td>10</td><td class="col-title">Gemini每日简报助你高效规划一天</td><td>用Daily Brief开启高效一天。
-Gemini现在能主动将最重要的事项整理成易于理解的待办清单，让你在早餐结束前就为一天做好准备。</td></tr>
-<tr><td>11</td><td class="col-title">发布 Kotlin版ADK与Android版ADK 0.1.0：在Android及其他平台构建AI Agent</td><td>Google发布了面向开发者的新工具包：Kotlin版ADK与Android版ADK 0.1.0。这两个工具包旨在帮助开发者构建AI Agent。其中，Kotlin版ADK将代理工作流引入后端项目开发</td></tr>
-<tr><td>12</td><td class="col-title">推出 Gemini for Home 赋能服务提供商与硬件合作伙伴</td><td>Google 通过推出全栈 Gemini AI 解决方案扩展其智能家居生态系统。该方案集成了先进的摄像头智能、自然语言查询功能和日常活动摘要能力。它为服务提供商和硬件制造商提供了现成的参考设计与API</td></tr>
-<tr><td>13</td><td class="col-title">Shoplift by PixVerse快速生成平台原生广告视频</td><td>无需工作室，无需编辑队列。
-将产品URL粘贴到Shoplift by PixVerse，几分钟内即可发布平台原生广告视频
---专为持续进行创意测试的DTC团队打造。
-免费早期访问：https：//sh</td></tr>
-<tr><td>14</td><td class="col-title">Replit企业版现已开放自助购买</td><td>Replit Enterprise现已支持自助服务！
-
-几分钟内即可：
-- 购买Replit Enterprise
-- 配置SSO + SCIM
-- 与团队开始协作开发
-
-无需合同谈判，无需等待。</td></tr>
-</table>
-
-<h4 style="font-family:var(--font-display);font-size:0.95rem;font-weight:600;color:var(--text-secondary);margin:20px 0 12px;">AI 模型发布（28）</h4>
-<table class="data-table">
-<tr><th>#</th><th>模型名称</th></tr>
-<tr><td>1</td><td class="col-title">Aleph 2.0 与 Edit Studio</td></tr>
-<tr><td>2</td><td class="col-title">LongCat-Video-Avatar-1.5：升级版音频驱动数字人视频生成框架</td></tr>
-<tr><td>3</td><td class="col-title">腾讯开源Hy-MT2多语言翻译模型</td></tr>
-<tr><td>4</td><td class="col-title">Stability AI 推出音频模型 Stability Audio 3.0，可生成最长 6 分钟专业级歌曲</td></tr>
-<tr><td>5</td><td class="col-title">SenseNova U1：同时思考文本与图像的AI</td></tr>
-<tr><td>6</td><td class="col-title">Kling AI推出全球首个原生4K视频生成模型</td></tr>
-<tr><td>7</td><td class="col-title">Qwen3.7：智能体前沿</td></tr>
-<tr><td>8</td><td class="col-title">Gemini Omni发布：物理推理与多模态生成新突破</td></tr>
-<tr><td>9</td><td class="col-title">Gemini Omni：从任意输入创造内容的新模型</td></tr>
-<tr><td>10</td><td class="col-title">谷歌发布Gemini Omni多模态生成模型</td></tr>
-<tr><td>11</td><td class="col-title">OlmoEarth v1.1： 更高效的模型家族</td></tr>
-<tr><td>12</td><td class="col-title">Gemini Omni：迈向AGI的世界模型</td></tr>
-<tr><td>13</td><td class="col-title">I/O 2026： 欢迎来到自主的 Gemini 时代</td></tr>
-<tr><td>14</td><td class="col-title">谷歌 Gemini Omni 全能模型发布：可从任意输入生成任意输出，一句话让 AI 修改视频</td></tr>
-<tr><td>15</td><td class="col-title">谷歌发布Gemini Omni Flash，Pro版即将推出</td></tr>
-</table>
-
-<h4 style="font-family:var(--font-display);font-size:0.95rem;font-weight:600;color:var(--text-secondary);margin:20px 0 12px;">行业动态（47）</h4>
-<table class="data-table">
-<tr><th>#</th><th>事件</th><th>摘要</th></tr>
-<tr><td>1</td><td class="col-title">加州州长纽森签署首创性行政令，为应对AI可能带来的劳动力市场冲击做准备</td><td>加州州长纽森签署行政令，首次将AI引发的失业问题正式列为公共政策议题，要求各部门研究遣散费、就业保险及员工持股等保障措施。该命令认识到AI可能渐进式替代岗位任务</td></tr>
-<tr><td>2</td><td class="col-title">谷歌DeepMind在亚太启动AI气候加速器</td><td>亚太地区经济增长迅速，但极易受到气候变化影响，且现有绿色技术发展速度跟不上环境风险的增长。为此，Google DeepMind宣布启动首届专注于"AI for </td></tr>
-<tr><td>3</td><td class="col-title">Anthropic即将成为首个盈利的AI实验室</td><td>根据《华尔街日报》报道，Anthropic正接近实现其首个盈利季度，预计第二季度营收达109亿美元，运营利润为5.59亿美元。该公司在去年夏季时还预计最早在20</td></tr>
-<tr><td>4</td><td class="col-title">Intuit将裁员逾3000人，以重新聚焦人工智能</td><td>软件公司Intuit宣布将裁员超过3000人，作为其战略重组的一部分。此次裁员旨在将公司资源重新聚焦于人工智能（AI）领域的发展，以适应技术趋势并提升长期竞争力</td></tr>
-<tr><td>5</td><td class="col-title">首部100%AI生成电影亮相戛纳，剑指2026院线</td><td>AI电影项目RAPHAEL在戛纳亮相。该片由Mateo AI Studio与韩国MBC C&I的AI内容实验室联合开发，全程使用Kling AI视频模型进行制作</td></tr>
-<tr><td>6</td><td class="col-title">商汤连续十年领跑中国计算机视觉市场</td><td>商汤科技被IDC连续十年评为中国计算机视觉市场第一。其关键驱动因素包括：主导推进CV 2.0架构演进，原生嵌入生成式AI能力；海外市场扩展至12个国际区域，服务</td></tr>
-<tr><td>7</td><td class="col-title">FSD正式登陆中国大陆市场</td><td>FSD来了…
-
-官宣进入大陆…</td></tr>
-<tr><td>8</td><td class="col-title">冲刺 9 月上市，OpenAI 最快本周五提交 IPO 招股书草案</td><td>据CNBC报道，OpenAI预计最快本周五递交首次公开募股（IPO）招股书草案，这标志着公司向资本市场迈出关键一步。首席执行官萨姆·奥尔特曼设定最早于2026年</td></tr>
-<tr><td>9</td><td class="col-title">SpaceX与Anthropic合作提供大规模AI算力服务</td><td>正如最近与@AnthropicAI扩大合作所展示的，@SpaceX正在大规模提供AI算力服务。
-
-我们正在与其他公司进行类似合作的讨论。
-
-随着时间的推移，特别</td></tr>
-<tr><td>10</td><td class="col-title">英伟达 2027 财年第一财季归母净利润 583.21 亿美元，同比增长 211%</td><td>英伟达2027财年第一季度业绩创新高，营业总收入达816.15亿美元，同比增长85%。净利润为583.21亿美元，同比激增211%。数据中心业务是核心增长引擎，</td></tr>
-<tr><td>11</td><td class="col-title">Meta万人重组：裁员与AI转型并举</td><td>Meta启动大规模裁员，计划削减约8000个岗位。与此同时，约7000名员工将被调配至新的AI相关职位。此次调整并非单纯的削减成本，更是公司围绕AI进行内部结构</td></tr>
-
-</table>
-
-</details>
+<aside>
+  <details>
+    <summary>📁 附录 · 本周数据明细</summary>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>来源</th><th>信号</th><th>强度</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>The Decoder</td><td>Anthropic Q2 营收 109 亿美元, 接近盈利</td><td>T1</td></tr>
+          <tr><td>2</td><td>@karpathy</td><td>Andrej Karpathy 加入 Anthropic ❤131K</td><td>T1</td></tr>
+          <tr><td>3</td><td>IT之家</td><td>Anthropic 收购 Stainless ($300M)</td><td>T1</td></tr>
+          <tr><td>4</td><td>Google AI</td><td>Gemini Omni 全能多模态模型</td><td>T1</td></tr>
+          <tr><td>5</td><td>IT之家</td><td>Google 月处理 3200 万亿 Token (+7x)</td><td>T1</td></tr>
+          <tr><td>6</td><td>@OpenAIDevs</td><td>Codex 全天候 Mac 操控 + Appshots</td><td>T1.5</td></tr>
+          <tr><td>7</td><td>Watcha</td><td>WorkBuddy🔥97 登顶 Watcha</td><td>T1.5</td></tr>
+          <tr><td>8</td><td>Rohan Paul</td><td>Meta 万人重组: 8k 裁员 + 7k 转 AI</td><td>T1.5</td></tr>
+          <tr><td>9</td><td>IT之家</td><td>OpenAI 冲刺 IPO + 孙正义 $600 亿</td><td>T1.5</td></tr>
+          <tr><td>10</td><td>HN</td><td>Intuit 裁员 3000+ 聚焦 AI</td><td>T1.5</td></tr>
+          <tr><td>11</td><td>IT之家</td><td>英伟达 Q1 净利 $583 亿 (+211%)</td><td>T1.5</td></tr>
+          <tr><td>12</td><td>@sama</td><td>AGI 解决了重大开放数学问题</td><td>T1.5</td></tr>
+          <tr><td>13</td><td>IT之家</td><td>腾讯 Mavis 操作系统级 AI 助手</td><td>T2</td></tr>
+          <tr><td>14</td><td>IT之家</td><td>微软警示 GitHub 生存级风险</td><td>T2</td></tr>
+          <tr><td>15</td><td>IT之家</td><td>GPT-5 即将发布</td><td>T2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
 </aside>
 
-</main>
+
 
 <footer>
-  <p>AI 市场洞察周刊 · 第 21 周 · 数据采集于 2026-05-22</p>
-  <p style="margin-top:4px;">来源：AIHOT · ProductHunt · Watcha · Follow Builders</p>
+  <p>AI 市场洞察周刊 · 生成于 2026-05-20 22:30 CST · 数据来源：<a href="https://aihot.virxact.com" target="_blank">AIHOT</a>（155条）· <strong>ProductHunt</strong>（RSS 16条）· <strong>Watcha</strong>（20个产品）· <strong>Follow Builders</strong>（GitHub Feed 40推文）</p>
+  
 </footer>
 
-<div class="history-archive" style="max-width:960px;margin:0 auto;padding:0 40px 60px;">
-  <h3>📚 历史周刊</h3>
-  <div class="history-list">
-    <a class="history-item current" href="#">第 21 周 · 2026-05-15 ~ 05-21</a>
-    <a class="history-item" href="week20.html">第 20 周 · 2026-05-04 ~ 05-10</a>
-    <a class="history-item" href="week19.html">第 19 周 · 2026-04-27 ~ 05-03</a>
-    <a class="history-item" href="week18.html">第 18 周 · 2026-04-20 ~ 04-26</a>
-  </div>
-</div>
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+function toggleHistory() {
+  document.getElementById('historyPanel').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('historyPanel');
+  const toggle = document.querySelector('.history-toggle');
+  if (panel.classList.contains('open') &&
+      !panel.contains(e.target) &&
+      !toggle.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
 
 </body>
 </html>
