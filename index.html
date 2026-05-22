@@ -509,23 +509,9 @@ footer a { color: var(--accent); text-decoration: none; }
 }
 .history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
 .history-item.current { border-color: var(--accent); }
-.history-header { display: flex; justify-content: space-between; align-items: flex-start; max-width: 960px; margin: 0 auto; padding: 80px 40px 0; }
-.history-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  transition: 0.2s;
-}
-.history-toggle:hover { border-color: var(--accent); color: var(--accent); }
-.history-toggle .icon { font-size: 1rem; }
+.history-header { display: none; }
+.week-number { color: var(--accent, var(--accent)); cursor: pointer; transition: opacity 0.2s; }
+.week-number:hover { opacity: 0.7; }
 @media (max-width: 700px) {
   header { padding: 60px 20px 30px; }
   header h1 { font-size: 1.8rem; }
@@ -541,13 +527,6 @@ footer a { color: var(--accent); text-decoration: none; }
 </head>
 <body>
 
-<div class="history-header">
-  <div></div>
-  <button class="history-toggle" onclick="toggleHistory()">
-    <span class="icon">☰</span> 历史周刊
-  </button>
-</div>
-
 <div class="history-panel" id="historyPanel">
   <button class="close-btn" onclick="toggleHistory()">✕</button>
   <h3>📚 历史周刊</h3>
@@ -560,7 +539,7 @@ footer a { color: var(--accent); text-decoration: none; }
   </div>
 
 <header>
-  <h1>AI 市场洞察周刊 · 第 21 周</h1>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 21 周</span></h1>
   <p class="period">2026-05-16 ~ 2026-05-22 · 每周五 10 点更新</p>
   <div class="source-badges">
     <span class="source-badge active">AIHOT</span>
@@ -898,10 +877,10 @@ function toggleHistory() {
 
 document.addEventListener('click', function(e) {
   const panel = document.getElementById('historyPanel');
-  const toggle = document.querySelector('.history-toggle');
+  const trigger = document.querySelector('.week-number');
   if (panel.classList.contains('open') &&
       !panel.contains(e.target) &&
-      !toggle.contains(e.target)) {
+      !trigger.contains(e.target)) {
     panel.classList.remove('open');
   }
 });
