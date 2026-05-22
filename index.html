@@ -510,10 +510,9 @@ footer a { color: var(--accent); text-decoration: none; }
 .history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
 .history-item.current { border-color: var(--accent); }
 .history-toggle {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 150;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -523,9 +522,7 @@ footer a { color: var(--accent); text-decoration: none; }
   font-family: var(--font-body);
   font-size: 0.78rem;
   transition: 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 24px;
 }
 .history-toggle:hover { border-color: var(--accent); color: var(--accent); }
 .history-toggle .icon { font-size: 1rem; }

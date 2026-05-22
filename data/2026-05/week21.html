@@ -497,13 +497,17 @@ footer a { color: var(--accent); text-decoration: none; }
   color: var(--accent);
   margin-bottom: 2px;
 }
+.history-item .history-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
 .history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
 .history-item.current { border-color: var(--accent); }
 .history-toggle {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 150;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-secondary);
@@ -513,9 +517,7 @@ footer a { color: var(--accent); text-decoration: none; }
   font-family: var(--font-body);
   font-size: 0.78rem;
   transition: 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 24px;
 }
 .history-toggle:hover { border-color: var(--accent); color: var(--accent); }
 .history-toggle .icon { font-size: 1rem; }
@@ -542,8 +544,8 @@ footer a { color: var(--accent); text-decoration: none; }
   <h3>📚 历史周刊</h3>
   <div id="historyList">
     <a class="history-item current" href="#" data-date="2026-05-15">
-      <div class="history-date">2026-05-15 ~ 2026-05-21</div>
-      <div class="history-status">● 当前期</div>
+      <div class="history-title">第 21 周</div>
+      <div class="history-date">2026-05-15 ~ 2026-05-22</div>
     </a>
     
   </div>
@@ -551,7 +553,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
 <header>
   <h1>AI 市场洞察周刊 · 第 21 周</h1>
-  <p class="period">2026-05-15 ~ 2026-05-21 · 每周五 10 点更新</p>
+  <p class="period">2026-05-15 ~ 2026-05-22 · 每周五 10 点更新</p>
   <div class="source-badges">
     <span class="source-badge active">AIHOT</span>
     <span class="source-badge active">ProductHunt</span>
@@ -1121,8 +1123,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
 <footer>
   <p>AI 市场洞察周刊 · 生成于 2026-05-22 10:35 CST · 数据来源：<a href="https://aihot.virxact.com" target="_blank">AIHOT</a>（159条）· <strong>ProductHunt</strong>（RSS 10条）· <strong>Watcha</strong>（11产品）· <strong>Follow Builders</strong>（27推文）</p>
-  <p style="margin-top:8px;font-size:0.72rem;color:var(--text-muted);">PH 通过 RSS Feed 采集，Watcha 通过 Playwright 浏览器渲染，Follow Builders 通过 github.com/zarazhangrui/follow-builders feed 获取。所有数据源均可用并带有收敛标注。</p>
-</footer>
+  </footer>
 
 <script>
 const sections = document.querySelectorAll('section[id]');
