@@ -60,7 +60,7 @@ header .source-badges {
 }
 .source-badge {
   display: inline-flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -125,7 +125,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 }
 .section-header {
   display: flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   gap: 12px;
   margin-bottom: 28px;
   padding-bottom: 12px;
@@ -159,7 +159,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 }
 .shift-card .shift-direction {
   display: flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   gap: 12px;
   margin: 12px 0;
   font-size: 0.95rem;
@@ -176,7 +176,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 .shift-card .meta {
   display: flex;
   gap: 8px;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   flex-wrap: wrap;
   margin-top: 12px;
   font-size: 0.8rem;
@@ -214,7 +214,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
   color: var(--text-secondary);
   text-align: center;
   display: flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   justify-content: center;
 }
 .matrix .row-label {
@@ -223,7 +223,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
   font-size: 0.85rem;
   color: var(--text-primary);
   display: flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   padding-left: 20px;
 }
 .matrix .cell.empty {
@@ -304,7 +304,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 }
 .source-group {
   display: inline-flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   gap: 6px;
   flex-wrap: wrap;
   margin-top: 8px;
@@ -474,7 +474,7 @@ footer a { color: var(--accent); text-decoration: none; }
   border-radius: 50%;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: center; transform: translateY(4px);
   justify-content: center;
   transition: 0.2s;
 }
@@ -507,7 +507,7 @@ footer a { color: var(--accent); text-decoration: none; }
 .history-header { display: none; }
 .week-number { color: var(--accent, var(--accent)); cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 4px; }
 .week-number:hover { opacity: 0.7; }
-.dropdown-icon { display: inline-block; vertical-align: middle; }
+.dropdown-icon { display: inline-block; }
 @media (max-width: 700px) {
   header { padding: 60px 20px 30px; }
   header h1 { font-size: 1.8rem; }
@@ -536,7 +536,7 @@ footer a { color: var(--accent); text-decoration: none; }
 </div>
 
 <header>
-  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 21 周 <svg class="dropdown-icon" width="32" height="32" viewBox="0 0 12 12" fill="currentColor"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 21 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
   <p class="period">2026-05-15 ~ 2026-05-22 · 每周五 10 点更新</p>
   <div class="source-badges">
     <span class="source-badge active">AIHOT</span>
