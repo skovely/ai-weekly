@@ -504,6 +504,7 @@ footer a { color: var(--accent); text-decoration: none; }
 }
 .history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
 .history-item.current { border-color: var(--accent); }
+.history-header { display: flex; justify-content: space-between; align-items: flex-start; max-width: 960px; margin: 0 auto; padding: 80px 40px 0; }
 .history-toggle {
   display: inline-flex;
   align-items: center;
@@ -517,7 +518,6 @@ footer a { color: var(--accent); text-decoration: none; }
   font-family: var(--font-body);
   font-size: 0.78rem;
   transition: 0.2s;
-  margin-bottom: 24px;
 }
 .history-toggle:hover { border-color: var(--accent); color: var(--accent); }
 .history-toggle .icon { font-size: 1rem; }
@@ -536,9 +536,12 @@ footer a { color: var(--accent); text-decoration: none; }
 </head>
 <body>
 
-<button class="history-toggle" onclick="toggleHistory()">
-  <span class="icon">☰</span> 历史周刊
-</button>
+<div class="history-header">
+  <div></div>
+  <button class="history-toggle" onclick="toggleHistory()">
+    <span class="icon">☰</span> 历史周刊
+  </button>
+</div>
 <div class="history-panel" id="historyPanel">
   <button class="close-btn" onclick="toggleHistory()">✕</button>
   <h3>📚 历史周刊</h3>
