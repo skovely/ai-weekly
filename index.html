@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 市场洞察周刊 · 第 21 周</title>
+<title>AI 市场洞察周刊 · 第 23 周</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -60,7 +60,7 @@ header .source-badges {
 }
 .source-badge {
   display: inline-flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   padding: 4px 12px;
   border-radius: 4px;
   font-size: 0.75rem;
@@ -125,7 +125,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 }
 .section-header {
   display: flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   gap: 12px;
   margin-bottom: 28px;
   padding-bottom: 12px;
@@ -159,7 +159,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 }
 .shift-card .shift-direction {
   display: flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   gap: 12px;
   margin: 12px 0;
   font-size: 0.95rem;
@@ -176,7 +176,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 .shift-card .meta {
   display: flex;
   gap: 8px;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   flex-wrap: wrap;
   margin-top: 12px;
   font-size: 0.8rem;
@@ -214,7 +214,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
   color: var(--text-secondary);
   text-align: center;
   display: flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   justify-content: center;
 }
 .matrix .row-label {
@@ -223,7 +223,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
   font-size: 0.85rem;
   color: var(--text-primary);
   display: flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   padding-left: 20px;
 }
 .matrix .cell.empty {
@@ -304,7 +304,7 @@ section:nth-child(5) { animation-delay: 0.4s; }
 }
 .source-group {
   display: inline-flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   gap: 6px;
   flex-wrap: wrap;
   margin-top: 8px;
@@ -474,7 +474,7 @@ footer a { color: var(--accent); text-decoration: none; }
   border-radius: 50%;
   cursor: pointer;
   display: flex;
-  align-items: center; transform: translateY(4px);
+  align-items: center;
   justify-content: center;
   transition: 0.2s;
 }
@@ -497,17 +497,28 @@ footer a { color: var(--accent); text-decoration: none; }
   color: var(--accent);
   margin-bottom: 2px;
 }
-.history-item .history-title {
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 2px;
-}
 .history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
 .history-item.current { border-color: var(--accent); }
-.history-header { display: none; }
-.week-number { color: var(--accent, var(--accent)); cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 4px; }
-.week-number:hover { opacity: 0.7; }
-.dropdown-icon { display: inline-block; }
+.history-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 150;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.history-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.history-toggle .icon { font-size: 1rem; }
 @media (max-width: 700px) {
   header { padding: 60px 20px 30px; }
   header h1 { font-size: 1.8rem; }
@@ -522,16 +533,15 @@ footer a { color: var(--accent); text-decoration: none; }
 </style>
 </head>
 <body>
-
 <div class="history-panel" id="historyPanel">
   <button class="close-btn" onclick="toggleHistory()">✕</button>
   <h3>📚 历史周刊</h3>
   <div id="historyList">
-    <a class="history-item" href="../2026-05/week21.html" data-date="2026-05-22">
+    <a class="history-item" href="data/2026-05/week21.html" data-date="2026-05-22">
       <div class="history-title">第 21 周</div>
       <div class="history-date">2026-05-15 ~ 2026-05-22</div>
     </a>
-    <a class="history-item" href="../2026-05/week22.html" data-date="2026-05-29">
+    <a class="history-item" href="data/2026-05/week22.html" data-date="2026-05-29">
       <div class="history-title">第 22 周</div>
       <div class="history-date">2026-05-23 ~ 2026-05-29</div>
     </a>
@@ -539,13 +549,12 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="history-title">第 23 周</div>
       <div class="history-date">2026-05-30 ~ 2026-06-05</div>
     </a>
-    
   </div>
 </div>
 
 <header>
-  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 21 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
-  <p class="period">2026-05-15 ~ 2026-05-22 · 每周五 10 点更新</p>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 23 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
+  <p class="period">2026-05-30 ~ 2026-06-05 · 每周五 10 点更新</p>
   <div class="source-badges">
     <span class="source-badge active">AIHOT</span>
     <span class="source-badge active">ProductHunt</span>
@@ -574,66 +583,40 @@ footer a { color: var(--accent); text-decoration: none; }
     </div>
 
     <div class="shift-card">
-      <div class="domain">🌐 平台级迁移 · Google I/O 2026</div>
+      <div class="domain">🔄 微软 & OpenAI 正式分道扬镳 · 双巨头竞争格局重构</div>
       <div class="shift-direction">
-        <span class="from">Gemini 作为 AI 助手</span>
+        <span class="from">微软-OpenAI 紧密合作，「AI 军火商」格局</span>
         <span class="arrow">→</span>
-        <span class="to">Gemini Omni + Agent — 从任意输入生成任意输出，自主执行</span>
+        <span class="to">双方正面竞争，微软 AI 负责人称须自证能力，Alphabet 800 亿美元 + Anthropic IPO 入场</span>
       </div>
       <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
-        Google I/O 2026 成为本周 AI 产业最大锚点。Gemini Omni 全能模型（从任意输入生成任意输出）、Gemini 3.5（代理式工作流）、Gemini Agent（自主执行复杂任务）三箭齐发。更关键的是，Gemini 月活突破 9 亿，日请求量增长 7 倍，谷歌月处理 Token 超 3200 万亿——这一数据规模意味着「AI 规模效应」已从训练侧延伸至推理侧。与此同时，Gemini 开始连接 OpenTable、Canva、Instacart 等外部服务，AI 从「回答问题」进入「自主行动」阶段。Google I/O 还发布了 Kotlin ADK、Android ADK 0.1.0 等面向开发者的 Agent 构建工具，Gemini for Home 将 AI 能力扩展至智能家居场景。
+        AI 行业格局迎来标志性转折。微软与 OpenAI 的合作关系"彻底破裂"，微软 AI 主管 Mustafa Suleyman 明确表示公司须自证能独立完成所有任务。微软在 Build 2026 上发布了首款自研推理模型 MAI-Thinking-1，AI 负责人公开批评 Anthropic 模型"太贵"并正研发替代品。与此同时，OpenAI 前沿模型与 Codex 转向 AWS 可用，Alphabet 宣布融资 800 亿美元扩展 AI 基础设施（含 Berkshire Hathaway 投资），Anthropic 秘密提交 IPO 申请。OpenAI Robotics 团队正式启动招聘，ChatGPT 月活破 10 亿——Sensor Tower 称"史上最快"。
       </p>
       <div class="fb-insight">
-        <strong>🔵 Follow Builders 交叉验证：</strong> 本周 Builders 对 I/O 的讨论围绕「自主性」展开。Sam Altman 在推文中表示 "a general-purpose model solved a major open problem in mathematics. We will be saying this a lot over the coming years"（❤8.6K）—— 暗示模型能力正在快速超越人类预期。值得注意的是，Anthropic 同日以 "Andrej Karpathy 加入" 的官宣完美「抢戏」了 Google I/O 的部分流量，显示竞争已白热化。
-      </div>
-      <div class="meta">
-        <span class="source-group">
-          <span class="source-badge active">AIHOT</span>
-          <span class="source-badge active">PH</span>
-          <span class="source-badge inactive">Watcha</span>
-          <span class="source-badge active">FB</span>
-        </span>
-        <span class="signal-tag strong">● 强信号</span>
-        <span style="color:var(--text-muted);">速度：快速推进</span>
-        <span style="color:var(--text-muted);">（依据：Google I/O Keynote · AIHOT · @sama · Anthropic Newsroom）</span>
-      </div>
-    </div>
-
-    <div class="shift-card">
-      <div class="domain">⛓️ 产业格局重组 · 人才 + 资本</div>
-      <div class="shift-direction">
-        <span class="from">OpenAI 仍为 AI 行业融资与人才单极中心</span>
-        <span class="arrow">→</span>
-        <span class="to">Anthropic 成「盈利+人才」双标杆，B2B 反超 OpenAI</span>
-      </div>
-      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
-        OpenAI 本周启动 IPO 冲刺，最快本周五提交招股书草案，9 月上市预期强烈。同时宣布史上最大重组——ChatGPT、Codex、API 三大产品线合并为统一组织，Greg Brockman 正式全面接管产品战略。但同日，AI 界最具号召力的独立研究者 Andrej Karpathy 选择加入 Anthropic，后者 Q2 营收预计 109 亿美元，即将成为首个盈利的 AI 实验室。Anthropic 同时以 300 亿美元融资谈判（估值 9000亿）、收购 SDK 平台 Stainless、与毕马威全球联盟等一系列动作，标志着 AI 行业从「OpenAI 单极」进入「双巨头竞争」的新阶段。Anthropic 还与教皇利奥十四世联合发布 AI 通谕，从伦理层面扩大影响力。
-      </p>
-      <div class="fb-insight">
-        <strong>🔵 Follow Builders 交叉验证：</strong> Karpathy 的加入是本周 Twitter 上 AI Builders 讨论热度最高的事件。他的公开声明称未来几年在 LLM 前沿的研究「尤其具有塑造性」，选择 Anthropic 而非重新创业，暗示了前沿模型研发的资本密度和技术门槛仍在快速提升。Elon Musk 也罕见称赞了 Anthropic 的人才策略，显示产业格局的「引力中心」正在偏移。
+        <strong>🔵 Follow Builders 交叉验证：</strong> Builders 社区高度关注微软-OpenAI 分裂信号，尤其 Mustafa Suleyman 在 Build 的发言被视为「后 OpenAI 时代微软 AI 战略」的宣言。
       </div>
       <div class="meta">
         <span class="source-group">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
-          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">Watcha</span>
           <span class="source-badge active">FB</span>
         </span>
         <span class="signal-tag strong">● 强信号</span>
         <span style="color:var(--text-muted);">速度：快速推进</span>
-        <span style="color:var(--text-muted);">（依据：CNBC · WSJ · Anthropic · @karpathy · @elonmusk）</span>
+        <span style="color:var(--text-muted);">（依据：AIHOT · Microsoft Build · Bloomberg · 多方验证）</span>
       </div>
     </div>
 
     <div class="shift-card">
-      <div class="domain">🌍 政策 · AI 劳动力市场 & 监管</div>
+      <div class="domain">🏗️ AI 基建军备竞赛白热化 · Alphabet 800 亿 / 软银 870 亿 / SK 产能翻倍</div>
       <div class="shift-direction">
-        <span class="from">AI 失业是学术讨论话题</span>
+        <span class="from">科技巨头各自为政的 AI 基建投入</span>
         <span class="arrow">→</span>
-        <span class="to">加州签署 AI 失业行政令，AI 冲击劳动力市场正式成为公共政策</span>
+        <span class="to">Alphabet 800 亿美元股融、软银法国 870 亿美元数据中心、SK 海力士五年产能翻倍、台积电"只能支持这么多"</span>
       </div>
       <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
-        加州州长纽森签署全球首个将 AI 导致就业替代正式纳入公共政策的行政令，要求研究遣散费、就业保险等保障措施。同一周，Intuit 宣布裁员 3000 人、Meta 万人重组、美国 AI 相关岗位开始出现大规模裁员。这是 AI 对劳动力市场的冲击从理论讨论进入现实阶段的关键节点。同时，欧盟 AI 法案高风险分类草案开启公众咨询，英国三部门联合警告 AI 网络攻击风险——全球 AI 监管正从「原则讨论」进入「规则落地」。
+        基础设施投入进入全面升级阶段。Alphabet 宣布通过发行股票筹资 800 亿美元，包括与 Berkshire Hathaway 的投资协议。软银计划在法国投资 750 亿欧元（约 870 亿美元）建设 AI 数据中心。SK 海力士会长宣布五年内晶圆产能翻倍。OpenAI 在密歇根州启动 Stargate 1GW 数据中心项目，NVIDIA DGX Station 开始交付研发人员。台积电直言通过美国本土生产满足需求将"非常漫长"，凸显 AI 产能压力。联合国报告预测 2030 年 AI 数据中心水电消耗将翻倍。
       </p>
       <div class="meta">
         <span class="source-group">
@@ -642,9 +625,32 @@ footer a { color: var(--accent); text-decoration: none; }
           <span class="source-badge inactive">Watcha</span>
           <span class="source-badge inactive">FB</span>
         </span>
-        <span class="signal-tag mid">● 中信号</span>
-        <span style="color:var(--text-muted);">速度：中速累积</span>
-        <span style="color:var(--text-muted);">（依据：AIHOT · 彭博 · CNBC）</span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：AIHOT · Bloomberg · 联合国报告 · 多方确认）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">⚖️ AI 安全从理论到现实危机 · 诉讼 / 账号劫持 / 假形象诈骗</div>
+      <div class="shift-direction">
+        <span class="from">AI 安全是「未来议题」</span>
+        <span class="arrow">→</span>
+        <span class="to">佛罗里达州起诉 OpenAI 涉多起 ChatGPT 相关谋杀案、Meta AI 漏洞致账号被劫持、AI 虚假形象诈骗泛滥</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        AI 安全从理论讨论变为真实的法律和社会危机。佛罗里达州总检察长起诉 OpenAI 及其 CEO Sam Altman，指控对人命"完全漠视"，案件与多起涉及 ChatGPT 的谋杀事件相关。Meta 的 AI 聊天机器人被发现可被黑客利用来劫持 Instagram 账号（通过 AI 智能体直接执行账户管理操作）。AI 诈骗升级——卖家利用 AI 生成虚假形象在社交平台销售劣质商品。新加坡防务论坛专家警告 AI 风险已超过核武器。积极面：Anthropic 开源了 AI 驱动漏洞发现框架，OpenAI 新增内容审核评分 API，美国发布 AI 行政令（Anthropic 表示支持）。
+      </p>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：加速爆发</span>
+        <span style="color:var(--text-muted);">（依据：AIHOT · Florida AG · Meta 披露 · Anthropic · 防务论坛）</span>
       </div>
     </div>
   </section>
@@ -663,9 +669,8 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="row-label">本周新出现</div>
 
       <div class="cell">
-        <div class="signal-title">Google I/O：Gemini 从「回答」走向「行动」</div>
-        <div class="signal-note">Gemini Omni + 3.5 + Agent 三箭齐发，9 亿月活，Token 3200 万亿</div>
-        <div class="fb-evidence">🔵 @sama 「general-purpose model solved open problem in math」❤8.6K — I/O 同期发出，说明模型能力的加速无人能忽视</div>
+        <div class="signal-title">微软-OpenAI 正面竞争</div>
+        <div class="signal-note">Mustafa Suleyman 表态自证 + MAI-Thinking-1 + 批评 Anthropic 太贵</div>
         <span class="source-group">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
@@ -675,45 +680,55 @@ footer a { color: var(--accent); text-decoration: none; }
         <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
 
         <div style="margin-top:12px;">
-          <div class="signal-title">Karpathy 加入 Anthropic + Anthropic Q2 盈利预期</div>
-          <div class="signal-note">华尔街日报：Q2 营收 109 亿，运营利润 5.59 亿</div>
-          <div class="fb-evidence">🔵 @karpathy 「the next few years are especially formative」 + Elon「great call by Anthropic」— 人才+资本双重确认</div>
+          <div class="signal-title">Alphabet 800 亿 / Anthropic IPO / OpenAI Robotics</div>
+          <div class="signal-note">Alphabet 含 Berkshire Hathaway、Anthropic 领先上市、OpenAI 硬件团队启动</div>
           <span class="source-group">
             <span class="source-badge active">AIHOT</span>
             <span class="source-badge inactive">PH</span>
             <span class="source-badge inactive">Watcha</span>
-            <span class="source-badge active">FB</span>
+            <span class="source-badge inactive">FB</span>
           </span>
           <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
         </div>
 
         <div style="margin-top:12px;">
-          <div class="signal-title">OpenAI IPO 冲刺 + 史上最大重组</div>
-          <div class="signal-note">Brockman 夺权、三大产品线合并、最快 9 月上市</div>
+          <div class="signal-title">中国 AI 资本化加速</div>
+          <div class="signal-note">DeepSeek 500 亿融资 + 腾讯宁德时代参投、智谱科创板申请、ChatGPT 月活破 10 亿</div>
           <span class="source-group">
             <span class="source-badge active">AIHOT</span>
             <span class="source-badge inactive">PH</span>
             <span class="source-badge inactive">Watcha</span>
-            <span class="source-badge active">FB</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">AI 安全诉讼与法律危机</div>
+          <div class="signal-note">佛罗里达起诉 OpenAI、Meta AI 账号劫持、AI 假形象诈骗</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
           </span>
           <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
         </div>
       </div>
 
       <div class="cell">
-        <div class="signal-title">加州签署 AI 失业行政令</div>
-        <div class="signal-note">首个将 AI 失业纳入公共政策的政府行动</div>
+        <div class="signal-title">Qwen Cloud 全球黑客马拉松（7 万美金奖金池）</div>
         <span class="source-group">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
           <span class="source-badge inactive">Watcha</span>
           <span class="source-badge inactive">FB</span>
         </span>
-        <span class="signal-tag weak" style="margin-left:6px;">● 弱（早期政策信号）</span>
+        <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
 
         <div style="margin-top:12px;">
-          <div class="signal-title">AI 影视全流程制作进入商业化</div>
-          <div class="signal-note">100% AI 电影亮相戛纳，Kling 4K 获好莱坞采用</div>
+          <div class="signal-title">欧盟全面技术主权计划</div>
+          <div class="signal-note">推动芯片与 AI 自主减少外部依赖</div>
           <span class="source-group">
             <span class="source-badge active">AIHOT</span>
             <span class="source-badge inactive">PH</span>
@@ -724,59 +739,47 @@ footer a { color: var(--accent); text-decoration: none; }
         </div>
 
         <div style="margin-top:12px;">
-          <div class="signal-title">SpaceX  + Anthropic 算力合作</div>
-          <div class="signal-note">轨道数据中心 + AI 算力服务，概念超前</div>
+          <div class="signal-title">人形机器人点球大战 / 特斯拉 FSD 横穿加拿大</div>
+          <div class="signal-note">展示性质为主</div>
           <span class="source-group">
             <span class="source-badge active">AIHOT</span>
             <span class="source-badge inactive">PH</span>
             <span class="source-badge inactive">Watcha</span>
             <span class="source-badge inactive">FB</span>
           </span>
-          <span class="signal-tag weak" style="margin-left:6px;">● 弱（噪音级）</span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
         </div>
       </div>
 
       <div class="row-label">持续强化</div>
 
       <div class="cell">
-        <div class="signal-title">英伟达 Q1 净利润 583 亿 +211%</div>
-        <div class="signal-note">数据中心 752 亿 +92%，AI 基础设施需求未见放缓</div>
+        <div class="signal-title">AI Agent 工具链成熟化</div>
+        <div class="signal-note">Codex SDK/插件/Sites、Replit Agent 建店/SEO、Perplexity Search as Code、Claude CLI/Platform、OpenShell</div>
         <span class="source-group">
           <span class="source-badge active">AIHOT</span>
-          <span class="source-badge inactive">PH</span>
-          <span class="source-badge inactive">Watcha</span>
-          <span class="source-badge inactive">FB</span>
+          <span class="source-badge active">PH</span>
+          <span class="source-badge active">Watcha</span>
+          <span class="source-badge active">FB</span>
         </span>
-        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强（四源收敛）</span>
 
         <div style="margin-top:12px;">
-          <div class="signal-title">中国 AI 军团全面追赶</div>
-          <div class="signal-note">腾讯「马维斯」OS 助手、商汤 CV 十年第一、百度 AI 136 亿 +49%、Kimi 国资入局</div>
+          <div class="signal-title">模型聚合/路由平台爆发</div>
+          <div class="signal-note">OpenRouter 月更 20 模型、融合模型超 GPT-5.5、DigitalOcean 加入</div>
           <span class="source-group">
             <span class="source-badge active">AIHOT</span>
             <span class="source-badge inactive">PH</span>
             <span class="source-badge inactive">Watcha</span>
-            <span class="source-badge inactive">FB</span>
-          </span>
-          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
-        </div>
-
-        <div style="margin-top:12px;">
-          <div class="signal-title">AI 网络安全军备竞赛</div>
-          <div class="signal-note">英国央行警告、Claude Opus 零误报渗透测试、Mythos 绕过 M5 MIE</div>
-          <span class="source-group">
-            <span class="source-badge active">AIHOT</span>
-            <span class="source-badge inactive">PH</span>
-            <span class="source-badge inactive">Watcha</span>
-            <span class="source-badge inactive">FB</span>
+            <span class="source-badge active">FB</span>
           </span>
           <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
         </div>
       </div>
 
       <div class="cell">
-        <div class="signal-title">开源模型竞争力持续爬升</div>
-        <div class="signal-note">Ring-2.6-1T 万亿级开源、SANA-WM 26 亿世界模型、腾讯 Hy-MT2 超越商业 API</div>
+        <div class="signal-title">AI 金融落地深化</div>
+        <div class="signal-note">金融机构汇聚交易基础模型、65% 已用 AI</div>
         <span class="source-group">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
@@ -786,8 +789,8 @@ footer a { color: var(--accent); text-decoration: none; }
         <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
 
         <div style="margin-top:12px;">
-          <div class="signal-title">AI IPO & 融资热潮</div>
-          <div class="signal-note">OpenAI 上市 + Kimi 20 亿美元 + 软银 600 亿美元</div>
+          <div class="signal-title">AI 影视创作工业化</div>
+          <div class="signal-note">Runway API 扩展、Luma Agents 宣传图生成、Grok Imagine 1.5 视频模型</div>
           <span class="source-group">
             <span class="source-badge active">AIHOT</span>
             <span class="source-badge inactive">PH</span>
@@ -795,40 +798,34 @@ footer a { color: var(--accent); text-decoration: none; }
             <span class="source-badge inactive">FB</span>
           </span>
           <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
-
-          <div style="margin-top:12px;">
-            <div class="signal-title">谷歌黑石 250 亿美元 AI 云合资</div>
-            <div class="signal-note">2027 年 500 兆瓦算力，对标 CoreWeave</div>
-            <span class="source-group">
-              <span class="source-badge active">AIHOT</span>
-              <span class="source-badge inactive">PH</span>
-              <span class="source-badge inactive">Watcha</span>
-              <span class="source-badge inactive">FB</span>
-            </span>
-            <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
-          </div>
         </div>
       </div>
 
       <div class="row-label">开始减弱</div>
 
       <div class="cell">
-        <div class="signal-title">OpenAI 「唯一天才叙事」</div>
-        <div class="signal-note">Karpathy 选择 Anthropic + 软银内部质疑孙正义过度信任奥特曼 + 马斯克案败诉 — 多重信号显示「OpenAI 不可替代」光环在褪色</div>
-        <div class="fb-evidence">🔵 @elonmusk 罕见称赞 Anthropic + 软银高管「迷信奥特曼如追星」内部不满 → 资本/人才/舆论三重松动</div>
+        <div class="signal-title">AI 无限预算假设</div>
+        <div class="signal-note">微软负责人直言 Anthropic 太贵、Copilot token 计费引发不满、Alphabet 800 亿融资说明烧钱压力</div>
         <span class="source-group">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
           <span class="source-badge inactive">Watcha</span>
-          <span class="source-badge active">FB</span>
+          <span class="source-badge inactive">FB</span>
         </span>
         <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
       </div>
 
-      <div class="cell empty" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
-        —
+      <div class="cell">
+        <div class="signal-title">开源-闭源模型差距缩小</div>
+        <div class="signal-note">Nex-N2-Pro（397B MoE）达 GPT-5.5 水平、MiniMax M3 100 万 token 开源</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
       </div>
-
     </div>
   </section>
 
@@ -840,43 +837,41 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <h3 style="font-family:var(--font-display);font-size:1.05rem;margin-bottom:14px;color:var(--accent);">3.1 供需缺口</h3>
 
-    <article class="opportunity-card mid">
-      <h3>Agent 编排与评估平台</h3>
-      <div class="evidence"><strong>需求证据：</strong> Google I/O 发布 Kotlin ADK、Android ADK 构建 Agent 工具；Anthropic 收购 MCP 平台 Stainless；Ring-2.6-1T 专为 Agent 工作流设计——巨头们都在为 Agent 建基础设施，但缺乏中立、跨模型的 Agent 评估与编排平台。</div>
-      <div class="supply"><strong>供给现状：</strong> 已有分散的 agent leaderboard，缺乏一站式评估/监控/编排产品。</div>
-      <div class="cross-source fb"><strong>🟣 Follow Builders 佐证：</strong> Sam Altman 在 I/O 周表示 AI 已能解决数学开放问题（❤8.6K），Agent 能力在加速但配套工具远落后于模型本身。这正是 Builder 社区的真实痛点——「能做」和「可靠地做」之间差一个平台。</div>
+    <article class="opportunity-card strong">
+      <h3>AI 安全审计 &amp; 合规管理 SaaS</h3>
+      <div class="evidence"><strong>需求证据：</strong> 佛罗里达州起诉 OpenAI（多起 ChatGPT 相关谋杀案）、Meta AI 漏洞致 IG 账号被劫持、AI 虚假形象诈骗泛滥、TrapDoor 供应链攻击持续。安全已从"理论担忧"变为"现实法律危机"。</div>
+      <div class="supply"><strong>供给现状：</strong> Anthropic 已开源漏洞发现框架，OpenAI 新增审核评分 API，但市场上缺少中立、企业级的 AI 行为审计和安全合规产品。</div>
       <span class="source-group">
         <span class="source-badge active">AIHOT</span>
         <span class="source-badge inactive">PH</span>
         <span class="source-badge inactive">Watcha</span>
         <span class="source-badge active">FB</span>
       </span>
-      <span class="signal-tag mid">● 中信号（三源收敛）</span>
+      <span class="signal-tag strong">● 强信号</span>
     </article>
 
-    <article class="opportunity-card mid">
-      <h3>AI 安全审计与合规 SaaS</h3>
-      <div class="evidence"><strong>需求证据：</strong> 英国央行警告 AI 网络攻击、研究人员用 Mythos 绕过 M5 MIE 安全系统、Claude 新增 28 项安全合规集成——市场需求明确且紧迫。</div>
-      <div class="supply"><strong>供给现状：</strong> 巨头各自为战，缺乏面向企业的 AI 安全审计 SaaS 产品。</div>
+    <article class="opportunity-card strong">
+      <h3>AI 基础设施 ROI 管理工具</h3>
+      <div class="evidence"><strong>需求证据：</strong> Alphabet 800 亿美元融资、软银 870 亿欧洲数据中心、微软 AI 负责人公开表达成本压力。企业级 AI 支出飙升但 ROI 量化工具缺失。</div>
+      <div class="supply"><strong>供给现状：</strong> OpenRouter 新增 cost_quality_tradeoff 和 Guardrails 工具（预算控制），但没有完整的 AI 投资 ROI 审计 SaaS。</div>
       <span class="source-group">
         <span class="source-badge active">AIHOT</span>
         <span class="source-badge inactive">PH</span>
         <span class="source-badge inactive">Watcha</span>
-        <span class="source-badge inactive">FB</span>
+        <span class="source-badge active">FB</span>
       </span>
-      <span class="signal-tag mid">● 中信号</span>
+      <span class="signal-tag strong">● 强信号</span>
     </article>
 
     <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.2 竞争过热区</h3>
 
     <article class="opportunity-card strong">
-      <h3>通用 AI 编程辅助 / AI IDE</h3>
-      <div class="evidence"><strong>过热证据：</strong> Codex 新增 Appshots + 跨设备操控 Mac、ChatGPT 原生集成 PowerPoint、Cursor 持续迭代、Replit 企业版自助服务、OpenCode 集成 Grok——一周内超 5 个竞争产品更新。</div>
-      <div class="cross-source watcha"><strong>Watcha 佐证：</strong> Hermes Agent（🔥17）、WorkBuddy（🔥97）、豆包输入法（🔥17）等 AI 效率工具持续高热。</div>
-      <div class="supply"><strong>差异化建议：</strong> 垂直行业 AI 编码（医疗/金融合规）或 AI Code Review 专项，避开通用 IDE 红海。</div>
+      <h3>AI 编码 Agent / AI IDE 工具链</h3>
+      <div class="evidence"><strong>过热证据：</strong> Codex Python SDK + iOS 插件 + Sites 功能 + 线程管理 + 团队插件；Claude CLI/Platform；Replit Agent 建店/SEO/Slides；xAI Grok Build 2.5；Cursor Enterprise Organizations；NousResearch Hermes Agent 桌面应用——仅本周超过 12 个竞品更新。</div>
+      <div class="supply"><strong>差异化建议：</strong> AI 安全审计、Agent 行为合规审查、AI 代码供应链风险管理。</div>
       <span class="source-group">
         <span class="source-badge active">AIHOT</span>
-        <span class="source-badge inactive">PH</span>
+        <span class="source-badge active">PH</span>
         <span class="source-badge active">Watcha</span>
         <span class="source-badge active">FB</span>
       </span>
@@ -886,9 +881,9 @@ footer a { color: var(--accent); text-decoration: none; }
     <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.3 替代缺口</h3>
 
     <article class="opportunity-card mid">
-      <h3>GitHub 的「生存级风险」替代空间</h3>
-      <div class="evidence"><strong>被替代者：</strong> GitHub / Git 托管。微软内部示警 GitHub 面临 AI 编程工具的生存级风险——开发者代码分散在 Agent 工具中。</div>
-      <div class="supply"><strong>替代信号强度：</strong> 中 — 微软内部预警 + Codex Appshots + OpenCode + V8.1 等产品密集推出，验证了 AI 改变开发者工作流的趋势。</div>
+      <h3>GitHub Copilot —— token 计费引发开发者不满</h3>
+      <div class="evidence"><strong>被替代者：</strong> GitHub Copilot 新的基于 token 计费模式引发开发者广泛不满。与此同时 Codex 和 Claude Code 等竞品持续创新。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 中——开发者情绪恶化，但尚无一站式替代平台出现。</div>
       <span class="source-group">
         <span class="source-badge active">AIHOT</span>
         <span class="source-badge inactive">PH</span>
@@ -897,21 +892,6 @@ footer a { color: var(--accent); text-decoration: none; }
       </span>
       <span class="signal-tag mid">● 中信号</span>
     </article>
-
-    <article class="opportunity-card weak">
-      <h3>传统 BI/数据分析 → AI 原生分析</h3>
-      <div class="evidence"><strong>被替代者：</strong> Power BI / Tableau。Datasette Agent 和 MSR AI 工具暗示方向。</div>
-      <div class="supply"><strong>替代信号强度：</strong> 弱 — 目前多为 Agent 实验阶段。</div>
-      <div class="supply"><strong>机会窗口：</strong> 6-12 个月</div>
-      <span class="source-group">
-        <span class="source-badge active">AIHOT</span>
-        <span class="source-badge inactive">PH</span>
-        <span class="source-badge inactive">Watcha</span>
-        <span class="source-badge inactive">FB</span>
-      </span>
-      <span class="signal-tag weak">● 弱信号</span>
-    </article>
-
   </section>
 
   <section id="catalysts">
@@ -921,11 +901,11 @@ footer a { color: var(--accent); text-decoration: none; }
     </div>
 
     <div class="catalyst-item">
-      <div class="event-title">⚡ Google I/O 2026 — Gemini Agent + Omni 双核发布</div>
+      <div class="event-title">⚡ 微软-OpenAI 彻底分手 &amp; 微软自研 MAI-Thinking-1</div>
       <div class="detail">
-        Gemini Omni：从任意输入（视频/图片/文本）生成任意输出，保持角色一致性。Gemini Agent：自主执行复杂任务。月活 9 亿，Token 3200 万亿。谷歌联手黑石 250 亿美元组建 AI 云公司。<br><br>
-        <strong>影响方向：</strong> Agent 从「聊天」走向「执行」成为行业共识，Agent 基础设施需求爆发。<br>
-        <strong>是否改变机会判断：</strong> 是 — I/O 确认了 Agent 是谷歌 AI 战略的核心，全球开发者生态将被重塑。<br>
+        微软与 OpenAI 的合作关系"彻底破裂"，Mustafa Suleyman 表态须自证能力。微软 Build 2026 发布首款自研推理模型 MAI-Thinking-1，AI 负责人公开批评外部模型太贵正在自研替代品。<br><br>
+        <strong>影响方向：</strong> AI 行业从"微软-OpenAI 联盟"进入多极竞争时代。<br>
+        <strong>是否改变机会判断：</strong> 是——多极竞争催生第三方评估/路由/合规产品需求。<br>
         <span class="source-group" style="margin-top:4px;">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
@@ -936,26 +916,11 @@ footer a { color: var(--accent); text-decoration: none; }
     </div>
 
     <div class="catalyst-item">
-      <div class="event-title">⚡ OpenAI IPO + 重组 + 人才流失：内忧外患同步爆发</div>
+      <div class="event-title">⚡ Alphabet 800 亿美元融资 + Anthropic IPO 提交 + OpenAI Robotics</div>
       <div class="detail">
-        OpenAI 本周启动 IPO 推进（最早 9 月上市），同时宣布史上最大重组——Greg Brockman 全面接管产品。但同日 Karpathy 加入 Anthropic。软银内部对孙正义「迷信奥特曼」的质疑浮上水面。<br><br>
-        <strong>影响方向：</strong> OpenAI 的「不可替代」光环正在褪色，Anthropic 在资本和人才两端加速追赶。<br>
-        <strong>是否改变机会判断：</strong> 是 — AI 行业从「OpenAI+others」进入「OpenAI vs Anthropic」双巨头格局。第三方 Agent 工具需求上升。<br>
-        <span class="source-group" style="margin-top:4px;">
-          <span class="source-badge active">AIHOT</span>
-          <span class="source-badge inactive">PH</span>
-          <span class="source-badge inactive">Watcha</span>
-          <span class="source-badge active">FB</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="catalyst-item">
-      <div class="event-title">⚡ 英伟达 Q1 净利润 583.21 亿美元，增长率 211%</div>
-      <div class="detail">
-        数据中心业务营收 752 亿美元同比 +92%，毛利率 74.9%，宣布 800 亿美元回购计划。英伟达仍是 AI 基础设施增长的最直接受益者。<br><br>
-        <strong>影响方向：</strong> AI 基础设施投入持续高增长，但资本市场对「增速预期是否见顶」的讨论增加。<br>
-        <strong>是否改变机会判断：</strong> 否 — 短期不影响应用层投资逻辑。<br>
+        Alphabet 发行股票含 Berkshire Hathaway 投资。Anthropic 秘密提交 IPO（领先 OpenAI）。OpenAI 启动 Robotics 团队进入硬件领域。软银计划法国 870 亿美元数据中心。<br><br>
+        <strong>影响方向：</strong> AI 资本化与硬件化进入新阶段，竞争从软件延伸到硬件。<br>
+        <strong>是否改变机会判断：</strong> 是——AI 投资已不仅是模型竞赛，更是基建+硬件+资本的全维度战争。<br>
         <span class="source-group" style="margin-top:4px;">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
@@ -966,11 +931,11 @@ footer a { color: var(--accent); text-decoration: none; }
     </div>
 
     <div class="catalyst-item">
-      <div class="event-title">⚡ 加州签署 AI 失业行政令 — 全球首个公共政策响应</div>
+      <div class="event-title">⚡ ChatGPT 月活破 10 亿 &amp; OpenAI Robotics 团队启动</div>
       <div class="detail">
-        纽森签署行政令，要求研究遣散费、就业保险及员工持股等保障措施。Intuit 裁员 3000 人、Meta 万人重组同步发生。<br><br>
-        <strong>影响方向：</strong> AI 失业从「媒体话题」进入「政策议程」，可能触发其他州和国家效仿。<br>
-        <strong>是否改变机会判断：</strong> 是 — 员工再培训/HR Tech SaaS 市场迎来政策驱动增长机会。<br>
+        ChatGPT 成为"史上最快"破 10 亿月活的应用。OpenAI Robotics 由 Aditya Ramesh 领导，从世界模拟研究转向机器人硬件，短期目标"编程和制造能服务社会的机器人"。同时 OpenAI 在密歇根州启动 Stargate 1GW 数据中心。<br><br>
+        <strong>影响方向：</strong> AI 从数字世界走向物理世界——具身智能赛道正式由头部玩家启动。<br>
+        <strong>是否改变机会判断：</strong> 是——机器人+AI 软件全栈是未来 3-5 年的核心战场。<br>
         <span class="source-group" style="margin-top:4px;">
           <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
@@ -981,15 +946,21 @@ footer a { color: var(--accent); text-decoration: none; }
     </div>
 
     <div class="catalyst-item">
-      <div class="event-title">📊 Watcha 热门洞察 — WorkBuddy 🔥97 领跑中国企业 AI</div>
+      <div class="event-title">📊 中国 AI 本周关键数据</div>
       <div class="detail">
-        Watcha 本周热门 Top：WorkBuddy（🔥97）、钉钉悟空（🔥35）、Alice（🔥30）、天工 Skywork（🔥24）、Hermes Agent（🔥17）、豆包输入法（🔥17）、花令（🔥16）、xia345（🔥16）、meetme（🔥15）、百度搭子 DuMate（🔥12）。<br><br>
-        中国企业 AI 助手、Agent 类产品持续高热，WorkBuddy 的 97 分断崖领先。<br>
-        <strong>是否改变机会判断：</strong> 是 — 中国企业 AI 市场 Agent 助手赛道明确，竞争加速。<br>
+        · DeepSeek 首轮 500 亿元融资（腾讯/宁德时代参投，梁文峰 200 亿），投后估值 3500~4000 亿<br>
+        · 智谱申请科创板 A 股发行上市（2%~8% 股份）<br>
+        · 王兴：美团"小美"Agent 与腾讯元宝深度合作，用户订单无缝连接<br>
+        · 上海"十五五"规划明确支持多模态 Agent 开发与应用<br>
+        · 小米开源 ControlFoley 可控视频音效生成模型<br>
+        · 阿里云百炼 CLI 开源 + Qwen Cloud 全球黑客马拉松（7 万美元奖金）<br>
+        · Qwen-VLA 视觉-语言-动作模型发布<br>
+        · 阿里云与 Qwen 成为 UEFA 多年全球官方合作伙伴（2027~2033 赛季）<br>
+        · 全球首次人形机器人点球大战（MWC 上海，8 支中国队伍）<br><br>
         <span class="source-group" style="margin-top:4px;">
-          <span class="source-badge inactive">AIHOT</span>
+          <span class="source-badge active">AIHOT</span>
           <span class="source-badge inactive">PH</span>
-          <span class="source-badge active">Watcha</span>
+          <span class="source-badge inactive">Watcha</span>
           <span class="source-badge inactive">FB</span>
         </span>
       </div>
@@ -998,7 +969,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="noise-box">
       <h4>📢 本周噪音识别</h4>
       <p>
-        「SpaceX + Anthropic AI 算力合作 + 轨道数据中心」— 前瞻概念但短期无落地可能。「Elon Musk 诉 OpenAI 败诉」— 有媒体热度但不影响产品/市场判断。「AI 与教皇通谕」— 象征性事件，不影响市场竞争。「现代 2.5 万台人形机器人」— 规划宏大但现实差距大。
+        「Suno 4 亿美元 D 轮融资」——音乐 AI 单独赛道，非通用行业信号。「特斯拉 FSD 横穿加拿大」——自动驾驶展示，非市场变量。「波士顿儿童医院 AI 诊断」——单案例，非系统信号。「阿里云 UEFA 合作」——品牌合作性质，非技术突破。「OpenClaw 与微软合作」——项目层面的整合消息。「Gemini Omni 草图变现实」——有趣但商业化路径不清晰。
       </p>
     </div>
   </section>
@@ -1011,39 +982,37 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <div class="watch-item">
       <span class="number">01</span>
-      <h3>OpenAI IPO 招股书提交</h3>
-      <div class="trigger"><strong>触发条件：</strong> 最快本周五（5/22）提交，估值、盈利模型、投资风险全透明化</div>
-      <div class="implication"><strong>如果发生意味着：</strong> 全球 AI 投资的新参照系诞生，OpenAI 的财务透明化将直接影响行业估值逻辑</div>
-      <div class="fb-hint">🔵 关注 @sama 和 @technollama 的 IPO 讨论推文，通常在提交后数小时内即可见市场反应</div>
+      <h3>Anthropic S-1 后续——IPO 定价与日期进展</h3>
+      <div class="trigger"><strong>触发条件：</strong> 已完成 SEC 保密提交</div>
+      <div class="implication"><strong>如果发生意味着：</strong> Anthropic 可能成为首个上市的主要 AI 实验室，改变 AI 行业资本化节奏</div>
     </div>
 
     <div class="watch-item">
       <span class="number">02</span>
-      <h3>Google I/O 后 Gemini Omni 开发者反馈</h3>
-      <div class="trigger"><strong>触发条件：</strong> I/O 发布「全能模型」后首周，开发者能否复现演示效果？</div>
-      <div class="implication"><strong>如果发生意味着：</strong> 若效果好，Agent 开发门槛大幅降低；若效果不及预期，市场将回归「模型能力 vs 工程化」平衡</div>
+      <h3>Alphabet 800 亿美元融资具体分配方案</h3>
+      <div class="trigger"><strong>触发条件：</strong> 发行股票含 Berkshire Hathaway</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 科技巨头 AI 基础设施投入规模远超预期，基础设施 SaaS/AI 工厂管理产品需求增长</div>
     </div>
 
     <div class="watch-item">
       <span class="number">03</span>
-      <h3>Karpathy 加入 Anthropic 后的首批公开成果</h3>
-      <div class="trigger"><strong>触发条件：</strong> Karpathy 的加入是否意味着 Anthropic 将发布新的安全/对齐研究成果？</div>
-      <div class="implication"><strong>如果发生意味着：</strong> Anthropic「以安全换信任」的战略获得顶级 AI 学者背书，可能进一步扩大企业采用优势</div>
+      <h3>微软自研模型 MAI-Thinking-1 与 Claude/OpenAI 正面比较</h3>
+      <div class="trigger"><strong>触发条件：</strong> Build 2026 发布，微软与 OpenAI 已"分手"</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 模型市场格局从"两个半巨头"变为"三个独立玩家"，采购方议价能力增强</div>
     </div>
 
     <div class="watch-item">
       <span class="number">04</span>
-      <h3>中国 AI 模型发布密度创历史新高后企业采用数据</h3>
-      <div class="trigger"><strong>触发条件：</strong> 腾讯马维斯 + Ring-2.6-1T + 商汤 SenseNova U1 + Qwen 3.7 密集发布后，企业实际采用率变化</div>
-      <div class="implication"><strong>如果发生意味着：</strong> 国产模型从「追赶」进入「可用」阶段，企业「用国产 vs 海外模型」的决策点来临，催生多模型编排需求</div>
+      <h3>OpenAI Robotics 首批工程师方向——软件 vs 硬件</h3>
+      <div class="trigger"><strong>触发条件：</strong> 由 Aditya Ramesh（世界模拟团队）领导</div>
+      <div class="implication"><strong>如果发生意味着：</strong> OpenAI 可能从"世界模型"走向"具身智能"，机器人+AI 全栈赛道竞争加剧</div>
     </div>
 
     <div class="watch-item">
       <span class="number">05</span>
-      <h3>AI 劳动力政策连锁反应</h3>
-      <div class="trigger"><strong>触发条件：</strong> 加州签署行政令后，其他州/国家是否迅速跟进？Intuit/Meta 裁员是否引发行业效仿？</div>
-      <div class="implication"><strong>如果发生意味着：</strong> AI 驱动的劳动力结构调整加速，HR Tech 和再培训 SaaS 市场进入政策驱动增长期</div>
-      <div class="fb-hint">🔵 关注 @levie（Box CEO）的 Agent 采用率分享——企业端的真实数据比新闻报道更可靠</div>
+      <h3>DeepSeek 500 亿融资 + 智谱科创板申请——中国 AI 资本化落地</h3>
+      <div class="trigger"><strong>触发条件：</strong> 腾讯/宁德时代参投 DeepSeek，智谱申请科创板</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 中国 AI 资本市场正式打开，开源模型商业模式首次接受全面检验</div>
     </div>
   </section>
 </main>
@@ -1061,51 +1030,46 @@ footer a { color: var(--accent); text-decoration: none; }
         <tbody>
           <tr>
             <td>AIHOT 产品</td>
-            <td>84 条</td>
-            <td>ChatGPT PPT 集成、Codex Appshots、Gemini 外接服务、Datasette Agent、Krea 2 LoRA</td>
+            <td>67 条</td>
+            <td>Codex SDK/插件/Sites、Replit Agent 建店/SEO、Perplexity Search as Code、Claude CLI/Platform、Google AI Studio、NotebookLM 归属/Games、Gemini macOS/Gemini Omni</td>
           </tr>
           <tr>
             <td>AIHOT 模型</td>
-            <td>28 条</td>
-            <td>Gemini Omni (7条)、Gemini 3.5、Ring-2.6-1T、SANA-WM、Qwen 3.7、Kling 4K</td>
+            <td>17 条</td>
+            <td>MiniMax M3（1M token）、微软 MAI-Thinking-1、NVIDIA Nemotron 3 Ultra、JetBrains Mellum2、Nex-N2-Pro、Miso One TTS、Grok Imagine 1.5、Qwen-VLA、OpenAI 实时翻译</td>
           </tr>
           <tr>
             <td>AIHOT 行业</td>
-            <td>47 条</td>
-            <td>OpenAI IPO/重组、Anthropic 盈利/Karpathy/Stainless、英伟达 Q1、加州行政令</td>
+            <td>44 条</td>
+            <td>微软-OpenAI 分手、Alphabet 800 亿、Anthropic IPO、OpenAI Robotics、ChatGPT 破 10 亿、DeepSeek 500 亿、佛罗里达起诉、Meta 账号劫持、欧盟主权计划、xAI 弃 JAX</td>
           </tr>
           <tr>
-            <td>ProductHunt</td>
-            <td>📡 10 条 RSS</td>
-            <td>—</td>
+            <td>Watcha</td>
+            <td>🔥 14 产品</td>
+            <td>WorkBuddy 领跑, Hermes Agent, 扣子 3.0, FlowithOS, JVS Claw 等</td>
           </tr>
           <tr>
-            <td>Watcha 热门</td>
-            <td>🔥 11 个产品</td>
-            <td>WorkBuddy 97、钉钉悟空 35、Alice 30、天工 Skywork 24、Hermes Agent 17</td>
+            <td>FB (X)</td>
+            <td>38 推文 + 1 播客</td>
+            <td>Hugging Face CLI 智能体适配、Codex 线程管理、微软-OpenAI 分裂讨论、OpenShell 发布</td>
           </tr>
           <tr>
-            <td>Follow Builders</td>
-            <td>🐦 27 推文</td>
-            <td>@sama「math open problem」❤8.6K、@karpathy 加入 Anthropic、Anthropic 盈利</td>
-          </tr>
-          <tr>
-            <td colspan="3" style="color:var(--accent);">—— 四源收敛摘要 ——</td>
+            <td colspan="3" style="color:var(--accent);">—— 跨源收敛摘要 ——</td>
           </tr>
           <tr>
             <td>四源收敛</td>
-            <td>✅ AI 编程赛道竞争白热化</td>
-            <td>Codex + Cursor + Replit + OpenCode/Grok — 四个数据源同时验证</td>
+            <td>✅ AI 编码 Agent 持续超热</td>
+            <td>Codex + Claude CLI + Replit + Perplexity + Cursor + Grok Build — 6 源同步验证</td>
           </tr>
           <tr>
             <td>三源收敛</td>
-            <td>✅ AI Agent 基础设施爆发</td>
-            <td>Google I/O + Anthropic Stainless + Ring-2.6-1T Agent 模型</td>
+            <td>✅ AI 安全与法律风险</td>
+            <td>佛罗里达起诉 + Meta 账号劫持 + 防务论坛 — AI 安全从理论变现实</td>
           </tr>
           <tr>
             <td>三源收敛</td>
-            <td>✅ AI IPO & 融资潮</td>
-            <td>OpenAI + Kimi + 软银 — 资本侧一致指向 AI 资产化加速</td>
+            <td>✅ AI 基础设施军备竞赛</td>
+            <td>Alphabet 800 亿 + 软银 870 亿 + SK 产能翻倍 — 基建投入前所未有</td>
           </tr>
         </tbody>
       </table>
@@ -1114,8 +1078,8 @@ footer a { color: var(--accent); text-decoration: none; }
 </aside>
 
 <footer>
-  <p>AI 市场洞察周刊 · 生成于 2026-05-22 10:35 CST · 数据来源：<a href="https://aihot.virxact.com" target="_blank">AIHOT</a>（159条）· <strong>ProductHunt</strong>（RSS 10条）· <strong>Watcha</strong>（11产品）· <strong>Follow Builders</strong>（27推文）</p>
-  </footer>
+  <p>AI 市场洞察周刊 · 生成于 2026-06-09 14:00 CST · 数据来源：<a href="https://aihot.virxact.com" target="_blank">AIHOT</a>（128条）· <strong>ProductHunt</strong> · <strong>Watcha</strong>（14产品）· <strong>Follow Builders</strong>（38推文）</p>
+</footer>
 
 <script>
 const sections = document.querySelectorAll('section[id]');
@@ -1124,7 +1088,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       navLinks.forEach(l => l.classList.remove('active'));
-      const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+      const link = document.querySelector('nav a[href="#' + entry.target.id + '"]');
       if (link) link.classList.add('active');
     }
   });
