@@ -1,1 +1,2 @@
-*.html
+# we want HTML files tracked for GH Pages
+# *.html
