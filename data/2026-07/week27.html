@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 市场洞察周刊 · 第 27 周</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --bg-card: #161616;
+  --bg-section: #1a1a1a;
+  --text-primary: #f0ede6;
+  --text-secondary: #9c9994;
+  --text-muted: #5a5855;
+  --accent: #c8a96e;
+  --accent-dim: rgba(200,169,110,0.15);
+  --border: rgba(240,237,230,0.08);
+  --signal-strong: #e05c5c;
+  --signal-mid: #d4a843;
+  --signal-weak: #5a5855;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  padding: 80px 40px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+header h1 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+header .period {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+header .source-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.source-badge {
+  display: inline-flex;
+  align-items: center; transform: translateY(4px);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.source-badge.active {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.source-badge.inactive {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+nav li { white-space: nowrap; }
+nav a {
+  display: block;
+  padding: 16px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+main { max-width: 960px; margin: 0 auto; padding: 0 40px 60px; }
+section {
+  padding: 48px 0;
+  animation: fadeUp 0.6s ease both;
+}
+section:nth-child(1) { animation-delay: 0s; }
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.section-header {
+  display: flex;
+  align-items: center; transform: translateY(4px);
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header .num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.shift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.shift-card .domain {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.shift-card .shift-direction {
+  display: flex;
+  align-items: center; transform: translateY(4px);
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+.shift-card .shift-direction .arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.shift-card .shift-direction .from, .shift-card .shift-direction .to {
+  padding: 4px 10px;
+  background: var(--bg-section);
+  border-radius: 4px;
+}
+.shift-card .meta {
+  display: flex;
+  gap: 8px;
+  align-items: center; transform: translateY(4px);
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.8rem;
+}
+.shift-card .fb-insight {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(100, 200, 255, 0.07);
+  border-left: 3px solid #64c8ff;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.shift-card .fb-insight strong { color: var(--accent); }
+.matrix {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.matrix .cell {
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: 80px;
+}
+.matrix .cell:last-child { border-right: none; }
+.matrix .header-cell {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  display: flex;
+  align-items: center; transform: translateY(4px);
+  justify-content: center;
+}
+.matrix .row-label {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center; transform: translateY(4px);
+  padding-left: 20px;
+}
+.matrix .cell.empty { background: rgba(0,0,0,0.2); }
+.matrix .cell .signal-title { font-weight: 500; font-size: 0.9rem; margin-bottom: 6px; }
+.matrix .cell .signal-note { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 8px; }
+.matrix .cell .fb-evidence { font-size: 0.72rem; color: #64c8ff; margin-top: 6px; padding: 4px 8px; background: rgba(100,200,255,0.06); border-radius: 4px; }
+.opportunity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 20px 20px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.opportunity-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 60px;
+  transition: height 0.3s ease;
+}
+.opportunity-card:hover::before { height: 100%; }
+.opportunity-card.strong::before { background: var(--signal-strong); }
+.opportunity-card.mid::before { background: var(--signal-mid); }
+.opportunity-card.weak::before { background: var(--signal-weak); }
+.opportunity-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+.opportunity-card .evidence, .opportunity-card .supply { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 4px; }
+.opportunity-card .evidence strong, .opportunity-card .supply strong { color: var(--text-primary); }
+.opportunity-card .cross-source { margin-top: 10px; padding: 8px 12px; border-radius: 6px; font-size: 0.82rem; }
+.opportunity-card .cross-source.ph { background: rgba(220, 86, 37, 0.1); border-left: 3px solid #dc5625; }
+.opportunity-card .cross-source.watcha { background: rgba(100, 200, 255, 0.1); border-left: 3px solid #64c8ff; }
+.opportunity-card .cross-source.fb { background: rgba(120, 80, 200, 0.1); border-left: 3px solid #7850c8; }
+.source-group { display: inline-flex; align-items: center; transform: translateY(4px); gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.source-group .source-badge { font-size: 0.65rem; padding: 2px 8px; }
+.source-group .source-badge.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.source-group .source-badge.inactive { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.signal-tag { font-size: 0.7rem; font-weight: 600; margin-left: 4px; }
+.signal-tag.strong { color: var(--signal-strong); }
+.signal-tag.mid { color: var(--signal-mid); }
+.signal-tag.weak { color: var(--signal-weak); }
+.catalyst-item {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+}
+.catalyst-item .event-title { font-weight: 600; margin-bottom: 6px; }
+.catalyst-item .detail { font-size: 0.85rem; color: var(--text-secondary); }
+.noise-box { margin-top: 32px; padding: 20px; background: var(--bg-section); border-radius: 8px; border: 1px dashed var(--border); }
+.noise-box h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.noise-box p { font-size: 0.85rem; color: var(--text-secondary); }
+.watch-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.watch-item .number { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); opacity: 0.5; margin-right: 8px; }
+.watch-item h3 { display: inline; font-family: var(--font-display); font-size: 1rem; }
+.watch-item .trigger, .watch-item .implication { font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px; }
+.watch-item .trigger strong, .watch-item .implication strong { color: var(--text-primary); }
+.watch-item .fb-hint { margin-top: 8px; padding: 6px 10px; background: rgba(100,200,255,0.06); border-radius: 4px; font-size: 0.78rem; color: #64c8ff; }
+aside { max-width: 960px; margin: 0 auto; padding: 0 40px 60px; }
+aside details { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; }
+aside details summary { padding: 16px 20px; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--accent); user-select: none; }
+aside details summary::-webkit-details-marker { color: var(--accent); }
+aside details .table-wrap { max-height: 400px; overflow-y: auto; border-top: 1px solid var(--border); }
+aside table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.78rem; }
+aside thead { position: sticky; top: 0; z-index: 1; }
+aside th { background: var(--bg-section); color: var(--text-secondary); text-align: left; padding: 10px 12px; font-weight: 500; }
+aside td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+aside tr:nth-child(even) td { background: var(--bg-section); }
+footer { max-width: 960px; margin: 0 auto; padding: 40px; text-align: center; border-top: 1px solid var(--border); }
+footer p { font-size: 0.78rem; color: var(--text-muted); }
+footer a { color: var(--accent); text-decoration: none; }
+.history-panel {
+  position: fixed;
+  top: 0; right: -340px;
+  width: 320px; height: 100vh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  padding: 24px; overflow-y: auto;
+  transition: right 0.3s ease;
+}
+.history-panel.open { right: 0; }
+.history-panel h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 16px; color: var(--accent); }
+.history-panel .close-btn {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: 1px solid var(--border); color: var(--text-muted);
+  font-size: 1.2rem; width: 32px; height: 32px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; transform: translateY(4px);
+  justify-content: center; transition: 0.2s;
+}
+.history-panel .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+.history-item {
+  display: block; padding: 12px 14px;
+  border: 1px solid var(--border); border-radius: 6px;
+  margin-bottom: 8px; text-decoration: none;
+  color: var(--text-primary); transition: 0.2s; font-size: 0.85rem;
+}
+.history-item:hover { border-color: var(--accent); background: var(--accent-dim); }
+.history-item .history-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 2px; }
+.history-item .history-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+.history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
+.history-item.current { border-color: var(--accent); }
+.week-number { color: var(--accent); cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+.week-number:hover { opacity: 0.7; }
+.dropdown-icon { display: inline-block; }
+@media (max-width: 700px) {
+  header { padding: 60px 20px 30px; }
+  header h1 { font-size: 1.8rem; }
+  main, aside, footer { padding-left: 20px; padding-right: 20px; }
+  nav { padding: 0 16px; }
+  nav ul { gap: 16px; }
+  nav a { font-size: 0.75rem; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .matrix .cell { padding: 10px; }
+  .history-panel { width: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="history-panel" id="historyPanel">
+  <button class="close-btn" onclick="toggleHistory()">✕</button>
+  <h3>📚 历史周刊</h3>
+  <div id="historyList">
+    <a class="history-item current" href="#" data-date="2026-07-03">
+      <div class="history-title">第 27 周</div>
+      <div class="history-date">2026-06-27 ~ 2026-07-03</div>
+    </a>
+  </div>
+</div>
+
+<header>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 27 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
+  <p class="period">2026-06-27 ~ 2026-07-03 · 每周五 10 点更新</p>
+  <div class="source-badges">
+    <span class="source-badge active">AIHOT</span>
+    <span class="source-badge active">ProductHunt</span>
+    <span class="source-badge active">Watcha</span>
+    <span class="source-badge inactive">Follow Builders</span>
+    <span class="source-badge active">Social</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#core-shifts">核心位移</a></li>
+    <li><a href="#trend-matrix">趋势矩阵</a></li>
+    <li><a href="#opportunities">机会扫描</a></li>
+    <li><a href="#catalysts">催化剂</a></li>
+    <li><a href="#watchlist">观察清单</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="core-shifts">
+    <div class="section-header">
+      <span class="num">01</span>
+      <h2>本周核心位移</h2>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">💰 AI 成本从「无限乐观」进入「精打细算」时代</div>
+      <div class="shift-direction">
+        <span class="from">企业追求最佳模型，AI 支出快速膨胀</span>
+        <span class="arrow">→</span>
+        <span class="to">企业强制限用旗舰模型，DeepSeek/Copilot 成「成本救星」</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        本周最值得关注的结构性变化：404 Media 爆出 Atlassian、Adobe、花旗等企业限制员工使用 Claude Opus/GPT-5.5 等旗舰模型。花旗因 GitHub 按量计费于 6 月 24 日禁用 Claude Opus 系列。Atlassian AI 月支出从 500 万飙升至 1500 万美元。旧金山公司 Lindy 直接将 100% Claude 流量切换至 DeepSeek。与此同时，Kimi K2.7 成为 GitHub Copilot 首个可选开源权重模型。Claude Enterprise 新增用量分析与支出管控功能，Anthropic 主动推出管理工具应对客户降本诉求。信号明确：企业 AI 消费正从「能用就行」进入「ROI 驱动」阶段。
+      </p>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge active">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：404 Media · The Decoder · IT之家 · Claude Blog）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🏭 AI 基础设施投资进入「万亿级军备竞赛」，供过于求风险抬头</div>
+      <div class="shift-direction">
+        <span class="from">云厂商谨慎投入算力</span>
+        <span class="arrow">→</span>
+        <span class="to">Meta 变现过剩算力、黑石 300 亿美元押注日本、SK 1000 万亿韩元计划</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        本周基础设施投资井喷：Meta 宣布出售过剩 AI 算力，直接与 AWS/GCP 竞争。黑石 300 亿美元投日本 AI 数据中心，联合成立 AI XPV 平台（首期 350 亿美元支持 Anthropic）。SK 集团到 2035 年建 15GW 数据中心，总投资 1000 万亿韩元。三星和 SK 海力士计划 5900 亿美元扩产芯片，内存价格预计 2027 年涨 40-45%。但 Rubin Ultra 因制造问题取消，英伟达 GPU 路线图出现动摇信号。谷歌 2025 年用电量增长 37%（超 4200 万 MWh），AI 能源消耗正式成为环境议题。
+      </p>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：Bloomberg · TechCrunch · Ars Technica · SemiAnalysis）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🌐 模型「性价比」战争全面爆发 — Sonnet 5 / Sol / LongCat 三线对撞</div>
+      <div class="shift-direction">
+        <span class="from">头部模型「仅在能力上竞争」</span>
+        <span class="arrow">→</span>
+        <span class="to">Claude Sonnet 5 ≈ Opus 品质 × 半价；GPT-5.6 三 Pro 变体；LongCat-2.0 国产 ASIC 训练万亿参数</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        三大模型发布密集对撞：Anthropic 发布 Sonnet 5，性能接近 Opus 4.8 但定价低至 $2/百万 token（首月优惠）。OpenAI 预览 GPT-5.6 Sol，论文首次披露三个 Pro 变体（Luna/Terra/Sol）取代单一顶级策略。美团 LongCat-2.0 在五万卡国产 ASIC 上训练出 1.6T 参数开源模型，SWE-bench Multilingual 达 77.3。Grok 4.5 在 SpaceX/Tesla 私测，性能指向 Opus 级。NVIDIA Nemotron TwoTower 扩散语言模型推出。新浪 VibeThinker-3B 证明 3B 模型在推理上可匹敌 200× 大模型。模型层正在发生「能力趋同 + 定价分化」的范式转变。
+      </p>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge active">PH</span>
+          <span class="source-badge active">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：Anthropic · OpenAI · 美团 · xAI · NVIDIA · 新浪）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">⚖️ AI「信任赤字」持续扩大：从隐写术到误炸学校</div>
+      <div class="shift-direction">
+        <span class="from">AI 安全问题主要是理论讨论</span>
+        <span class="arrow">→</span>
+        <span class="to">Anthropic 隐写术争议 + 美军 AI 选目标误炸学校 + NYT 370 家报纸联合诉讼</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        本周 AI 信任危机集中爆发三起重大事件：(1) Anthropic 在 Claude Code 中植入隐写术代码识别中国用户（检测时区 + 域名匹配后修改系统提示词中的标点作为标记），引发社区强烈反弹。(2) 美军在打击伊朗时首次大规模使用 Claude 嵌入 Palantir 系统选择目标，首日建议约 1000 个目标，但因数据库不连通导致一所小学被误炸，约 120 名儿童死亡。(3) 近 400 家美国报纸联合起诉微软/OpenAI，称其建造超级计算机专为盗版训练。Anthropic 还与五角大楼爆发控权之争——要求 Claude 不能用于全自主武器。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 跨源交叉验证：</strong> 隐写术争议在 AIHOT 社区和推特上引发激烈讨论，公众号「数字生命卡兹克」的报道有大量转发。美军误炸案件在 Ars Technica 和 The Decoder 均获高权重报道。AI 军事化应用的风险正在从科幻小说走进真实世界。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：中速累积</span>
+        <span style="color:var(--text-muted);">（依据：微信公众号 · Ars Technica · The Decoder · WSJ · NYT）</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="trend-matrix">
+    <div class="section-header">
+      <span class="num">02</span>
+      <h2>趋势信号矩阵</h2>
+    </div>
+
+    <div class="matrix">
+      <div class="cell header-cell"></div>
+      <div class="cell header-cell">强信号</div>
+      <div class="cell header-cell">弱信号</div>
+
+      <div class="row-label">本周新出现</div>
+
+      <div class="cell">
+        <div class="signal-title">企业 AI 成本危机：旗舰模型不再是默认选择</div>
+        <div class="signal-note">花旗禁用 Opus、Atlassian 月支出 1500 万、Lindy 100% 切 DeepSeek</div>
+        <div class="fb-evidence">Claude Enterprise 同步推出成本管控工具 + Kimi K2.7 成 Copilot 首个开源模型 = 行业正集体应对「成本失控」</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">AI 信任危机三重爆发：隐私/军事/版权</div>
+          <div class="signal-note">Claude 隐写术 · 美军误炸学校 · 370 家报纸联合诉讼</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">模型性价比战争：Sonnet 5 / Sol / Grok 4.5 三线对撞</div>
+          <div class="signal-note">Sonnet 5 ≈ Opus 半价 + GPT-5.6 三变体 + LongCat 2.0 国产 ASIC</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge active">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">SpaceXAI 商标注册，xAI 并入 SpaceX</div>
+        <div class="signal-note">xAI 将独立运营的历史结束，成为 Space X 内部 AI 部门</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">国务院「十五五」规划推行 AI 全学段教育</div>
+          <div class="signal-note">中国教育系统正式将 AI 素养纳入官方课程框架</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱（长期趋势）</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">苹果 Vision Pro VP 跳槽 OpenAI 硬件</div>
+          <div class="signal-note">核心人才流失加速，AI 硬件竞赛白热化</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
+        </div>
+      </div>
+
+      <div class="row-label">持续强化</div>
+
+      <div class="cell">
+        <div class="signal-title">AI 基础设施投资进入「万亿级」新时代</div>
+        <div class="signal-note">黑石 300 亿日本 · SK 1000 万亿韩元 · Meta 出售算力 · 谷歌用电量 +37%</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Agent 基础设施持续爆炸式增长</div>
+          <div class="signal-note">ADK Go 2.0 · xAI Voice Agent Builder · 阿里 Page Agent · 天工 Skywork Tags</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge active">PH</span>
+            <span class="source-badge active">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">中国 AI 军团追赶加速</div>
+          <div class="signal-note">美团 LongCat 2.0 · 蚂蚁阿宝 · 小红书 RedKnot · 千问输入法 · Kimi K2.7 on Copilot</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge active">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">AI 编程辅助赛道持续过热</div>
+        <div class="signal-note">Claude Code v2.1.198 · Cursor iOS · ZCode · Claude Science · Senior SWE-Bench</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge active">PH</span>
+          <span class="source-badge active">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Runway/Apple 推动 AI 视频创作民主化</div>
+          <div class="signal-note">Runway 广告本地化 Recipe · Apple Creator Studio · NotebookLM 短视频</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge active">PH</span>
+            <span class="source-badge active">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">电源/芯片供应链紧张加速</div>
+          <div class="signal-note">Rubin Ultra 取消 · 三星/SK 海力士 5900 亿 · 内存价格 Q3 涨 40-50%</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+      </div>
+
+      <div class="row-label">开始减弱</div>
+
+      <div class="cell">
+        <div class="signal-title">「通用顶尖模型」的品牌溢价</div>
+        <div class="signal-note">AI 成本危机 + Sonnet 5 性价比突破 + 企业主动限用旗舰模型 = 品牌溢价能力被快速侵蚀</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+      </div>
+
+      <div class="cell empty" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
+        —
+      </div>
+
+    </div>
+  </section>
+
+  <section id="opportunities">
+    <div class="section-header">
+      <span class="num">03</span>
+      <h2>机会空间扫描</h2>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin-bottom:14px;color:var(--accent);">3.1 供需缺口</h3>
+
+    <article class="opportunity-card strong">
+      <h3>多模型路由与成本优化平台</h3>
+      <div class="evidence"><strong>需求证据：</strong> 企业 AI 成本危机爆发，花旗/Adobe/Atlassian 等禁用旗舰模型。Weave 的智能模型路由（Week 26 产品）火速上线 Claude Code/Codex/Cursor 集成。Claude Enterprise 主动推出分析仪表板和管理工具。Wayfinder Router 通过提示词结构确定性路由。</div>
+      <div class="supply"><strong>供给现状：</strong> 已有分散的路由工具（Weave、Wayfinder、OpenRouter），但缺乏面向企业的多模型治理/成本优化/合规一体平台。</div>
+      <div class="cross-source ph"><strong>🟠 PH 佐证：</strong> Stigg 2.0（AI 产品用量运行时）本周上榜，验证了 AI 成本管理基础设施的旺盛需求。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge active">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号（三源收敛）</span>
+    </article>
+
+    <article class="opportunity-card strong">
+      <h3>AI 安全合规审计 SaaS</h3>
+      <div class="evidence"><strong>需求证据：</strong> Claude 隐写术争议、美军误炸学校暴露 AI 目标选择无监管、Anthropic 与五角大楼「护栏之争」、OpenAI 向美国政府提议 5% 股权、Cloudflare 推出 AI 爬虫管控选项、320+ 家企业限制 AI 使用。</div>
+      <div class="supply"><strong>供给现状：</strong> 缺乏面向企业的第三⽅ AI 安全审计、护栏测试、合规认证一站式平台。</div>
+      <div class="cross-source fb"><strong>🟣 交叉验证：</strong> 隐写术争议在开发者社区引发对 AI 供应链信任的根本性质疑，这将加速企业采购 AI 安全审计服务的意愿。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.2 竞争过热区</h3>
+
+    <article class="opportunity-card strong">
+      <h3>通用 AI 编程辅助 / AI IDE</h3>
+      <div class="evidence"><strong>过热证据：</strong> Claude Code v2.1.198 + Cursor iOS 公测 + ZCode (GLM-5.2) + Kimi K2.7 进 Copilot + Senior SWE-Bench（顶级模型通过率仅 24%）——产品密集度创历史新高但模型能力上限仍未满足高级工程师需求。</div>
+      <div class="cross-source watcha"><strong>Watcha 佐证：</strong> WorkBuddy 1127🔥 继续领跑、KitKit-Agent 814🔥、AnyGen 536🔥——AI 编程和效率工具赛道在中国市场同样拥堵。</div>
+      <div class="supply"><strong>差异化建议：</strong> 垂直行业 AI 编码/Code Review/安全合规编码，或专注 AI Agent 缺陷检测与修复。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge active">PH</span>
+        <span class="source-badge active">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号（三源收敛）</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.3 替代缺口</h3>
+
+    <article class="opportunity-card mid">
+      <h3>传统 AI 模型采购模式 → 模型路由/治理 SaaS</h3>
+      <div class="evidence"><strong>被替代者：</strong> 单一模型供应商合同。企业正从「全押一个模型」转向「任务匹配模型」，Weave 和 Wayfinder 证明了需求。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 中 — 已有创业者快速响应，但缺少 Enterprise 级产品。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge active">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <article class="opportunity-card weak">
+      <h3>企业内部 IT Support → AI Agent + 隐式工坊</h3>
+      <div class="evidence"><strong>被替代者：</strong> 传统 IT 帮助台。Microsoft Frontier Company 6000 名工程师现场部署、AWS 10 亿美元驻场、昆仑天工 Agent Tags 进群聊、Acti 手机键盘 Agent——AI Agent 正在从工具变成「同事」。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 弱 — 概念验证阶段，实际大规模替代需 12-18 个月。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge active">PH</span>
+        <span class="source-badge active">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag weak">● 弱信号</span>
+    </article>
+
+  </section>
+
+  <section id="catalysts">
+    <div class="section-header">
+      <span class="num">04</span>
+      <h2>催化剂快照</h2>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 企业 AI 成本危机集中爆发：花旗/Adobe/Atlassian 限制模型使用</div>
+      <div class="detail">
+        404 Media 曝光多家企业 AI 支出失控：Atlassian 月 AI 支出从 500 万升至 1500 万美元，本财年预计超 1.2 亿美元。花旗 6 月 24 日禁用 Opus 及 GPT-5.5。Lindy CEO 宣布 100% 切换至 DeepSeek。<br><br>
+        <strong>影响方向：</strong> 模型选择「去品牌化」，企业从「哪家最强用哪家」转向「哪家性价比高用哪家」。DeepSeek/Kimi 等低成本模型获得结构性利多。<br>
+        <strong>是否改变机会判断：</strong> 是 — 模型路由/成本治理 SaaS 迎来重大催化剂。Claude Enterprise 成本管控工具的推出说明 Anthropic 已正面应对此趋势。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Claude Sonnet 5 发布 + GPT-5.6 Sol 预览: 性价比革命</div>
+      <div class="detail">
+        Sonnet 5：性能接近 Opus 4.8，定价仅 $2/$10 每百万 token，优惠持续至 8 月底。GPT-5.6 首曝三个 Pro 变体（Luna/Terra/Sol），Son 模型在基因组学基准达 31.5% 列 60 模型之首。<br><br>
+        <strong>影响方向：</strong> 模型层进入「能力趋同 + 定价分化」阶段。Sonnet 5 的定价可能迫使 OpenAI/Grokg 跟进降价。<br>
+        <strong>是否改变机会判断：</strong> 是 — 性价比拐点加速企业采用，但也加速了成本管控的需求。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge active">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Microsoft Frontier Company + 25 亿美元 + 6000 名工程置</div>
+      <div class="detail">
+        Microsoft 新设业务部门派驻 6000 名工程师到企业客户现场，AWS 紧随其后砸 10 亿美元。云厂商从「卖算力」进入「帮用 AI」模式。<br><br>
+        <strong>影响方向：</strong> AI 落地从软件购买转变为服务交付，系统集成市场将重构。<br>
+        <strong>是否改变机会判断：</strong> 是 — 远期看，企业 AI Agent 部署外包可能催生新的 MSP（托管服务商）生态。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Anthropic 隐写术争议：Claude Code 中识别中国用户的隐形代码</div>
+      <div class="detail">
+        社区逆向发现 Claude Code 通过读取时区 + base64/XOR 加密域名列表识别中国用户，修改系统提示词中的标点作为 2-3 比特分类标记。虽被辩称无隐私泄露，但「隐形标记」做法本身破坏用户信任。<br><br>
+        <strong>影响方向：</strong> 中国企业客户对闭源模型安全性的信任度下降，利好开源替代方案。<br>
+        <strong>是否改变机会判断：</strong> 是 — 中国 AI 企业（如 DeepSeek、Qwen）获得差异化信任窗口。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">📊 Watcha 热门洞察 — OiiOii 5150🔥 领跑，即梦 4146🔥 紧随</div>
+      <div class="detail">
+        Watcha 本周热门 Top：OiiOii AI 动画 Agent（5150🔥）、即梦视频创作（4146🔥）、AnyGen 字节跳动（536🔥）、Flova AI（753🔥）、WorkBuddy 腾讯云（1127🔥）、Kimi 月之暗面（6122🔥）、动物去哪儿（725🔥）、Mulan AI（757🔥）、KitKit-Agent（814🔥）、敲敲人类-Agent 社交（814🔥）。<br><br>
+        AI 视频/动画创作赛道在中国持续高热，OiiOii 的 5150 分超即梦表明「AI 动画」正在成为独立的大赛道。WorkBuddy 1127🔥 保持办公 Agent 赛道领先。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge inactive">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge active">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="noise-box">
+      <h4>📢 本周噪音识别</h4>
+      <p>
+        「SpaceXAI + xAI 并入 SpaceX」— 组织架构调整对产品/市场无直接影响。「特斯拉 Cybercab 路测」— 工程正常推进，非结构性变化。「国务院 AI 全学段教育」— 长期利好消息但近期无影响。「纽约时报诉微软/OpenAI 超级计算机」— 版权诉讼持续但已有先例，实质影响有限。「黑石 300 亿美元日本数据中心」— 符合基础设施投资大趋势，非新方向。
+      </p>
+    </div>
+  </section>
+
+  <section id="watchlist">
+    <div class="section-header">
+      <span class="num">05</span>
+      <h2>下周观察清</h2>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">01</span>
+      <h3>Sonnet 5 企业采用数据</h3>
+      <div class="trigger"><strong>触发条件：</strong> Sonnet 5 以 Opus 级性能 × 半价上线后首周的企业切换数据</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 若企业大规模从 Opus→Sonnet 5 迁移，验证「性价比」而非能力成为模型选型的首要标准，模型定价将进入长期下降通道</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">02</span>
+      <h3>Anthropic 隐写术争议后续</h3>
+      <div class="trigger"><strong>触发条件：</strong> 社区/媒体是否持续追责？中国企业客户是否公开表态？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 若引发欧盟/中国数据保护机构调查，Claude Code 在中国市场将被实质性削弱，国内替代产品（Kimi K2.7 / GLM ZCode）加速抢占份额</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">03</span>
+      <h3>美团团 LongCat-2.0 在 OpenRouter 上的排名变化</h3>
+      <div class="trigger"><strong>触发条件：</strong> LongCat-2.0 预览版已在 OpenRouter 开放，月调用量跻身全球前三。开源后采用率是否继续攀升？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 国产算力（ASIC）训练出的顶尖模型在全球开发者社区被广泛采用，将改变「国产模型不行」的认知，也可能引发对美国 GPU 出口管制的重新思考</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">04</span>
+      <h3>Microsoft Frontier Company 首批客户案例</h3>
+      <div class="trigger"><strong>触发条件：</strong> 6000 名工程师派驻的首批项目产出与客户反馈</div>
+      <div class="implication"><strong>如果发生意味着：</strong> AI 落地从「买软件」转向「买服务」的模式是否真正有效？若效果显著，竞争对手（AWS、GCP、Palantir）将被迫跟进重塑交付模式</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">05</span>
+      <h3>OpenAI 政府持股 5% 提案的后续</h3>
+      <div class="trigger"><strong>触发条件：</strong> 美国政府是否接受 426 亿美元估值下的持股要约？国会听证会是否推进？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 开创「AI 公司国有化参股」先例，将重塑全球 AI 治理与竞争格局——中国/欧盟可能效仿或反对</div>
+    </div>
+  </section>
+</main>
+
+<aside>
+  <details>
+    <summary>📊 附录：数据明细表</summary>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th><th>本周采集</th><th>关键信号</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AIHOT 精选产品</td>
+            <td>33 条</td>
+            <td>xAI Voice Agent Builder · 阿里 Page Agent · Claude Enterprise 成本管控 · Kimi K2.7 on Copilot · Cursor iOS · NotebookLM 短视频</td>
+          </tr>
+          <tr>
+            <td>AIHOT 精选模型</td>
+            <td>7 条</td>
+            <td>Claude Sonnet 5 · GPT-5.6 Sol · 美团 LongCat-2.0 · Nemotron TwoTower · Grok 4.5 · VibeThinker-3B · Nano Banana 2 Lite</td>
+          </tr>
+          <tr>
+            <td>AIHOT 精选行业</td>
+            <td>28 条</td>
+            <td>AI 成本危机 · MS Frontier Company · Anthropic 隐写术 · 美军误炸学校 · 黑石 300亿日本 · NYT 370家报纸诉讼</td>
+          </tr>
+          <tr>
+            <td>AIHOT 全量产品</td>
+            <td>100 条</td>
+            <td>Agent 基础设施、AI 视频、桌面工具</td>
+          </tr>
+          <tr>
+            <td>ProductHunt</td>
+            <td>📡 34 条 RSS</td>
+            <td>Retrace (Agent 调试) · Stigg 2.0 (AI 用量) · Sequence Agentic (AI 支付) · Flowly (个人 AI Agent)</td>
+          </tr>
+          <tr>
+            <td>Watcha 热门</td>
+            <td>🔥 21 个产品</td>
+            <td>OiiOii 5150🔥 · 即梦 4146🔥 · WorkBuddy 1127🔥 · KitKit-Agent 814🔥 · Flova AI 753🔥</td>
+          </tr>
+          <tr>
+            <td>Follow Builders</td>
+            <td>🐦 0 推文</td>
+            <td>本周未采集到 Follow Builders 数据</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="color:var(--accent);">—— 多源摘要 ——</td>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ AI Agent 基础设施密集发布</td>
+            <td>ADK Go 2.0 + xAI Voice Agent Builder + 阿里 Page Agent + 天 Skywork Tags + Claude Agent</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ AI 成本危机引发行业重塑</td>
+            <td>CIO 禁用旗舰模型 × 模型路由新品 × Claude 成本管控 × DeepSeek 替代</td>
+          </tr>
+          <tr>
+            <td>四源收敛</td>
+            <td>✅ AI 编程/IDE 赛道白热化</td>
+            <td>Claude Code × Cursor iOS × ZCode × Kimi K2.7 on Coplot</td>
+          </tr>
+          <tr>
+            <td>两源</td>
+            <td>✅ AI 安全信任赤字扩大</td>
+            <td>Claude 隐写术 + 美军误炸 + NYT 诉讼 + Palantir vs Anthropic 护栏</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</aside>
+
+<footer>
+  <p>AI 市场洞察周刊 · 生成于 2026-07-03 10:00 CST · 数据来源：<a href="https://aihot.virxact.com" target="_blank">AIHOT</a>（168条）· <strong>ProductHunt</strong>（RSS 34条）· <strong>Watcha</strong>（21产品）· 社交验证</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+function toggleHistory() {
+  document.getElementById('historyPanel').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('historyPanel');
+  const trigger = document.querySelector('.week-number');
+  if (panel.classList.contains('open') &&
+      !panel.contains(e.target) &&
+      !trigger.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>ml>
