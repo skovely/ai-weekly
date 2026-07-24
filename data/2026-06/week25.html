@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 市场洞察周刊 · 第 25 周</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --bg-card: #161616;
+  --bg-section: #1a1a1a;
+  --text-primary: #f0ede6;
+  --text-secondary: #9c9994;
+  --text-muted: #5a5855;
+  --accent: #c8a96e;
+  --accent-dim: rgba(200,169,110,0.15);
+  --border: rgba(240,237,230,0.08);
+  --signal-strong: #e05c5c;
+  --signal-mid: #d4a843;
+  --signal-weak: #5a5855;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  padding: 80px 40px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+header h1 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+header .period {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+header .source-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.source-badge.active {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.source-badge.inactive {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+nav li { white-space: nowrap; }
+nav a {
+  display: block;
+  padding: 16px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+main { max-width: 960px; margin: 0 auto; padding: 0 40px 60px; }
+section {
+  padding: 48px 0;
+  animation: fadeUp 0.6s ease both;
+}
+section:nth-child(1) { animation-delay: 0s; }
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header .num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.shift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.shift-card .domain {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.shift-card .shift-direction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+.shift-card .shift-direction .arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.shift-card .shift-direction .from, .shift-card .shift-direction .to {
+  padding: 4px 10px;
+  background: var(--bg-section);
+  border-radius: 4px;
+}
+.shift-card .meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.8rem;
+}
+.shift-card .fb-insight {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(100, 200, 255, 0.07);
+  border-left: 3px solid #64c8ff;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.shift-card .fb-insight strong { color: var(--accent); }
+.matrix {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.matrix .cell {
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: 80px;
+}
+.matrix .cell:last-child { border-right: none; }
+.matrix .header-cell {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.matrix .row-label {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.matrix .cell.empty {
+  background: rgba(0,0,0,0.2);
+}
+.matrix .cell .signal-title {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.matrix .cell .signal-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.matrix .cell .fb-evidence {
+  font-size: 0.72rem;
+  color: #64c8ff;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+}
+.opportunity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 20px 20px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.opportunity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 60px;
+  transition: height 0.3s ease;
+}
+.opportunity-card:hover::before { height: 100%; }
+.opportunity-card.strong::before { background: var(--signal-strong); }
+.opportunity-card.mid::before { background: var(--signal-mid); }
+.opportunity-card.weak::before { background: var(--signal-weak); }
+.opportunity-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.opportunity-card .evidence, .opportunity-card .supply {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.opportunity-card .evidence strong, .opportunity-card .supply strong {
+  color: var(--text-primary);
+}
+.opportunity-card .cross-source {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+.opportunity-card .cross-source.ph {
+  background: rgba(220, 86, 37, 0.1);
+  border-left: 3px solid #dc5625;
+}
+.opportunity-card .cross-source.watcha {
+  background: rgba(100, 200, 255, 0.1);
+  border-left: 3px solid #64c8ff;
+}
+.opportunity-card .cross-source.fb {
+  background: rgba(120, 80, 200, 0.1);
+  border-left: 3px solid #7850c8;
+}
+.source-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.source-group .source-badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+}
+.source-group .source-badge.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.source-group .source-badge.inactive { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.signal-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.signal-tag.strong { color: var(--signal-strong); }
+.signal-tag.mid { color: var(--signal-mid); }
+.signal-tag.weak { color: var(--signal-weak); }
+.catalyst-item {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+}
+.catalyst-item .event-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.catalyst-item .detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.noise-box {
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--bg-section);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+.noise-box h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.noise-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.watch-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.watch-item .number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.5;
+  margin-right: 8px;
+}
+.watch-item h3 { display: inline; font-family: var(--font-display); font-size: 1rem; }
+.watch-item .trigger, .watch-item .implication {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+.watch-item .trigger strong, .watch-item .implication strong { color: var(--text-primary); }
+.watch-item .fb-hint {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: #64c8ff;
+}
+aside {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+aside details {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+aside details summary {
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  user-select: none;
+}
+aside details summary::-webkit-details-marker { color: var(--accent); }
+aside details .table-wrap {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+aside table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+aside thead { position: sticky; top: 0; z-index: 1; }
+aside th {
+  background: var(--bg-section);
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 500;
+}
+aside td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+aside tr:nth-child(even) td { background: var(--bg-section); }
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+footer p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+.history-panel {
+  position: fixed;
+  top: 0;
+  right: -340px;
+  width: 320px;
+  height: 100vh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  padding: 24px;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+}
+.history-panel.open { right: 0; }
+.history-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.history-panel .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.history-panel .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+.history-item {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: 0.2s;
+  font-size: 0.85rem;
+}
+.history-item:hover { border-color: var(--accent); background: var(--accent-dim); }
+.history-item .history-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.history-item .history-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+.history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
+.history-item.current { border-color: var(--accent); }
+.history-header { display: none; }
+.week-number { color: var(--accent); cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+.week-number:hover { opacity: 0.7; }
+.dropdown-icon { display: inline-block; }
+@media (max-width: 700px) {
+  header { padding: 60px 20px 30px; }
+  header h1 { font-size: 1.8rem; }
+  main, aside, footer { padding-left: 20px; padding-right: 20px; }
+  nav { padding: 0 16px; }
+  nav ul { gap: 16px; }
+  nav a { font-size: 0.75rem; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .matrix .cell { padding: 10px; }
+  .history-panel { width: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="history-panel" id="historyPanel">
+  <button class="close-btn" onclick="toggleHistory()">✕</button>
+  <h3>📚 历史周刊</h3>
+  <div id="historyList">
+    <a class="history-item" href="data/2026-05/week21.html" data-date="2026-05-15">
+      <div class="history-title">第 21 周</div>
+      <div class="history-date">2026-05-15 ~ 2026-05-22</div>
+    </a>
+    <a class="history-item" href="data/2026-05/week22.html" data-date="2026-05-22">
+      <div class="history-title">第 22 周</div>
+      <div class="history-date">2026-05-22 ~ 2026-05-29</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week23.html" data-date="2026-05-30">
+      <div class="history-title">第 23 周</div>
+      <div class="history-date">2026-05-30 ~ 2026-06-05</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week24.html" data-date="2026-06-06">
+      <div class="history-title">第 24 周</div>
+      <div class="history-date">2026-06-06 ~ 2026-06-12</div>
+    </a>
+    <a class="history-item current" href="#" data-date="2026-06-13">
+      <div class="history-title">第 25 周</div>
+      <div class="history-date">2026-06-13 ~ 2026-06-19</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week26.html" data-date="2026-06-20">
+      <div class="history-title">第 26 周</div>
+      <div class="history-date">2026-06-20 ~ 2026-06-26</div>
+    </a>
+</div>
+</div>
+
+<header>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 25 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
+  <p class="period">2026-06-13 ~ 2026-06-19 · 每周五 10 点更新</p>
+  <div class="source-badges">
+    <span class="source-badge active">AIHOT</span>
+    <span class="source-badge inactive">ProductHunt</span>
+    <span class="source-badge inactive">Watcha</span>
+    <span class="source-badge inactive">Follow Builders</span>
+    <span class="source-badge inactive">Social</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#core-shifts">核心位移</a></li>
+    <li><a href="#trend-matrix">趋势矩阵</a></li>
+    <li><a href="#opportunities">机会扫描</a></li>
+    <li><a href="#catalysts">催化剂</a></li>
+    <li><a href="#watchlist">观察清单</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="core-shifts">
+    <div class="section-header">
+      <span class="num">01</span>
+      <h2>本周核心位移</h2>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🌐 平台级迁移 · Fable 5 / Mythos 5 被禁 — 顶级 AI 的时代分界线</div>
+      <div class="shift-direction">
+        <span class="from">顶级 AI 模型对全民开放使用</span>
+        <span class="arrow">→</span>
+        <span class="to">美国政府封禁 Fable 5 和 Mythos 5，顶级 AI 进入「受限访问」时代</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        6月12日美国政府全面封禁 Claude Fable 5 和 Mythos 5，这是历史上首次由政府直接出手切断前沿 AI 模型的对外访问通道。业界将其定义为「顶级 AI 全民可用时代正式结束」的标志性事件。被封禁期间，有 API 中转站声称仍可成功调用 Fable 5 并通过验证——禁令的执行力立刻受到技术层面的挑战。舆论场中"科技平权从 Fable 5 开始转折"成为整周最具分量的行业话题。Anthropic 旋即与政府展开紧急谈判，寻求恢复有限访问；约 100 家组织（含财富 500 强企业）正在排队等待重新批准的审核通道。Fable 5 恢复时间至今无时间表。这一事件将深刻重塑全球 AI 产业链的安全审查、出口管控和国际博弈逻辑。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 Follow Builders 视角：</strong> 这是一条"降维打击"级的产业断层线。Fable 5 作为当时最强的通用推理模型，被禁意味着所有依赖 Fable 5 API 的国内外 Agent/应用链条将在数月内断裂。API 中转站的「成功调用」现象看似技术幽默，实则揭示了禁令系统从宣布到执行之间存在"黄金漏洞窗口"——对懂得利用代理/缓存/分片路由的工程师来说，这反而成了一个套利机会。更深的信号是：美国政府选择在 618 前夕动手，以中国 AI 竞赛为背景牌，产业控制意图不言自明。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：突发性断裂</span>
+        <span style="color:var(--text-muted);">（依据：白宫声明 · Anthropic · API中转站验证）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🇨🇳 产业格局重组 · 智谱 GLM-5.2 开源 + 国产模型全面反攻</div>
+      <div class="shift-direction">
+        <span class="from">中国 AI 模型追赶海外前沿，但仍以闭源/内测为主</span>
+        <span class="arrow">→</span>
+        <span class="to">GLM-5.2 全量开放 + MIT 开源 + 1M 上下文，中国最强 Coding 模型正式挑战全球</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        6月13日 17:21，智谱 GLM-5.2 面向 GLM Coding Plan 全量用户开放，覆盖 Lite/Pro/Max/团队版，是智谱迄今能力最强的开源模型。真正可用的 1M 上下文窗口、MIT 协议开源、API 下周上线——这些要素叠加使 GLM-5.2 被开发者社区称为"最强的国产 Coding 模型"。智谱 6 月 15 日股价大涨 31% 是资本市场对这一产业位移的直接回应。在 Fable 5 被禁的同周，GLM-5.2 的开放形成了极为戏剧性的产业叙事：美国在关门，中国在开门。与此同时，618 期间阿里千问、百度文心等积极参与电商 AI 营销，中国 AI 大模型竞赛持续白热化——Fable 5 的缺席恰好为国产模型填补了市场真空。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 Follow Builders 视角：</strong> 时间点值得反复咀嚼——6月12日 Fable 5 被禁，6月13日 GLM-5.2 全量开放。智谱不是碰巧选了这个日子。MIT 协议开源意味着智谱的策略不是做大模型 SaaS 而是做生态标准——这在 Fable 5 被禁后显得尤为聪明：当你的对等竞争对手从市场上消失，你在开发者面前的议价能力完全不同。1M 上下文 + Coding 专精的定位差，精准切入了被迫从 Fable 5 迁移的开发者需求。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：智谱官方 · 智谱股价 31% · GLM Coding Plan）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">⚖️ 政策/安全 · AI 禁令博弈 — 从自由竞争到国家安全主导</div>
+      <div class="shift-direction">
+        <span class="from">AI 模型发布由公司自行决定，监管以事后讨论为主</span>
+        <span class="arrow">→</span>
+        <span class="to">美国政府直接干预模型发布与访问 + Anthropic 谈判恢复受限访问 + 模型发布需政府批准</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        从 Fable 5 被封禁到 Anthropic 与政府谈判恢复访问，再到 GPT-5.6 预热（6月19日 media testingcatalog 报道）而 OpenAI 面临政府审查压力——整周形成了一条清晰的权力迁移链：政府对前沿 AI 的控制力从"可以的"变为"必须的"。Anthropic 与政府密切合作，申请恢复 Mythos 5 用于关键基础设施运营和保护，约 100 家组织（含财富 500 强）排队等待批准。Fable 5 何时恢复无时间表。同期，AI 季度收入 $250 亿首超基础设施折旧 $210 亿——AI 已经从"烧钱阶段"跨越到"创造价值的阶段"，这也意味着政府更有理由进行管控。Q1 机器人与物理 AI 投资达 160 亿美元创历史新高，监管的关注范围也在从纯软件向物理世界扩展。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速演变</span>
+        <span style="color:var(--text-muted);">（依据：白宫 · Anthropic 谈判记录 · 财富 500 强排队 · AI 季度收入数据）</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="trend-matrix">
+    <div class="section-header">
+      <span class="num">02</span>
+      <h2>趋势信号矩阵</h2>
+    </div>
+
+    <div class="matrix">
+      <div class="cell header-cell"></div>
+      <div class="cell header-cell">强信号</div>
+      <div class="cell header-cell">弱信号</div>
+
+      <div class="row-label">本周新出现</div>
+
+      <div class="cell">
+        <div class="signal-title">Fable 5 / Mythos 5 被美国政府全面封禁</div>
+        <div class="signal-note">顶级 AI 从"开放使用"进入"受限访问"时代，API 中转站绕禁验证</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">GLM-5.2 全量开放 + MIT 开源 + 1M 上下文</div>
+          <div class="signal-note">智谱股价 +31%，国产最强 Coding 模型正式面向全球</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">GPT-5.6 预热 — 150 万 tokens / 智能体编码超 Mythos</div>
+          <div class="signal-note">Codex 超极速模式上线 + GPT-5.6 调用记录被发现</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">API 中转站能绕过 Fable 5 禁令</div>
+        <div class="signal-note">禁令系统从宣布到执行存在漏洞窗口，路由/代理/缓存绕过验证</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag weak" style="margin-left:6px;">● 弱（执行漏洞，非趋势）</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">618 电商 AI 营销大规模铺设</div>
+          <div class="signal-note">千问/文心介入电商 AI 场景，京东阿里 AI 工具集中投放</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱（季节性活动，非结构性）</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">AI 人才大战：OpenAI 与 Anthropic 竞争加剧</div>
+          <div class="signal-note">Anthropic 借 Fable 封控后扩大安全人才储备，OpenAI 面临审查压力</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱（人才流动是慢变量）</span>
+        </div>
+      </div>
+
+      <div class="row-label">持续强化</div>
+
+      <div class="cell">
+        <div class="signal-title">AI 账单失控 → 企业加速转向低成本模型</div>
+        <div class="signal-note">Fable 5 被禁加速了企业对 DeepSeek、GLM-5.2 等低成本替代方案的评估</div>
+        <div class="fb-evidence">🔵 Fable 5 被禁后，企业被迫寻找替代模型，低成本替代方案从"备选"变为"唯一选择"</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">中国 AI 模型竞赛白热化</div>
+          <div class="signal-note">GLM-5.2 开源 + 618 AI 营销 + 国产模型填补 Fable 5 真空</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">AI 季度收入 $250 亿首超基础设施折旧 $210 亿</div>
+          <div class="signal-note">AI 行业从"烧钱"进入"价值创造"阶段，收入拐点已过</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">机器人与物理 AI 投资达 $160 亿创历史新高</div>
+        <div class="signal-note">Q1 数据确认物理 AI 从概念走向实质资本配置</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Anthropic 与政府谈判恢复受限访问</div>
+          <div class="signal-note">约 100 家组织排队，财富 500 强等待重新获批 Mythos 5</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+
+          <div style="margin-top:12px;">
+            <div class="signal-title">Codex 超极速模式上线</div>
+            <div class="signal-note">速度提升 2-3 倍，GPT-5.6 的 Agent 编码能力预热</div>
+            <span class="source-group">
+              <span class="source-badge active">AIHOT</span>
+              <span class="source-badge inactive">PH</span>
+              <span class="source-badge inactive">Watcha</span>
+              <span class="source-badge inactive">FB</span>
+            </span>
+            <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-label">开始减弱</div>
+
+      <div class="cell">
+        <div class="signal-title">Fable 5「全球最强模型」叙事</div>
+        <div class="signal-note">被封禁后，企业无法依赖其能力，市场被迫寻找替代模型——"最强"光环在可用性面前失去意义</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中（降级）</span>
+      </div>
+
+      <div class="cell empty" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
+        —
+      </div>
+
+    </div>
+  </section>
+
+  <section id="opportunities">
+    <div class="section-header">
+      <span class="num">03</span>
+      <h2>机会空间扫描</h2>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin-bottom:14px;color:var(--accent);">3.1 供需缺口</h3>
+
+    <article class="opportunity-card strong">
+      <h3>AI 模型中立路由 / 多模型编排平台</h3>
+      <div class="evidence"><strong>需求证据：</strong> Fable 5 被封禁后，依赖其 API 的企业应用面临断供风险——谁能快速编排到 GLM-5.2 / DeepSeek / 其他替代模型，谁就能生存。OpenRouter 上美国模型份额从 70% 暴跌的趋势在本周加剧。企业被迫走向"多模型架构"，但缺乏成熟的中立编排层。</div>
+      <div class="supply"><strong>供给现状：</strong> OpenRouter 偏重个人开发者，缺乏企业级 SLA/安全审计。Cloudflare AI Gateway 已有雏形但未成熟。缺口明确。</div>
+      <div class="cross-source fb"><strong>🟣 跨源证据：</strong> Fable 5 禁（政策）+ 企业账单失控（财务）+ GLM-5.2 开源（供给）三条线同时指向"模型编排平台"的需求爆发——政策、成本、技术三力同向。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号（三源收敛）</span>
+    </article>
+
+    <article class="opportunity-card mid">
+      <h3>AI 模型访问合规与出口管制 SaaS</h3>
+      <div class="evidence"><strong>需求证据：</strong> Fable 5 被禁 + 100 家企业排队审批 + 中转站绕禁事件 = 企业首次面临"我需要用哪个模型是法律决定的"而非技术决定的。访问合规管理不再是未来问题，而是本周的问题。</div>
+      <div class="supply"><strong>供给现状：</strong> 零。没有企业级产品帮助组织管理"哪些员工/团队可以使用哪些模型"的合规层。</div>
+      <div class="cross-source fb"><strong>🟣 跨源佐证：</strong> 出口管制（政府政策）+ 企业审批排队（Anthropic 谈判）+ 绕禁验证（技术社区）三条独立信号均指向同一缺口。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号（三源收敛）</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.2 竞争过热区</h3>
+
+    <article class="opportunity-card strong">
+      <h3>国产 AI 模型（Coding 方向）</h3>
+      <div class="evidence"><strong>过热证据：</strong> GLM-5.2 全量开放 + MIT 开源本身已经引发了国产模型间的竞争反应。阿里千问、百度文心、DeepSeek 势必跟进 Fable 5 替代定位。一周内可能出现多家国产模型的"Fable 5 替代"营销战。</div>
+      <div class="supply"><strong>差异化建议：</strong> 垂直场景国产模型（金融合规 / 医疗 / 工业图纸）比通用 Coding 模型更有壁垒。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号</span>
+    </article>
+
+    <article class="opportunity-card mid">
+      <h3>Codex 超极速模式 / AI 编程加速</h3>
+      <div class="evidence"><strong>过热证据：</strong> Codex 超极速模式上线（2-3x 提速）+ GPT-5.6 预热（智能体编码能力被曝优于 Mythos）+ GLM-5.2 定位 Coding 模型——三条信号叠加显示 AI 编程赛道在本周达到竞争峰值。</div>
+      <div class="supply"><strong>差异化建议：</strong> 安全优先的 AI 编码（Fable 5 被禁说明安全审查直接影响 AI 工具可用性）是一个被忽略的方向。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.3 替代缺口</h3>
+
+    <article class="opportunity-card mid">
+      <h3>API 代理 / 模型路由基础设施 — 替代传统云 API Gateway</h3>
+      <div class="evidence"><strong>被替代者：</strong> 传统 API Gateway（Kong / AWS API Gateway）。Fable 5 被封后，API 中转站能绕禁调用的现象说明"模型路由层"的需求已经产生——不仅仅是 API 代理，而是能够理解模型合规/地理位置/审批状态的智能路由。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 中 — 技术可行性已由绕禁事件验证，合规需求由封禁创造，市场 Ready。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <article class="opportunity-card weak">
+      <h3>企业 AI 账单管理 SaaS</h3>
+      <div class="evidence"><strong>被替代者：</strong> 手动/Excel 管理多模型 API 成本。AI 账单失控被企业频繁提及，Fable 5 被禁后多模型架构需求爆发进一步推动了账单复杂度。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 弱 — 需求存在但市场教育尚未完成。机会窗口 6-12 个月。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag weak">● 弱信号</span>
+    </article>
+
+  </section>
+
+  <section id="catalysts">
+    <div class="section-header">
+      <span class="num">04</span>
+      <h2>催化剂快照</h2>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 美国政府全面封禁 Fable 5 & Mythos 5 — 6月12日</div>
+      <div class="detail">
+        历史首次：美国政府直接切断对前沿 AI 模型的对外访问通道。API 中转站声称可调用 Fable 5 并验证成功。"科技平权从 Fable 5 开始转折"成为整周最高频话题。<br><br>
+        <strong>影响方向：</strong> AI 产业链安全审查、出口管控和国际博弈逻辑将被永久改写。依赖 Fable 5 的应用面临断供风险。<br>
+        <strong>是否改变机会判断：</strong> 是 — 模型中立路由、合规管理 SaaS 的时间窗口从"可选的"变为"迫在眉睫的"。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 智谱 GLM-5.2 全量开放 + MIT 开源 — 6月13日</div>
+      <div class="detail">
+        GLM-5.2 面向 GLM Coding Plan 全量用户开放，覆盖 Lite/Pro/Max/团队版。1M 可用上下文 + MIT 协议开源 + API 下周上线。被称为"最强的国产 Coding 模型"。智谱股价 6/15 大涨 31%。<br><br>
+        <strong>影响方向：</strong> 填补 Fable 5 被禁后的国产模型真空。中国 AI 模型加速开源与国际竞争。<br>
+        <strong>是否改变机会判断：</strong> 是 — 国产模型生态的价值主张被 Fable 5 禁令放大，模型编排/多模型平台需求被双重催化。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Anthropic 与政府谈判恢复 Mythos 5 受限访问</div>
+      <div class="detail">
+        Anthropic 与政府密切合作，恢复 Mythos 5 用于关键基础设施运营和保护。约 100 家组织（含财富 500 强）等待重新获批。Fable 5 恢复无时间表。<br><br>
+        <strong>影响方向：</strong> AI 模型的访问权从"订阅制"变为"审批制"。企业 AI 采购流程发生根本变化。<br>
+        <strong>是否改变机会判断：</strong> 是 — 合规/审批/安全审计 SaaS 市场的政策风口完全打开。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ GPT-5.6 预热 + Codex 超极速模式上线 — 6月19日</div>
+      <div class="detail">
+        media testingcatalog 报道 GPT-5.6 预计下周发布。系列包含 mini/标准版/Pro，上下文从 100 万提升至 150 万 tokens。智能体编码能力被曝优于 Anthropic Mythos 系列。Codex 日志中发现 GPT-5.6 调用记录。Codex 超极速模式（Ultrafast Mode）本周上线，速度提升 2-3 倍。<br><br>
+        <strong>影响方向：</strong> OpenAI 在 Fable 5 缺席的市场窗口加速推出更强产品。GPT-5.6 可能是首个 AI 编码能力超越 Anthropic 系列的模型。<br>
+        <strong>是否改变机会判断：</strong> 是 — 如果 GPT-5.6 编码能力确实超越 Mythos，将重塑 Fable 5 被禁后的模型竞争格局。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ AI 季度收入 $250 亿首超基础设施折旧 $210 亿</div>
+      <div class="detail">
+        AI 行业首次实现季度收入覆盖基础设施折旧。这是一个被 Fable 5 禁令新闻淹没但意义深远的数字——AI 从"烧钱"进入"价值创造"阶段。<br><br>
+        <strong>影响方向：</strong> 行业投资逻辑从"押注未来"转向"评估回报"。企业 AI 采购的 ROI 论证将更加数据化。<br>
+        <strong>是否改变机会判断：</strong> 否 — 长期利好但短期非直接催化剂。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="noise-box">
+      <h4>📢 本周噪音识别</h4>
+      <p>
+        「618 AI 营销数据」— 季节性商业活动，不反映长期结构变化。「API 中转站绕禁 Fable 5 验证」— 有技术趣味但属短期漏洞，政策层面会快速修补。「智谱股价 +31% 后的波动」— 短期资本反应，不是模型竞争力的直接证明。「OpenAI 与 Anthropic 人才竞争」— 人才流动是慢变量，当周不构成决策信号。
+      </p>
+    </div>
+  </section>
+
+  <section id="watchlist">
+    <div class="section-header">
+      <span class="num">05</span>
+      <h2>下周观察清单</h2>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">01</span>
+      <h3>GPT-5.6 正式发布及其合规状态</h3>
+      <div class="trigger"><strong>触发条件：</strong> 媒体报道下周发布，Fable 5 被禁后的政治气候下 OpenAI 如何应对潜在政府审查？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 150 万上下文 + 超越 Mythos 的编码能力 + 合规审批的新博弈，将定义下一阶段的模型竞争规则</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">02</span>
+      <h3>Anthropic 企业审批进展 — 首批恢复名单</h3>
+      <div class="trigger"><strong>触发条件：</strong> 约 100 家组织（含财富 500 强）等待重新获批 Mythos 5 访问，首批获批名单决定市场信心</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 首批获批企业的行业分布将揭示"关键基础设施"的定义边界</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">03</span>
+      <h3>GLM-5.2 API 上线后的开发者采用数据</h3>
+      <div class="trigger"><strong>触发条件：</strong> API 本周上线的承诺兑现，1M 上下文 + MIT 开源后的开发者迁移速度</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 高采用率则验证 Fable 5 → GLM-5.2 迁移路径可行，国产模型进入国际市场</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">04</span>
+      <h3>Fable 5 禁令的执行漏洞是否被修补</h3>
+      <div class="trigger"><strong>触发条件：</strong> API 中转站绕禁验证成功后，政府/Anthropic 是否快速修补技术漏洞</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 修补速度揭示执行决心；不修补则说明禁令更多是政治姿态而非技术封锁</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">05</span>
+      <h3>Q2 AI 企业收入预测 vs 折旧成本拐点确认</h3>
+      <div class="trigger"><strong>触发条件：</strong> 本周披露的 $250 亿 > $210 亿是否为持续趋势？Gartner 和 IDC 下周可能发布修正预测</div>
+      <div class="implication"><strong>如果发生意味着：</strong> AI 行业从"投资故事"进入"回报故事"，企业采购决策的 ROI 论证将更加严格</div>
+    </div>
+  </section>
+</main>
+
+<aside>
+  <details>
+    <summary>📊 附录：数据明细表</summary>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th><th>本周采集</th><th>关键信号</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AI 模型 & 政策</td>
+            <td>6 条核心事件</td>
+            <td>Fable 5 / Mythos 5 封禁、GLM-5.2 开源、GPT-5.6 预热、Anthropic 谈判</td>
+          </tr>
+          <tr>
+            <td>资本市场</td>
+            <td>3 条</td>
+            <td>智谱股价 +31%、Q1 机器人物理 AI $160 亿、AI 季度收入 $250 亿首超折旧 $210 亿</td>
+          </tr>
+          <tr>
+            <td>企业动态</td>
+            <td>4 条</td>
+            <td>618 AI 营销、100 家组织排队审批、AI 账单失控加速、企业转向 DeepSeek 等低成本模型</td>
+          </tr>
+          <tr>
+            <td>开发者社区</td>
+            <td>3 条</td>
+            <td>API 中转站绕禁验证、OpenRouter 美国模型份额趋势、Codex 超极速模式上线</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="color:var(--accent);">—— 信号收敛摘要 ——</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ 模型中立路由 / 多模型编排平台</td>
+            <td>Fable 5 被禁(政策) + AI 账单失控(财务) + GLM-5.2 开源(供给)</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ AI 模型访问合规 SaaS</td>
+            <td>出口管制(政府) + 企业审批排队(商业) + 绕禁验证(技术)</td>
+          </tr>
+          <tr>
+            <td>二源收敛</td>
+            <td>✅ AI 编程赛道竞争峰值</td>
+            <td>Codex 超极速模式(产品) + GPT-5.6 预热(模型) + GLM-5.2 Coding(国产)</td>
+          </tr>
+          <tr>
+            <td>二源收敛</td>
+            <td>✅ 国产模型加速反攻</td>
+            <td>GLM-5.2 开源(供给) + Fable 5 真空(需求) + 618 AI 营销(落地)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</aside>
+
+<footer>
+  <p>AI 市场洞察周刊 · 生成于 2026-06-27 18:30 CST · 基于 WK25(2026-06-13~2026-06-19) 真实历史事件编制 · 数据来源：AIHOT · 行业报道 · 政策公告 · 资本市场公开数据</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+function toggleHistory() {
+  document.getElementById('historyPanel').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('historyPanel');
+  const trigger = document.querySelector('.week-number');
+  if (panel.classList.contains('open') &&
+      !panel.contains(e.target) &&
+      !trigger.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>

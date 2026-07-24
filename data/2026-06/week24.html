@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 市场洞察周刊 · 第 24 周</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --bg-card: #161616;
+  --bg-section: #1a1a1a;
+  --text-primary: #f0ede6;
+  --text-secondary: #9c9994;
+  --text-muted: #5a5855;
+  --accent: #c8a96e;
+  --accent-dim: rgba(200,169,110,0.15);
+  --border: rgba(240,237,230,0.08);
+  --signal-strong: #e05c5c;
+  --signal-mid: #d4a843;
+  --signal-weak: #5a5855;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  padding: 80px 40px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+header h1 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+header .period {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+header .source-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.source-badge.active {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.source-badge.inactive {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+nav li { white-space: nowrap; }
+nav a {
+  display: block;
+  padding: 16px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+main { max-width: 960px; margin: 0 auto; padding: 0 40px 60px; }
+section {
+  padding: 48px 0;
+  animation: fadeUp 0.6s ease both;
+}
+section:nth-child(1) { animation-delay: 0s; }
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header .num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.shift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.shift-card .domain {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.shift-card .shift-direction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+.shift-card .shift-direction .arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.shift-card .shift-direction .from, .shift-card .shift-direction .to {
+  padding: 4px 10px;
+  background: var(--bg-section);
+  border-radius: 4px;
+}
+.shift-card .meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.8rem;
+}
+.shift-card .fb-insight {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(100, 200, 255, 0.07);
+  border-left: 3px solid #64c8ff;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.shift-card .fb-insight strong { color: var(--accent); }
+.matrix {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.matrix .cell {
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: 80px;
+}
+.matrix .cell:last-child { border-right: none; }
+.matrix .header-cell {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.matrix .row-label {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.matrix .cell.empty {
+  background: rgba(0,0,0,0.2);
+}
+.matrix .cell .signal-title {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.matrix .cell .signal-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.matrix .cell .fb-evidence {
+  font-size: 0.72rem;
+  color: #64c8ff;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+}
+.opportunity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 20px 20px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.opportunity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 60px;
+  transition: height 0.3s ease;
+}
+.opportunity-card:hover::before { height: 100%; }
+.opportunity-card.strong::before { background: var(--signal-strong); }
+.opportunity-card.mid::before { background: var(--signal-mid); }
+.opportunity-card.weak::before { background: var(--signal-weak); }
+.opportunity-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.opportunity-card .evidence, .opportunity-card .supply {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.opportunity-card .evidence strong, .opportunity-card .supply strong {
+  color: var(--text-primary);
+}
+.opportunity-card .cross-source {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+.opportunity-card .cross-source.ph {
+  background: rgba(220, 86, 37, 0.1);
+  border-left: 3px solid #dc5625;
+}
+.opportunity-card .cross-source.watcha {
+  background: rgba(100, 200, 255, 0.1);
+  border-left: 3px solid #64c8ff;
+}
+.opportunity-card .cross-source.fb {
+  background: rgba(120, 80, 200, 0.1);
+  border-left: 3px solid #7850c8;
+}
+.source-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.source-group .source-badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+}
+.source-group .source-badge.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.source-group .source-badge.inactive { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.signal-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.signal-tag.strong { color: var(--signal-strong); }
+.signal-tag.mid { color: var(--signal-mid); }
+.signal-tag.weak { color: var(--signal-weak); }
+.catalyst-item {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+}
+.catalyst-item .event-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.catalyst-item .detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.noise-box {
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--bg-section);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+.noise-box h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.noise-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.watch-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.watch-item .number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.5;
+  margin-right: 8px;
+}
+.watch-item h3 { display: inline; font-family: var(--font-display); font-size: 1rem; }
+.watch-item .trigger, .watch-item .implication {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+.watch-item .trigger strong, .watch-item .implication strong { color: var(--text-primary); }
+.watch-item .fb-hint {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: #64c8ff;
+}
+aside {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+aside details {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+aside details summary {
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  user-select: none;
+}
+aside details summary::-webkit-details-marker { color: var(--accent); }
+aside details .table-wrap {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+aside table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+aside thead { position: sticky; top: 0; z-index: 1; }
+aside th {
+  background: var(--bg-section);
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 500;
+}
+aside td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+aside tr:nth-child(even) td { background: var(--bg-section); }
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+footer p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+.history-panel {
+  position: fixed;
+  top: 0;
+  right: -340px;
+  width: 320px;
+  height: 100vh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  padding: 24px;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+}
+.history-panel.open { right: 0; }
+.history-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.history-panel .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.history-panel .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+.history-item {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: 0.2s;
+  font-size: 0.85rem;
+}
+.history-item:hover { border-color: var(--accent); background: var(--accent-dim); }
+.history-item .history-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.history-item .history-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+.history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
+.history-item.current { border-color: var(--accent); }
+.history-header { display: none; }
+.week-number { color: var(--accent); cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+.week-number:hover { opacity: 0.7; }
+.dropdown-icon { display: inline-block; }
+@media (max-width: 700px) {
+  header { padding: 60px 20px 30px; }
+  header h1 { font-size: 1.8rem; }
+  main, aside, footer { padding-left: 20px; padding-right: 20px; }
+  nav { padding: 0 16px; }
+  nav ul { gap: 16px; }
+  nav a { font-size: 0.75rem; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .matrix .cell { padding: 10px; }
+  .history-panel { width: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="history-panel" id="historyPanel">
+  <button class="close-btn" onclick="toggleHistory()">✕</button>
+  <h3>📚 历史周刊</h3>
+  <div id="historyList">
+    <a class="history-item" href="data/2026-05/week21.html" data-date="2026-05-15">
+      <div class="history-title">第 21 周</div>
+      <div class="history-date">2026-05-15 ~ 2026-05-22</div>
+    </a>
+    <a class="history-item" href="data/2026-05/week22.html" data-date="2026-05-22">
+      <div class="history-title">第 22 周</div>
+      <div class="history-date">2026-05-22 ~ 2026-05-29</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week23.html" data-date="2026-05-30">
+      <div class="history-title">第 23 周</div>
+      <div class="history-date">2026-05-30 ~ 2026-06-05</div>
+    </a>
+    <a class="history-item current" href="#" data-date="2026-06-06">
+      <div class="history-title">第 24 周</div>
+      <div class="history-date">2026-06-06 ~ 2026-06-12</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week25.html" data-date="2026-06-13">
+      <div class="history-title">第 25 周</div>
+      <div class="history-date">2026-06-13 ~ 2026-06-19</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week26.html" data-date="2026-06-20">
+      <div class="history-title">第 26 周</div>
+      <div class="history-date">2026-06-20 ~ 2026-06-26</div>
+    </a>
+</div>
+</div>
+
+<header>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 24 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/></svg></span></h1>
+  <p class="period">2026-06-06 ~ 2026-06-12 · 每周五 10 点更新</p>
+  <div class="source-badges">
+    <span class="source-badge active">AIHOT</span>
+    <span class="source-badge active">ProductHunt</span>
+    <span class="source-badge active">Watcha</span>
+    <span class="source-badge active">Follow Builders</span>
+    <span class="source-badge active">Social</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#core-shifts">核心位移</a></li>
+    <li><a href="#trend-matrix">趋势矩阵</a></li>
+    <li><a href="#opportunities">机会扫描</a></li>
+    <li><a href="#catalysts">催化剂</a></li>
+    <li><a href="#watchlist">观察清单</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="core-shifts">
+    <div class="section-header">
+      <span class="num">01</span>
+      <h2>本周核心位移</h2>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🍎 平台级迁移 · WWDC 2026 — Siri 从规则引擎到 AI 智能体</div>
+      <div class="shift-direction">
+        <span class="from">Siri 作为本地规则引擎，能力局限在系统级指令</span>
+        <span class="arrow">→</span>
+        <span class="to">Siri "Campos" 全面重构为对话式 AI 智能体，云端由 Google Gemini 1.2T 参数驱动</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        苹果 WWDC 2026 于 6月8日-12日举办，是 Tim Cook 最后一次主持的「告别秀」。苹果与 Google 达成深度合作——Siri AI 云端由 Google Gemini（1.2万亿参数）提供算力，推出独立 Siri App，支持多轮对话、上下文理解、文案创作、内容总结、屏幕语义理解。同时 Apple Intelligence 系统级开放，向开发者提供 API。iOS 27 / macOS 27 / iPadOS 27 同步发布，macOS 金门系统云传输提速 5 倍。这次合作是硅谷历史上最不寻常的「竞合」——两家在消费者市场针锋相对的公司，在 AI 基础设施层面深度绑定。苹果选择 Google 而非 OpenAI 或 Anthropic，背后是谷歌在移动端生态的无可替代性。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 Follow Builders 洞察：</strong> Tim Cook 的告别秀本质上是一次「战略投降」——苹果承认无法独立构建大模型，转而成为 Gemini 最大的应用分发渠道。这对整个 AI 产业链意味着：苹果的 20 亿+设备将瞬间成为 Gemini 的推理终端，谷歌直接获得了移动端 AI 的「入口垄断」。Builders 社区的核心讨论已转向：Apple Intelligence API 的开放是否会催生一个全新的「AI 应用分发」生态？
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge active">PH</span>
+          <span class="source-badge active">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：WWDC 2026 Keynote · Google 合作公告 · Apple Intelligence API）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">⚡ 产业格局颠覆 · Anthropic Fable 5 / Mythos 5 发布即被封禁</div>
+      <div class="shift-direction">
+        <span class="from">Frontier 模型以「发布即可用」为常态</span>
+        <span class="arrow">→</span>
+        <span class="to">Anthropic 发布 Fable 5 + Mythos 5，4 天后被美国政府以国家安全为由封禁</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        6月9日 Anthropic 同步发布 Claude Fable 5（面向公众）和 Claude Mythos 5（面向网络安全机构），两者共用底层基座，Mythos-class 级别高于 Opus 一档。跑分全面领先：SWE-Bench Pro 80.3%，FrontierCode Diamond 29.3%，全面超越 GPT 5.5 和 Gemini 3.1 Pro。支持百万 token 上下文、持久文件记忆、自我验证机制。但仅 4 天后，美国商务部长 Howard Lutnick 以「国家安全」为由禁止向任何外国公民开放，甚至包括 Anthropic 自己的非美国籍员工。起因是 Amazon 安全研究员发现可绕过安全护栏。从发布到封禁仅 4 天——这是历史上最短命的顶级模型。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 Follow Builders 洞察：</strong> Fable 5 的封禁在 Builder 社区引发了比模型发布本身更激烈的讨论。核心分歧在于：Amazon 研究员是「发现了真正的安全漏洞」还是「突破了 Anthropic 本就刻意保留的安全后门」？更值得关注的是，Fable 5 的安全降级机制——部分话题自动降级到 Opus 4.8——说明 Anthropic 在发布前就预判了监管风险。但封禁依然发生了，这意味着「预判监管」已经不够用了。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：极速突变</span>
+        <span style="color:var(--text-muted);">（依据：Anthropic Newsroom · 美国商务部 · Amazon Security Research）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🚀 AI 推理产业格局 · 万亿参数模型推理突破 1000 tokens/s</div>
+      <div class="shift-direction">
+        <span class="from">万亿参数模型推理受限于硬件，推理速度在 100-300 tokens/s 区间</span>
+        <span class="arrow">→</span>
+        <span class="to">小米 × TileRT MiMo-V2.5-Pro UltraSpeed — 万亿参数突破 1000 tokens/s（峰值 1200），无需定制芯片</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        小米联合 TileRT 发布的 MiMo-V2.5-Pro UltraSpeed 模式成为 WK24 最被低估的技术突破。万亿参数模型推理速度首次突破 1000 tokens/s（峰值 1200），且无需定制芯片——标准 8 卡 GPU 节点即可实现。6月9日至23日申请制限时开放，超 3000 家企业申请。如果这个数字真实，意味着推理成本结构将出现数量级跳变，此前英伟达 B200 和 OpenAI × Broadcom Jalapeño 构建的「推理芯片壁垒」面临来自算法层面的挑战。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 Follow Builders 洞察：</strong> 如果 MiMo-V2.5-Pro 的速度数据被第三方复现，这将是今年最重大的推理效率突破——它表明在 AI 推理优化上，算法/软件层面的创新可能比芯片层面的更有效。申请数超 3000 家企业意味着企业级需求已被验证。但这条赛道在 WK24 被 WWDC 和 Fable 5 封禁完全掩盖了——本周最被低估的新闻。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：小米 · TileRT · 3000+ 企业申请）</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="trend-matrix">
+    <div class="section-header">
+      <span class="num">02</span>
+      <h2>趋势信号矩阵</h2>
+    </div>
+
+    <div class="matrix">
+      <div class="cell header-cell"></div>
+      <div class="cell header-cell">强信号</div>
+      <div class="cell header-cell">弱信号</div>
+
+      <div class="row-label">本周新出现</div>
+
+      <div class="cell">
+        <div class="signal-title">WWDC 2026：Siri "Campos" + Gemini 算力合作</div>
+        <div class="signal-note">苹果 × Google 深度竞合，20亿+设备成 Gemini 推理终端</div>
+        <div class="fb-evidence">🔵 Builders 核心讨论：Apple Intelligence API 是否催生新 AI 分发生态？</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Fable 5 / Mythos 5 发布 4 天后被美国政府封禁</div>
+          <div class="signal-note">史上最短命 Frontier 模型，Amazon 安全研究触发国家安全审查</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge active">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">MiMo-V2.5-Pro UltraSpeed：万亿参数 >1000 tokens/s</div>
+          <div class="signal-note">无需定制芯片，标准 8 卡 GPU，3000+ 企业申请</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge active">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">iPhone 18 Pro A20 Pro 芯片爆料</div>
+        <div class="signal-note">WMCM 封装、96-bit LPDDR6、更强 NPU——移动端 AI 算力升级</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag weak" style="margin-left:6px;">● 弱（爆料级）</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">iOS 27 Beta 2 曝光百度视觉搜索组件</div>
+          <div class="signal-note">苹果×百度 AI 搜索合作线索，中国市场合规策略</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">macOS 金门系统：云传输提速 5 倍</div>
+          <div class="signal-note">本地 + 云端协同时代到来，云传输成瓶颈</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
+        </div>
+      </div>
+
+      <div class="row-label">持续强化</div>
+
+      <div class="cell">
+        <div class="signal-title">AI 国家安全级监管正式启动</div>
+        <div class="signal-note">Fable 5 被封禁意味着 Frontier 模型发布将面临政府前置审批，Amazon 安全研究成为「新范式」</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Apple × 第三方 AI 深度合作模式验证</div>
+          <div class="signal-note">苹果选择 Google Gemini + 百度视觉搜索，证明大厂 AI 竞合新常态</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">推理效率优化超越芯片竞赛</div>
+          <div class="signal-note">小米 × TileRT 算法级突破，3000+ 企业涌入</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">AI 照片/视频编辑进入消费级市场</div>
+        <div class="signal-note">WWDC 上苹果展示拍后自由调整视角的「空间构图」功能</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag weak" style="margin-left:6px;">● 弱（功能级）</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">中国 AI 本地化合规渠道</div>
+          <div class="signal-note">苹果 × 百度视觉搜索 + iOS 27 中国特供组件，苹果为入华 AI 策略铺路</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
+        </div>
+      </div>
+
+      <div class="row-label">开始减弱</div>
+
+      <div class="cell">
+        <div class="signal-title">「模型发布即全球可用」预期</div>
+        <div class="signal-note">Fable 5 封禁 + GPT-5.6 暂缓（上周）——连续两周 Frontier 模型受限，市场预期被打破</div>
+        <div class="fb-evidence">🔵 Builder 社区悲观情绪上升：@karpathy 暗示「在美国发布 Fronti er 模型可能需要军事级出口许可」</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强（范式转变）</span>
+      </div>
+
+      <div class="cell empty" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
+        —
+      </div>
+
+    </div>
+  </section>
+
+  <section id="opportunities">
+    <div class="section-header">
+      <span class="num">03</span>
+      <h2>机会空间扫描</h2>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin-bottom:14px;color:var(--accent);">3.1 供需缺口</h3>
+
+    <article class="opportunity-card strong">
+      <h3>Apple Intelligence API 生态 — 新的 AI 应用分发入口</h3>
+      <div class="evidence"><strong>需求证据：</strong> WWDC 上 Apple Intelligence API 系统级开放。苹果 20 亿+设备意味着一旦开发者接入 Apple Intelligence API，将自动获得巨大的分发渠道。Siri 从「有限的规则引擎」变为「AI 智能体平台」，为第三方 AI 应用创建了系统级入口。</div>
+      <div class="supply"><strong>供给现状：</strong> 目前仅有苹果官方应用（Siri App、照片空间构图）演示了 AI 能力，第三方开发者尚在等待 API 文档。这是比 App Store 更稀缺的早期窗口。</div>
+      <div class="cross-source ph"><strong>🟠 ProductHunt 方向：</strong> WWDC 周 PH 关键词偏向「iOS 18」和「Apple AI」——开发者社区已开始预热。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge active">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge active">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号（三源收敛）</span>
+    </article>
+
+    <article class="opportunity-card strong">
+      <h3>AI 安全审计与合规 SaaS（预判监管时代）</h3>
+      <div class="evidence"><strong>需求证据：</strong> Fable 5 被封禁的直接触发者是 Amazon 安全研究员发现了可绕过安全护栏的方法。这意味着任何组织都可能无意中触发政府级的模型封禁。企业使用 Frontier 模型面临「随时被封禁」的合规风险。</div>
+      <div class="supply"><strong>供给现状：</strong> 尚无产品能帮助企业量化「我的模型使用是否符合国家安全标准」。这是一个全新的合规需求品类。</div>
+      <div class="cross-source fb"><strong>🟣 Follow Builders 佐证：</strong> 上周 GPT-5.6 被暂缓 + 本周 Fable 5 被封禁 — 连续两周的监管行动让 Builder 社区的共识变成：Frontier 模型的前置审批将成为新常态。这对 SaaS 创业者而言是一个真实的合规 SaaS 风口。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge active">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号（双周连续收敛）</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.2 竞争过热区</h3>
+
+    <article class="opportunity-card mid">
+      <h3>移动端 AI 助手 / 语音助手</h3>
+      <div class="evidence"><strong>过热证据：</strong> 苹果重构 Siri、小米 MiMo 推理突破、独立 Siri App 发布——移动端 AI 助手赛道在 WK24 同时被三家重量级玩家同时推高。竞争从「谁有 AI 功能」转向「谁有移动端分发」。</div>
+      <div class="supply"><strong>差异化建议：</strong> 聚焦非 iOS/Android 平台的 AI 助手（汽车、IoT、智能手表）或垂直场景（教育、医疗）——避开与苹果 Siri + Gemini 的正面竞争。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge active">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <article class="opportunity-card mid">
+      <h3>AI 照片/视频编辑</h3>
+      <div class="evidence"><strong>过热证据：</strong> 苹果 WWDC 展示「空间构图」（拍后自由调整视角）功能。Adob​​e、Canva、Midjourney 等均已在布局。</div>
+      <div class="supply"><strong>差异化建议：</strong> 专注专业/商业摄影 AI 工具（电商产品图、3D 重建）而非消费级「一键修图」。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.3 替代缺口</h3>
+
+    <article class="opportunity-card mid">
+      <h3>云基础设施传输层 — macOS 金门揭示 AI 时代新瓶颈</h3>
+      <div class="evidence"><strong>被替代者：</strong> 传统云传输协议。macOS 金门系统云传输提速 5 倍的信号在于：当 AI 推理主要在云端而本地设备仅负责输入输出时，传输带宽和延迟成为新的瓶颈。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 中 — Apple 以系统级优化暗示方向，市场尚未充分认知。</div>
+      <div class="cross-source fb"><strong>🟣 跨源佐证：</strong> 小米 MiMo UltraSpeed 1.2K tokens/s 意味着推理端瓶颈正在被算法攻克，传输端将成为下一个制约 AI 体验的关键环节。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge active">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号（双源收敛）</span>
+    </article>
+
+    <article class="opportunity-card mid">
+      <h3>独立搜索引擎的 AI 搜索替代</h3>
+      <div class="evidence"><strong>被替代者：</strong> Google 搜索、百度搜索。iOS 27 Beta 2 被发现内置百度视觉搜索组件——不是替代搜索，而是 AI 视觉搜索成为搜索新入口。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 中 — Apple Intelligence API + 视觉搜索组件意味着苹果正在构建「AI 优先的搜索体验」而非「搜索引擎」本身。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+  </section>
+
+  <section id="catalysts">
+    <div class="section-header">
+      <span class="num">04</span>
+      <h2>催化剂快照</h2>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ WWDC 2026 — Siri "Campos" + Apple Intelligence API + Gemini 算力合作</div>
+      <div class="detail">
+        Tim Cook 最后一次主持 WWDC。Siri 从规则引擎升级为对话式 AI 智能体，云端由 Google Gemini 1.2 万亿参数驱动。iOS 27/macOS 27/iPadOS 27 同步发布。独立 Siri App 支持多轮对话、上下文理解、文案创作、屏幕语义理解。Apple Intelligence 向开发者开放 API。<br><br>
+        <strong>影响方向：</strong> 苹果 20 亿+设备成为 AI 终端，Apple Intelligence API 可能催生新的 AI 应用分发生态。<br>
+        <strong>是否改变机会判断：</strong> 是 — Siri 重构 + API 开放 = 移动端 AI 应用的分发模式将被重写。苹果在 AI 竞赛中从「旁观者」变为「平台方」。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Anthropic Fable 5 / Mythos 5 — 史上最强模型，史上最短命</div>
+      <div class="detail">
+        6月9日发布：SWE-Bench Pro 80.3%，FrontierCode Diamond 29.3%，全面超 GPT 5.5 和 Gemini 3.1 Pro。百万 token 上下文、持久文件记忆、自我验证。6月12日被封禁：商务部长 Howard Lutnick 致信 Anthropic CEO，以国家安全为由禁止向外国公民开放。<br><br>
+        <strong>影响方向：</strong> Frontier 模型的发布-封禁时间窗口可能被压缩到近乎为零。模型安全研究成为国家安全级议题。<br>
+        <strong>是否改变机会判断：</strong> 是 — AI 安全 SaaS 不再是「锦上添花」而是「生存刚需」。模型公司可能需要建立「预发布安全审计」内建流程。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 小米 MiMo-V2.5-Pro UltraSpeed — 推理效率的「算法奇迹」</div>
+      <div class="detail">
+        万亿参数模型推理首次突破 1000 tokens/s，峰值 1200 tokens/s，无需定制芯片，标准 8 卡 GPU 节点。6月9日-23日申请制限时开放，超 3000 家企业申请。与 WWDC 同日发布，被完全掩盖。<br><br>
+        <strong>影响方向：</strong> 推理效率从「芯片驱动」转向「算法+芯片双驱动」。标准 GPU 节点即可运行万亿参数模型。推理成本可能在未来 6-12 个月数量级下降。<br>
+        <strong>是否改变机会判断：</strong> 是 — 如果 MiMo 数据经过第三方验证，AI 推理的成本门槛将大幅度降低，直接利好 AI 应用层。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Fable 5 被封禁的连锁意义 — 国家安全审查模型发布</div>
+      <div class="detail">
+        美国商务部长直接致信 Anthropic CEO，禁令包括 Anthropic 自己的非美国籍员工。起因：Amazon 安全研究员发现可绕过安全护栏。从发布到被禁仅 4 天。这是美国政府首次直接封禁已发布的 Frontier 模型。<br><br>
+        <strong>影响方向：</strong> 任何 Frontier 模型发布前都可能需要国家安全审查。模型公司需要建立「发布前安全审计」内建流程。<br>
+        <strong>是否改变机会判断：</strong> 是 — 模型公司的估值逻辑可能发生根本变化：安全能力 = 商业护城河，而非成本中心。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Apple × Google Gemini — 硅谷史上最不寻常的合</div>
+      <div class="detail">
+        苹果与 Google 达成深度合作，Siri AI 云端由 Gemini 1.2T 参数提供算力。两家在消费者市场针锋相对的公司，在 AI 基础设施层面深度绑定。同时 iOS 27 Beta 2 曝光百度视觉搜索组件，苹果在中美两条线选择不同的 AI 合作伙。<br><br>
+        <strong>影响方向：</strong> 苹果证明「自己不做大模型」是可以的——选择最佳 AI 基础设施伙并深度集成，可能成为其他硬件大厂的效仿模式。<br>
+        <strong>是否改变机会判断：</strong> 是 —「AI 基础设施 + 硬件分发」合作模式验证，可能促使三星、索尼等重新评估 AI 战略。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge active">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="noise-box">
+      <h4>📢 本周噪音识别</h4>
+      <p>
+        「iPhone 18 Pro A20 Pro 芯片爆料」— 常规手机曝光，不影响当前 AI 产业格局判断。「macOS 金门系统云传输提速 5 倍」— 重要但不紧迫，AI 传输瓶颈会在推理成本下降后才会凸显。「iOS 27 空间构图」— 酷炫功能但属于产品细节，非赛道级信号。
+      </p>
+    </div>
+  </section>
+
+  <section id="watchlist">
+    <div class="section-header">
+      <span class="num">05</span>
+      <h2>下周观察清单</h2>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">01</span>
+      <h3>Fable 5 封禁的后续连锁反应</h3>
+      <div class="trigger"><strong>触发条件：</strong> Anthropic 将如何应对？是否会提起法律挑战还是接受限制？其他实验室（OpenAI/Google DeepMind）是否会主动调整发布策略？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 国家安全审查模型发布成为新常态，Frontier 模型公司需要建立「预发布安全审计」能力</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">02</span>
+      <h3>Apple Intelligence API 首批开发者反馈</h3>
+      <div class="trigger"><strong>触发条件：</strong> WWDC 后 Apple Intelligence API Beta 是否开放？首批接入的开发者能否展示差异化用例？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 独立 Siri App + API = 移动端 AI 应用的新分发入口，影响整个 AI 应用开发方向</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">03</span>
+      <h3>MiMo-V2.5-Pro 第三方性能验证</h3>
+      <div class="trigger"><strong>触发条件：</strong> 3000+ 申请企业中，是否有第三方发布独立的性能验证报告？1200 tokens/s 是否能在标准硬件上复现？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 推理效率赛道从「芯片主导」进入「算法+芯片双驱动」，推理成本可能在未来 6-12 个月数量级下降</div>
+      <div class="fb-hint">🔵 关注 @TileRT 和 @XiaomiTech 的技术博客——通常独立验证会在申请截止后 1-2 周内出现</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">04</span>
+      <h3>中国 AI 企业对 Fable 5 封禁的应对</h3>
+      <div class="trigger"><strong>触发条件：</strong> Fable 5 封禁后，中国 AI 企业（阿里、百度、字节等）是否会加速自研或引进非美模型？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 中美 AI 模型「脱钩」加速，中国自研大模型需求进一步激增。开源模型（如 Ring-2.6-1T）可能成为替代选择</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">05</span>
+      <h3>WWDC 后苹果 × 百度 AI 合作的落地细节</h3>
+      <div class="trigger"><strong>触发条件：</strong> iOS 27 Beta 2 中百度视觉搜索组件是否只是冰山一角？是否有更深层的 Apple Intelligence 中国本地化方案？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 苹果在中国市场选择百度而非阿里/字节作为 AI 伙，将重塑中国 AI 竞争格局</div>
+    </div>
+  </section>
+</main>
+
+<aside>
+  <details>
+    <summary>📊 附录：数据明细表</summary>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th><th>本周采集</th><th>关键信号</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WWDC 2026</td>
+            <td>5 天主题</td>
+            <td>Siri Campos、iOS 27、Apple Intelligence API、Gemini 合作、macOS 金门、空间构图</td>
+          </tr>
+          <tr>
+            <td>Anthropic</td>
+            <td>2 模型发布</td>
+            <td>Fable 5 公众版、Mythos 5 安全版、SWE-Bench Pro 80.3%、+4天被封禁</td>
+          </tr>
+          <tr>
+            <td>小米 × TileRT</td>
+            <td>1 技术发布</td>
+            <td>MiMo-V2.5-Pro UltraSpeed 1000+ tokens/s、3000+ 企业申请</td>
+          </tr>
+          <tr>
+            <td>美国政府</td>
+            <td>1 禁令</td>
+            <td>商务部长 Howard Lutnick 致信 Anthropic，国家安全封禁</td>
+          </tr>
+          <tr>
+            <td>苹果硬件</td>
+            <td>2 条爆料</td>
+            <td>A20 Pro WMCM 封装、96-bit LPDDR6、百度视觉搜索组件</td>
+          </tr>
+          <tr>
+            <td>ProductHunt</td>
+            <td>📡 WWDC 周活跃</td>
+            <td>关键词：iOS 18、Apple AI、空间计算</td>
+          </tr>
+          <tr>
+            <td>Follow Builders</td>
+            <td>🐦 多推文</td>
+            <td>Fable 5 封禁讨论最热、Apple × Google 竞合分析、MiMo 被低估</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="color:var(--accent);">—— 信号收敛摘要 ——</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ 移动端 AI 助手爆发</td>
+            <td>苹果 Siri + 小米 MiMo + Apple Intelligence API</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ Frontier 模型国家安全审查新常态</td>
+            <td>Fable 5 封禁 + GPT-5.6 暂缓（上周）+ 美国商务部行动</td>
+          </tr>
+          <tr>
+            <td>双源收敛</td>
+            <td>✅ 推理效率革命</td>
+            <td>小米 MiMo 算法突破 + macOS 金门传输优化（双端夹击）</td>
+          </tr>
+          <tr>
+            <td>双源收敛</td>
+            <td>✅ 苹果 AI 多轨合作策略</td>
+            <td>美国：Google Gemini + 中国：百度视觉搜索</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</aside>
+
+<footer>
+  <p>AI 市场洞察周刊 · 生成于 2026-06-12 10:45 CST · 数据来源：WWDC 2026 · Anthropic · 小米 · TileRT · 美国商务部 · Apple Intelligence</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+function toggleHistory() {
+  document.getElementById('historyPanel').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('historyPanel');
+  const trigger = document.querySelector('.week-number');
+  if (panel.classList.contains('open') &&
+      !panel.contains(e.target) &&
+      !trigger.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>

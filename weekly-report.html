@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 市场洞察周刊 · 第 26 周</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --bg-card: #161616;
+  --bg-section: #1a1a1a;
+  --text-primary: #f0ede6;
+  --text-secondary: #9c9994;
+  --text-muted: #5a5855;
+  --accent: #c8a96e;
+  --accent-dim: rgba(200,169,110,0.15);
+  --border: rgba(240,237,230,0.08);
+  --signal-strong: #e05c5c;
+  --signal-mid: #d4a843;
+  --signal-weak: #5a5855;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  padding: 80px 40px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+header h1 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+header .period {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+header .source-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.source-badge.active {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.source-badge.inactive {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+nav li { white-space: nowrap; }
+nav a {
+  display: block;
+  padding: 16px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+main { max-width: 960px; margin: 0 auto; padding: 0 40px 60px; }
+section {
+  padding: 48px 0;
+  animation: fadeUp 0.6s ease both;
+}
+section:nth-child(1) { animation-delay: 0s; }
+section:nth-child(2) { animation-delay: 0.1s; }
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.3s; }
+section:nth-child(5) { animation-delay: 0.4s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header .num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.6;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.shift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.shift-card .domain {
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.shift-card .shift-direction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+.shift-card .shift-direction .arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+.shift-card.shift-irection .from, .shiftt-card.shift-direction .to {
+  padding: 4px 10px;
+  background: var(--bg-section);
+  border-radius: 4px;
+}
+.shift-card .meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.8rem;
+}
+.shift-card .fb-insight {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(100, 200, 255, 0.07);
+  border-left: 3px solid #64c8ff;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.shift-card .fb-insight strong { color: var(--accent); }
+.matrix {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+.matrix .cell {
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: 80px;
+}
+.matrix .cell:last-child { border-right: none; }
+.matrix .header-cell {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.matrix .row-label {
+  background: var(--bg-card);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.matrix .cell.empty {
+  background: rgba(0,0,0,0.2);
+}
+.matrix .cell .signal-title {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.matrix .cell .signal-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.matrix .cell .fb-evidence {
+  font-size: 0.72rem;
+  color: #64c8ff;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+}
+.opportunity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 20px 20px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.opportunity-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 60px;
+  transition: height 0.3s ease;
+}
+.opportunity-card:hover::before { height: 100%; }
+.opportunity-card.strong::before { background: var(--signal-strong); }
+.opportunity-card.mid::before { background: var(--signal-mid); }
+.opportunity-card.weak::before { background: var(--signal-weak); }
+.opportunity-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.opportunity-card .evidence, .opportunity-card .supply {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.opportunity-card .evidence strong, .opportunity-card .supply strong {
+  color: var(--text-primary);
+}
+.opportunity-card .cross-source {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+.opportunity-card .cross-source.ph {
+  background: rgba(220, 86, 37, 0.1);
+  border-left: 3px solid #dc5625;
+}
+.opportunity-card .cross-source.watcha {
+  background: rgba(100, 200, 255, 0.1);
+  border-left: 3px solid #64c8ff;
+}
+.opportunity-card .cross-source.fb {
+  background: rgba(120, 80, 200, 0.1);
+  border-left: 3px solid #7850c8;
+}
+.source-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.source-group .source-badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+}
+.source-group .source-badge.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.source-group .source-badge.inactive { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.signal-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.signal-tag.strong { color: var(--signal-strong); }
+.signal-tag.mid { color: var(--signal-mid); }
+.signal-tag.weak { color: var(--signal-weak); }
+.catalyst-item {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+}
+.catalyst-item .event-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.catalyst-item .detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.noise-box {
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--bg-section);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+.noise-box h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.noise-box p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.watch-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.watch-item .number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.5;
+  margin-ight: 8px;
+}
+.watch-item h3 { display: inline; font-family: var(--font-display); font-size: 1rem; }
+.watch-item .trigger, .watch-item .implication {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+.watch-item .trigger strong, .watch-item .implication strong { color: var(--text-primary); }
+.watch-item .fb-hint {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: rgba(100,200,255,0.06);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: #64c8ff;
+}
+aside {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+aside details {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+aside details summary {
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  user-select: none;
+}
+aside details summary::-webkit-details-marker { color: var(--accent); }
+aside details .table-wrap {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+aside table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+aside thead { position: sticky; top: 0; z-index: 1; }
+aside th {
+  background: var(--bg-section);
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 500;
+}
+aside td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+aside tr:nth-child(even) td { background: var(--bg-section); }
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+footer p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+.history-panel {
+  position: fixed;
+  top: 0;
+  right: -340px;
+  width: 320px;
+  height: 100vh;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  padding: 24px;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+}
+.history-panel.open { right: 0; }
+.history-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.history-panel .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.history-panel .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+.history-item {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: 0.2s;
+  font-size: 0.85rem;
+}
+.history-item:hover { border-color: var(--accent); background: var(--accent-dim); }
+.history-item .history-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.history-item .history-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+.history-item .history-status { font-size: 0.72rem; color: var(--text-muted); }
+.history-item.current { border-color: var(--accent); }
+.history-header { display: none; }
+.week-number { color: var(--accent); cursor: pointer; transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+.week-number:hover { opacity: 0.7; }
+.dropdown-icon { display: inline-block; }
+@media (max-width: 700px) {
+  header { padding: 60px 20px 30px; }
+  header h1 { font-size: 1.8rem; }
+  main, aside, footer { padding-left: 20px; padding-right: 20px; }
+  nav { padding: 0 16px; }
+  nav ul { gap: 16px; }
+  nav a { font-size: 0.75rem; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; }
+  .matrix .cell { padding: 10px; }
+  .history-panel { width: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="history-panel" id="historyPanel">
+  <button class="close-btn" onclick="toggleHistory()">✕</button>
+  <h3>📚 历史周刊</h3>
+  <div id="historyList">
+    <a class="history-item current" href="#" data-date="2026-06-26">
+      <div class="history-title">第 26 周</div>
+      <div class="history-date">2026-06-20 ~ 2026-06-26</div>
+    </a>
+    <a class="history-item" href="data/2026-06/week23.html" data-date="2026-06-05">
+      <div class="history-title">第 23 周</div>
+      <div class="history-date">2026-05-30 ~ 2026-06-05</div>
+    </a>
+    <a class="history-item" href="data/2026-05/week22.html" data-date="2026-05-22">
+      <div class="history-title">第 22 周</div>
+      <div class="history-date">2026-05-22 ~ 2026-05-29</div>
+    </a>
+    <a class="history-item" href="data/2026-05/week21.html" data-date="2026-05-15">
+      <div class="history-title">第 21 周</div>
+      <div class="history-date">2026-05-15 ~ 2026-05-22</div>
+    </a>
+  </div>
+</div>
+
+<header>
+  <h1>AI 市场洞察周刊 · <span class="week-number" onclick="toggleHistory()">第 26 周 <svg class="dropdown-icon" width="24" height="24" viewBox="0 0 12 12" fill="currentColor" style="margin-top:10px"><path d="M2 3.5L6 8.5L10 3.5" fill="currentColor"/</svg></span></h1>
+  <p class="period">2026-06-20 ~ 2026-06-26 · 每周五 10 点更</p>
+  <div class="source-badges">
+    <span class="source-badge active">AIHOT</span>
+    <span class="source-badge inactive">ProductHunt</span>
+    <span class="source-badge inactive">Watcha</span>
+    <span class="source-badge inactive">Follow Builders</span>
+    <span class="source-badge inactive">Social</span>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#core-shifts">核心位移</a></li>
+    <li><a href="#trend-matrix">趋势矩阵</a></li>
+    <li><a href="#opportunities">机会扫描</a></li>
+    <li><a href="#catalysts">催化剂</a></li>
+    <li><a href="#watchlist">观察清单</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="core-shifts">
+    <div class="section-header">
+      <span class="num">01</span>
+      <h2>本周核心位移</h2>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🔌 芯片层格局变革 · OpenAI 自研推理芯片 + 美国政府干预模型发布</div>
+      <div class="shift-direction">
+        <span class="from">AI 推理芯片依赖英伟达/AMD</span>
+        <span class="arrow">→</span>
+        <span class="to">OpenAI × Broadcom 联合推出推理芯片 Jalapeño，同时美国政府要求暂缓 GPT-5.6 发布</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        OpenAI 与 Broadcom 联合发布 LLM 推理芯片 Jalapeño，标志着大模型公司首次深度介入芯片设计。这是继微软自研芯片后，AI 巨头"垂直整合"的又一里程碑——模型公司不再满足于租用算力，开始按自身推理需求定制硅片。同日，美国政府要求 OpenAI 暂缓 GPT-5.6 广泛发布，这是美国政府首次直接干预 Frontier 模型的发布节奏，显示监管"红线"开始从原则走向行动。两条新闻在同一天出现并非巧合：模型能力的加速让政府担忧 + 让模型公司加速算力自主。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 信号交叉：</strong> 芯片自主 + 模型监管 "一进一退" 形成了本周最核心的结构性矛盾——AI 能力越强，政府管控越紧；算力越自主，模型越不可控。这与五眼联盟本周同时发布的"AI 网络威胁数月内将影响普通用户"警告形成共振。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：AIHOT · OpenAI · Broadcom · 美国政府声明）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">⚖️ AI 劳动力替代从"讨论"进入"实质裁撤"</div>
+      <div class="shift-direction">
+        <span class="from">AI 替代是理论担忧</span>
+        <span class="arrow">→</span>
+        <span class="to">Oracle 因 AI 裁员 21000 人，Figure 机器人数首超人类员工，企业级 AI 替代已成现实</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        Oracle 一次性裁员 21000 人，理由是"AI 应用普及 + 债务驱动的云基础设施投资优化"。这不仅是本周最大规模的单一裁员事件，更是全球企业级 AI 替代的标杆性案例：Oracle 的数据库、ERP、CRM 等核心产品线已实现 AI 驱动的自动化，员工裁撤被明确归因于 AI 能力。同周，Figure 机器人公司宣布其机器人数量首次超过人类员工——虽更多象征意义但冲击力巨大。微软双向转售 GPT 和 DeepSeek 成为全球最大 AI 中间商的消息进一步确认：AI 正在成为企业采购的基础设施类目，而非实验性技术。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 行业影响：</strong> Oracle 21000 人裁员 = 传统企业软件巨头首次将"AI 替代"写入裁员公告。Meta 员工警告 AI 内容审核部署过快、五眼联盟预警 AI 网络威胁，三条线合围——AI 对劳动力、内容平台、网络安全的三重冲击在本周同时达到新高。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：快速推进</span>
+        <span style="color:var(--text-muted);">（依据：AIHOT · Oracle · Figure · 路透 · CNBC）</span>
+      </div>
+    </div>
+
+    <div class="shift-card">
+      <div class="domain">🫂 Anthropic 人才磁吸效应深化 · 顶级人才从 DeepMind 向 Anthropic 流动</div>
+      <div class="shift-direction">
+        <span class="from">Anthropic 以 Karpathy 加入确立人才吸引力</span>
+        <span class="arrow">→</span>
+        <span class="to">AlphaFold 负责人 John Jumper 离职 Google DeepMind 加入 Anthropic——结构生物学与 AI 的交叉领域重力中心转移</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-top:8px;">
+        John Jumper——AlphaFold 的联合负责人、2024 诺贝尔化学奖得主——从 Google DeepMind 离职加入 Anthropic。这是继 Andrej Karpathy 后，Anthropic 在六周内从竞争对中挖走的第二位顶级研究者。与 Karpathy 的"AI 前沿研究"方向不同，Jump er 加入意味着 Anthropic 正在系统性储备科学计算/生物学+AI 的跨领域能力。Anthropic 本周还因"阿里巴巴非法获取 Claude 模型功能"公开指控，叠加此前与 NSA 的 Mythos 纠纷，显示其同时在安全合规、知识产权保护、科学前沿三条线上构建竞争壁垒。
+      </p>
+      <div class="fb-insight">
+        <strong>🔵 格局判断：</strong> Karpathy（通用 AI 前沿）+ Jumper（科学 AI）+ Claude 安全体系 = Anthropic 正在构建一个其他实验室难以复制的"AI 研究 + 应用 + 安全"三位一体人才矩阵。相比之下，OpenAI 的 Daybreak 计划虽然扩展了 GPT-5.5-Cyber 和 Codex Security，但缺乏同等量级的人才加盟新闻。
+      </div>
+      <div class="meta">
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong">● 强信号</span>
+        <span style="color:var(--text-muted);">速度：持续加速</span>
+        <span style="color:var(--text-muted);">（依据：AIHOT · Nature · Anthropic · 诺奖公告）</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="trend-matrix">
+    <div class="section-header">
+      <span class="num">02</span>
+      <h2>趋势信号矩阵</h2>
+    </div>
+
+    <div class="matrix">
+      <div class="cell header-cell"></div>
+      <div class="cell header-cell">强信号</div>
+      <div class="cell header-cell">弱信号</div>
+
+      <div class="row-label">本周新出现</div>
+
+      <div class="cell">
+        <div class="signal-title">OpenAI × Broadcom 推出推理芯片 Jalapeño</div>
+        <div class="signal-note">大模型公司首次自研推理芯片，垂直整合加速</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">美国政府首次要求暂缓 Frontier 模型发布（GPT-5.6）</div>
+          <div class="signal-note">AI 监管从"事后讨论"进入"事前干预"</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Jumper 加入 Anthropic — 科学 AI 人才迁移</div>
+          <div class="signal-note">AlphaFold 诺奖得主从 DeepMind 流向 Anthropic</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">Oracle 因 AI 裁员 21000 人</div>
+          <div class="signal-note">企业级 AI 替代从"说法"变"公告"</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag strong" style="margin-left:6px;">● 强</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">五眼联盟警告 AI 网络威胁</div>
+        <div class="signal-note">数月内影响普通用户——公共安全领域 AI 威胁具象化</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag weak" style="margin-left:6px;">● 弱（警告级，非事件级）</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">微信 Agent "小微"灰度内测</div>
+          <div class="signal-note">12 亿用户平台的 AI 入口——超级 App × AI Agent 测试</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱（内测阶段）</span>
+        </div>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">小米 YU7 GT 纽北自动驾驶圈速纪录</div>
+          <div class="signal-note">官方圈速榜新增"自动驾驶"分类——标准制定权争夺</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag weak" style="margin-left:6px;">● 弱</span>
+        </div>
+      </div>
+
+      <div class="row-label">持续强化</div>
+
+      <div class="cell">
+        <div class="signal-title">Agent 基础设施全面爆发（4 条独立事件）</div>
+        <div class="signal-note">Runway Agent 2.0、IBM 开源 CUGA、火山引擎 AgentKit、Cloudflare AI Agent 临时账户、Sakana Fugu 多智能体编排——本周 AI 将 Agent 的话题热度从"模型"完全转向"基础设施"</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag strong" style="margin-left:6px;">● 强（五源收敛）</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">AI 语音与音频赛道崛起</div>
+          <div class="signal-note">OpenAI Bidi 1（双向AI语音模型）、豆包音频生成1.0、网易 Confucius4-TTS 开源——三款语音/AI音频产品同周发布</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="signal-title">OpenAI + Broadcom 芯片合作 vs 英伟达主导地位</div>
+        <div class="signal-note">大厂自研芯片趋势确认——英伟达垄断地位开始出现结构性裂缝</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+
+        <div style="margin-top:12px;">
+          <div class="signal-title">中国AI全面追赶：豆包专业版 + Qwen-AgentWorld + 京东全栈开源</div>
+          <div class="signal-note">火山引擎、豆包、通义、京东四线齐发，中国AI进入"产品+开源+企业"三线作战</div>
+          <span class="source-group">
+            <span class="source-badge active">AIHOT</span>
+            <span class="source-badge inactive">PH</span>
+            <span class="source-badge inactive">Watcha</span>
+            <span class="source-badge inactive">FB</span>
+          </span>
+          <span class="signal-tag mid" style="margin-left:6px;">● 中</span>
+        </div>
+      </div>
+
+      <div class="row-label">开始减弱</div>
+
+      <div class="cell">
+        <div class="signal-title">AI 编程 IDE 竞争从"新工具发布"阶段进入"功能白热化"</div>
+        <div class="signal-note">Codex 上 ChatGPT 移动端、Notion 嵌入 Cursor SDK、IBM 开源 CUGA、Show HN: Oak（Agent Git替代）——竞争密度极高但亮点减少</div>
+        <div class="fb-evidence">🔵 四周前这些还是"核心位移"级信号，本周已降级为持续强化——说明市场在加速但创新边际在递减</div>
+        <span class="source-group">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">P</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+        <span class="signal-tag mid" style="margin-left:6px;">● 中（降级）</span>
+      </div>
+
+      <div class="cell empty" style="display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
+        —
+      </div>
+
+    </div>
+  </section>
+
+  <section id="opportunities">
+    <div class="section-header">
+      <span class="num">03</span>
+      <h2>机会空间扫描</h2>
+    </div>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin-bottom:14px;color:var(--accent);">3.1 供需缺口</h3>
+
+    <article class="opportunity-card strong">
+      <h3>AI 安全审计与合规 SaaS（五源收敛）</h3>
+      <div class="evidence"><strong>需求证据：</strong> 五眼联盟警告 AI 网络攻击数月内影响普通用户；Meta 员工警告 AI 内容审核过快部署；Anthropic 与阿里巴巴/NSA 双重安全纠纷；GitHub 呼吁修改加州 AI 透明度法案；美国政府直接干预 GPT-5.6 发布——安全合规需求在本周从"侧面提醒"变为"正面危机"。</div>
+      <div class="supply"><strong>供给现状：</strong> 巨头各自为战，无面向企业的集成式 AI 安全审计 SaaS。Anthropic 的安全产品偏重自身模型，非通用方案。</div>
+      <div class="cross-source fb"><strong>🟣 跨源证据：</strong> 五眼联盟（政府）+ Meta（企业）+ Anthropic（AI公司）+ GitHub（开源社区）+ 美国政府（监管）——五方在本周同时指向 AI 安全/合规缺口。这是自本刊创建以来覆盖最广的信号收敛。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号（五源收敛）</span>
+    </article>
+
+    <article class="opportunity-card mid">
+      <h3>企业 AI 平台层 / AI 中间件（微软模式验证）</h3>
+      <div class="evidence"><strong>需求证据：</strong> 微软双向转售 GPT 和 DeepSeek 成为全球最大 AI 中间商。Cloudflare 推出 AI Agent 临时账户。OpenRouter 推出统一图像 API 和 MCP 服务器。美团 tabbit 免费接入多款旗舰模型——"AI 中间件/平台层"商业模式被验证可行。</div>
+      <div class="supply"><strong>供给现状：</strong> 微软、Cloudflare、OpenRouter 各守一域，缺乏企业级全栈 AI 平台中间件。</div>
+      <div class="cross-source watcha"><strong>Watcha 方向：</strong> WorkBuddy（🔥97）在企业 AI 助手赛道断崖领先，确认中国企业 AI Agent 市场的真实需求。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge active">PH</span>
+        <span class="source-badge active">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号（三源收敛）</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.2 竞争过热区</h3>
+
+    <article class="opportunity-card strong">
+      <h3>AI 语音/音频模型</h3>
+      <div class="evidence"><strong>过热证据：</strong> 本周三家发布 AI 语音产品：OpenAI Bidi 1（双向AI语音）、豆包音频生成1.0、网易 Confucius4-TTS。叠加此前已存在的 ElevenLabs、PlayHT、Respeecher 等——语音 AI 进入"谁能扩大应用场景"的肉搏期。</div>
+      <div class="supply"><strong>差异化建议：</strong> 垂直场景语音 AI（客服质检/医疗问诊录音/教育口语评估）而非通用语音克隆。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag strong">● 强信号</span>
+    </article>
+
+    <article class="opportunity-card mid">
+      <h3>通用 AI 编程助手 / AI IDE</h3>
+      <div class="evidence"><strong>过热证据：</strong> Codex 上移动端、Notion 嵌入 Cursor SDK、IBM CUGA 开源、Oak 专为 Agent 设计的 Git——赛道持续拥挤。</div>
+      <div class="supply"><strong>差异化建议：</strong> Ornith-1.0 专注 Agentic Coding 全参数开源，NatureBench 评测 AI 编码能否匹配 Nature SOTA——这两个信号表明专业/科研级 AI 编码可能比通用 IDE 更有壁垒。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;margin:28px 0 14px;color:var(--accent);">3.3 替代缺口</h3>
+
+    <article class="opportunity-card mid">
+      <h3>Git 托管 / GitHub 替代空间</h3>
+      <div class="evidence"><strong>被替代者：</strong> GitHub。Show HN 的 Oak（专为 Agent 设计的 Git 替代方案）说明了方向——AI Agent 的工作流与人类 Git 操作完全不同。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 中 — 单项目验证但需求逻辑清晰。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag mid">● 中信号</span>
+    </article>
+
+    <article class="opportunity-card weak">
+      <h3>传统金融分析工具 → AI 金融智能体</h3>
+      <div class="evidence"><strong>被替代者：</strong> Bloomberg Terminal / 传统投资分析。盈透证券（Interactive Brokers）与 Grok 集成，Google Finance 全新 Android 应用——传统金融工具正在被 AI 金融智能体侵蚀。</div>
+      <div class="supply"><strong>替代信号强度：</strong> 弱 — 但方向明确。AI 驱动的投资分析+交易执行是确定性趋势。</div>
+      <span class="source-group">
+        <span class="source-badge active">AIHOT</span>
+        <span class="source-badge inactive">PH</span>
+        <span class="source-badge inactive">Watcha</span>
+        <span class="source-badge inactive">FB</span>
+      </span>
+      <span class="signal-tag weak">● 弱信号</span>
+    </article>
+
+  </section>
+
+  <section id="catalysts">
+    <div class="section-header">
+      <span class="num">04</span>
+      <h2>催化剂快照</h2>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ OpenAI × Broadcom 联合发布推理芯片 Jalapeño</div>
+      <div class="detail">
+        OpenAI 与 Broadcom 联合推出 LLM 推理专用芯片 Jalapeño。这是大模型公司首次深度介入芯片设计——AI 推理将从"租用 GPU"转向"定制硅片"。OpenAI Daybreak 计划同步扩展 GPT-5.5-Cyber 和 Codex Security。<br><br>
+        <strong>影响方向：</strong> AI 推理成本结构将发生根本变化，芯片自研趋势加速。英伟达独占地位面临结构性挑战。<br>
+        <strong>是否改变机会判断：</strong> 是 — 推理成本下降将推动更多 AI 应用落地，芯片层投资逻辑从"英伟达垄断"转为"多方竞合"。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 美国政府要求暂缓 GPT-5.6 广泛发布 — 史上首次模型发布干预</div>
+      <div class="detail">
+        美国政府在 OpenAI 发布 GPT-5.6 前要求暂缓全面发布——这是美国政府首次直接干预 Frontier 模型发布节奏。与五眼联盟同日发布的"AI 网络威胁数月内影响普通用户"警告形成政策+情报的双重预警。<br><br>
+        <strong>影响方向：</strong> AI 监管从"委员会讨论"进入"行政干预"阶段。Frontier 模型发布可能需提前审批。<br>
+        <strong>是否改变机会判断：</strong> 是 — 合规/安全产品的时间窗口加速打开。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ Oracle 因 AI 裁员 21000 人 — 企业级 AI 替代里程碑</div>
+      <div class="detail">
+        Oracle 宣布因 AI 应用裁员 21000 人，同时通过债务驱动云基础设施投资。这是迄今为止与 AI 直接挂钩的最大规模企业裁员。同周 Meta 员工警告 AI 审核部署过快，Figure 机器人超人类员工——"AI 替代"在同一个工作周内从 Oracle（企业软件）、Meta（内容平台）、Figure（物理机器人）三个维度同时发生。<br><br>
+        <strong>影响方向：</strong> AI 替代从"2027 年预测"变为"2026 年第二季度现实"。HR Tech / 再培训 / 裁员管理 SaaS 市场的政策+市场双驱动确认。<br>
+        <strong>是否改变机会判断：</strong> 是 — 劳动力替代的可投资主题从"远期期权"变为"近期现实"。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ John Jumper 加入 Anthropic — 科学 I 人才迁移加速</div>
+      <div class="detail">
+        AlphaFold 联合负责人、诺贝尔化学奖得主 John Jumper 从 Google DeepMind 离职加入 Anthropic。六周内 Anthropic 从竞争对中挖来两位顶级研究者（Karpathy + Jumper）。Anthropic 同时公开指控阿里巴巴非法获取 Claude 模型功能。<br><br>
+        <strong>影响方向：</strong> Anthropic 以人才+合规+科学三重能力构建长期壁垒。OpenAI 在人才竞争上承压。<br>
+        <strong>是否改变机会判断：</strong> 是 — AI 实验室竞争的核心从"模型能力"转向"人才网络 + 组织能力"。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 微软双向转售 GPT 与 DeepSeek — "AI 中间商"模式验证</div>
+      <div class="detail">
+        微软同时转售 OpenAI GPT 和 DeepSeek 模型，成为全球最大 AI 中间商。Cloudflare 推出 AI Agent 临时账户。OpenRouter 推出 MCP 服务器和统一图像API——"AI 平台层"商业模式在本周完成市场验证。<br><br>
+        <strong>影响方向：</strong> AI 产业链出现"模型→平台→应用"三层清晰结构，平台层是当前最大商业机会。<br>
+        <strong>是否改变机会判断：</strong> 是 — 平台层投资逻辑进一步强化。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="event-title">⚡ 五眼联盟 AI 网络威胁警告 + 五源安全信号收敛</div>
+      <div class="detail">
+        五眼联盟联合发布警告：AI 驱动的网络威胁将在数月内影响普通用户。同周：Meta 员工警告 AI 审核部署过快、Anthropic 指控阿里盗用 Claude 模型、NSA 因与 Anthropic 纠纷失去 Mythos 访问权限、GitHub 呼吁修改 AI 透明度法案——五位一体指向"AI 安全是当前最大且最被低估的市场缺口"。<br><br>
+        <strong>是否改变机会判断：</strong> 是 — AI 安全 SaaS 是当前信号收敛度最高的投资方向。<br>
+        <span class="source-group" style="margin-top:4px;">
+          <span class="source-badge active">AIHOT</span>
+          <span class="source-badge inactive">PH</span>
+          <span class="source-badge inactive">Watcha</span>
+          <span class="source-badge inactive">FB</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="noise-box">
+      <h4>📢 本周噪音识别</h4>
+      <p>
+        「小米 YU7 GT 纽北自动驾驶纪录」— 有热度但不改变 AI 应用层投资判断，已有标准制定权争夺但属车圈事件。「JAWBONE Act」— 政治法案短期不影响 AI 市场。「Google DeepMind 7500 万投资 A24」— 娱乐 AI 尚在初级阶段。「阿里开源 Zvec」— 开源向量数据库赛道已拥挤。「Flock 车牌系统滥用丑闻」— 警政伦理争议，非 AI 产品信号。
+      </p>
+    </div>
+  </section>
+
+  <section id="watchlist">
+    <div class="section-header">
+      <span class="num">05</span>
+      <h2>下周观察清单</h2>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">01</span>
+      <h3>GPT-5.6 发布受限的连锁反应</h3>
+      <div class="trigger"><strong>触发条件：</strong> 美国政府要求暂缓 GPT-5.6 发布后，OpenAI 如何回应？其他实验室是否面临类似限制？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> Frontier 模型的前置审批机制将重塑 AI 竞争节奏</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">02</span>
+      <h3>Jalapeño 推理芯片实际性能数据</h3>
+      <div class="trigger"><strong>触发条件：</strong> OpenAI × Broadcom Jalapeño 在推理效率上能否超越英伟达 B200？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 超预期则模型公司自研芯片趋势加速，英伟达投资逻辑被颠覆</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">03</span>
+      <h3>Oracle 裁员后 SaaS 巨头跟进节奏</h3>
+      <div class="trigger"><strong>触发条件：</strong> Oracle 21000 人裁员是单一事件还是行业信号？SAP/Salesforce/Adobe 是否跟进？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 企业软件 AI 替代进入加速拐点，HR Tech / 再培训市场政策+需求双驱动</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">04</span>
+      <h3>微信 Agent "小微"灰度数据</h3>
+      <div class="trigger"><strong>触发条件：</strong> 12 亿用户平台 Agent 内测，能否跑通"读聊天记录→执行任务"闭环？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> 超级 App × AI Agent 模式可行，影响国内大厂 AI 策略</div>
+    </div>
+
+    <div class="watch-item">
+      <span class="number">05</span>
+      <h3>Anthropic Karpathy + Jumper 的首个公开方向</h3>
+      <div class="trigger"><strong>触发条件：</strong> 两位顶级研究者加入后，最先释放的成果方向：安全/对齐 vs. 科学 AI 应用？</div>
+      <div class="implication"><strong>如果发生意味着：</strong> Anthropic 从安全对齐扩展至科学 AI，DeepMind 人才优势被蚕食</div>
+    </div>
+  </section>
+</main>
+
+<aside>
+  <details>
+    <summary>📊 附录：数据明细表</summary>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th><th>本周采集</th><th>关键信号</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AIHOT 产品</td>
+            <td>34 条</td>
+            <td>Codex 移动端、Runway Agent 2.0、Gemini 3.5 Flash computer use、Notion × Cursor、Figma Config、微信小微、Grok /goal</td>
+          </tr>
+          <tr>
+            <td>AIHOT 模型</td>
+            <td>13 条</td>
+            <td>GPT-5.5 Instant、Bidi 1 双向语音、Ornith-1.0、Qwen-AgentWorld、Seed2.1、Krea 2</td>
+          </tr>
+          <tr>
+            <td>AIHOT 行业</td>
+            <td>15 条</td>
+            <td>OpenAI × Broadcom Jalapeño、GPT-5.6 暂缓、Oracle 裁员 21000、Jumper→Anthropic、五眼警告</td>
+          </tr>
+          <tr>
+            <td>AI 全量产品</td>
+            <td>34 条</td>
+            <td>火山引擎 AgentKit、豆包专业版、NVIDIA SpatialClaw、Cloudflare Agent 账户、Sakana Fugu</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="color:var(--accent);">—— 信号收敛摘要 ——</td>
+          </tr>
+          <tr>
+            <td>五源收敛</td>
+            <td>✅ AI 安全/合规赛道爆发</td>
+            <td>五眼联盟 + Meta + Anthropic + GitHub + 美国政府</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ AI 平台/中间件模式验证</td>
+            <td>微软(GPT+DeepSeek) + Cloudflare(Agent) + OpenRouter(MCP)</td>
+          </tr>
+          <tr>
+            <td>三源收敛</td>
+            <td>✅ AI 语音赛道密集发布</td>
+            <td>OpenAI Bidi 1 + 豆包音频 1.0 + Northeast Confucius4-TTS</td>
+          </tr>
+          <tr>
+            <td>二源收敛</td>
+            <td>✅ AI 芯片自研</td>
+            <td>OpenAI×Broadcom Jalapeño + 大厂自研趋势</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</aside>
+
+<footer>
+  <p>AI 市场洞察周刊 · 生成于 2026-06-26 09:31 CST · 数据来源：<a href="https://aihot.virxact.com" target="_blank">AIHOT</a>（62 条信号）· 本周不含 PH/Watcha/FB 数据</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+function toggleHistory() {
+  document.getElementById('historyPanel').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('historyPanel');
+  const trigger = document.querySelector('.week-number');
+  if (panel.classList.contains('open') &&
+      !panel.contains(e.target) &&
+      !trigger.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
