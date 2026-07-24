@@ -1,2 +1,9 @@
 # we want HTML files tracked for GH Pages
 # *.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
